@@ -1,0 +1,76 @@
+.body{
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230607/pngtree-hd-wallpaper-forest-scenery-mountains-mountain-wallpaper-image_2952455.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 570px;
+}
+
+.heading{
+  margin-top: 200px;
+  color: white;
+  font-weight: 900;
+}
+
+.headerSearch {
+    height: 80px;
+    background-color: white;
+    border: 3px solid #febb02;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 30px;
+    border-radius: 15px;
+    position: absolute;
+    margin-top: 250px;
+    width: 100%;
+    max-width: 1054px;
+    font-size: x-large;
+  }
+  
+  .headerIcon {
+    color: rgb(99, 99, 99);
+  }
+  
+  .headerSearchItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .headerSearchInput {
+    border: none;
+    outline: none;
+    color: rgb(99, 99, 99);
+  }
+  
+  .headerSearchText {
+    color: rgb(99, 99, 99);
+    cursor: pointer;
+  }
+  
+  /* .date {
+    position: absolute;
+    top: 50px;
+    z-index: 2;
+  } */
+
+  .search{
+    margin-top: 100px;
+    text-align: center;
+  }
+
+  #btnn{
+    font-size: 15px;
+    background-color: rgb(0, 91, 151);
+    color: white;
+    padding: 14px 50px;
+    border-radius: 25px;
+    font-weight: 900;
+    font-size: large;
+    border: white 1px solid;
+  }
+
+  .row1{
+    max-width: 1054px;
+  }
