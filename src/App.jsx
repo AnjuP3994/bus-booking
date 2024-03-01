@@ -4,6 +4,7 @@ import Home from './Pages/HomePage/Home'
 import Login from './Pages/Login/Login'
 import Dashboard from './Admin/Dashboard/Dashboard'
 import AdminLogin from './Admin/Login/AdminLogin'
+import List from './Pages/List/List'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/admin/login' element={<AdminLogin/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Login register/>} />
+        <Route path='/buslist' element={<List/>} />
       </Routes>
     </div>
   );

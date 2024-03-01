@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import './search.css'
 import { Container, Row, Col } from 'react-bootstrap'
 import safetyplus from '../../assets/safetyplus.svg'
+import { Link } from 'react-router-dom'
+
 
 function Search() {
 
@@ -47,23 +49,9 @@ function Search() {
         </Row>
 
         <div className='search'>
-            <button id='btnn' className="btn btn-outline-light">Search</button>
+          <Link to={'/buslist'}><button id='btnn' className="btn btn-outline-light">Search</button></Link>
         </div>
-        
-        {/* <Container className='safty px-5'>
-        <Row className='row1'>
-            <Col className='text-center d-flex justify-content-center align-items-center'>
-                <img src="https://64c8934c58159a3cd96ff9cf--rococo-biscuit-257cba.netlify.app/static/media/safetyplus.4fa7f6d7d56075ecbdd06bbb424f0031.svg" alt="" />
-            </Col>
-            <Col className='text-center'>
-                <h3>Introducing Safety+ Program</h3>
-                <h5>A unique certification program that ensures safety in all buses</h5>
-            </Col>
-            <Col className='text-center d-flex justify-content-center align-items-center'>
-                <MDBBtn color='danger'>Know more</MDBBtn>
-            </Col>
-        </Row>
-        </Container> */}
+
         <div className='infodiv'>
           <div>
             <img src={safetyplus} alt="shield" />
