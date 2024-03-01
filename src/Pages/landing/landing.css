@@ -1,0 +1,32 @@
+.abt {
+    background-image: url('../assets/10129.jpg'); /* Path to your image */
+    background-size: cover; /* Ensure the image covers the entire element */
+    background-position: center; /* Center the image */
+    
+    height: 400px;
+    width: 50%;
+    margin: 0 auto;
+    
+  }
+  .abt_a{
+    /* background-image: url('../assets/SL-113022-54210-35.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; */
+    border-radius: 35px;
+    
+    
+    height: 700px;
+  }
+  
+  .banner{
+    background-image: url('../assets/anaskuu\ 8.jpg'); /* Path to your image */
+    background-size: cover; /* Ensure the image covers the entire element */
+    background-position: center; /* Center the image */
+    background-attachment: fixed;
+    
+    height: 280px;
+    width: 100%;
+   
+    
+  }
