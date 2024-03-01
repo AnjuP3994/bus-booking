@@ -1,0 +1,38 @@
+.infogrid {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: auto;
+    margin-top: 50px;
+  }
+
+.coupon {
+    flex-basis: calc(33.333% - 20px);
+    margin: 10px 10px;
+    box-shadow: 0 1px 10px #c3c3c3;
+    background-color: white;
+    text-align: center;
+    padding: 8px 0;
+    transition: 0.4s all ease-in-out;
+  }
+  .coupon > span {
+    display: block;
+  }
+  .coupon > span:first-child,
+  .coupon > span:last-child {
+    margin: 10px 0;
+    color: #737373;
+  }
+  .offerImage {
+    height: 160px;
+  }
+  .offerImage > img {
+    height: 160px;
+    width: 100%;
+  }
+  .coupon:hover {
+    transform: scale(1.07);
+  }
+  
+
