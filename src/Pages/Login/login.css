@@ -2,3 +2,9 @@
     font-size: medium;
 }
 
+.dob{
+    border: solid rgb(186, 186, 186) 1px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    color: gray;
+}
