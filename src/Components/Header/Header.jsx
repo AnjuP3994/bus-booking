@@ -37,7 +37,7 @@ function Header() {
     <Navbar className="nav py-2" expand="lg" fixed="top">
           <Container>
 
-          <Navbar.Brand href="/" className='fs-3'>
+          <Navbar.Brand href="/home" className='fs-3'>
             <img
               alt=""
               src="https://cdn-icons-png.flaticon.com/512/1036/1036175.png"

@@ -1,4 +1,4 @@
-.body{
+.bodyimg{
     background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230607/pngtree-hd-wallpaper-forest-scenery-mountains-mountain-wallpaper-image_2952455.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,7 +62,7 @@
 
   #btnn{
     font-size: 15px;
-    background-color: rgb(0, 91, 151);
+    background-color: rgb(0, 149, 169);
     color: white;
     padding: 14px 50px;
     border-radius: 15px;

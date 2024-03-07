@@ -1,0 +1,56 @@
+.body{
+    background-image: url("https://static.vecteezy.com/system/resources/previews/002/293/536/non_2x/traffic-light-on-city-streets-background-city-signal-street-sign-illustration-free-vector.jpg");
+    height: 100%; 
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.card1{
+    backdrop-filter: blur(8px); 
+    background-color: rgba(255, 255, 255, 0.529); 
+    border-radius: 15px;
+}
+
+.bgclr{
+    background-color: rgba(0, 149, 169, 0.551);
+}
+
+.btnlogin{
+    border: white 2px solid;
+    border-radius: 50px;
+    padding: 10px 35px;
+    font-size: large;
+    color: rgb(61, 61, 61);
+    font-weight: 700;
+    background-color: transparent;
+    box-shadow: 0 3px #767676;
+}
+.btnlogin:active {
+    box-shadow: 0 2px #666;
+    transform: translateY(3px);
+}
+
+.btnregis{
+    border: none;
+    background-color: rgba(0, 149, 169, 0.551);
+    border-radius: 8px;
+    padding: 7px 25px;
+    font-size: 16px;
+    color: rgb(61, 61, 61);
+    font-weight: 700;
+    box-shadow: 0 3px #999;
+}
+.btnregis:active {
+    box-shadow: 0 1px #666;
+    transform: translateY(3px);
+}

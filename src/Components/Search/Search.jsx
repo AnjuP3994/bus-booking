@@ -4,19 +4,21 @@ import { Container, Row, Col } from 'react-bootstrap'
 import safetyplus from '../../assets/safetyplus.svg'
 import { Link } from 'react-router-dom'
 
-
 function Search() {
 
+    const [source, setSource] = useState("");
     const [destination, setDestination] = useState("");
-    const [date, setdate] = useState("");
-    const [dateinfo, setdateinfo] = useState({});
+    const [date, setDate] = useState("");
+    const [dateinfo, setDateinfo] = useState({});
+
+    console.log(source, destination, date);
 
     useEffect(() => {
         let mindate = new Date().toISOString().split("T")[0];
         let maxdate = new Date().toISOString().split("T")[0];
         // console.log(mindate, maxdate);
-        setdate(mindate);
-        setdateinfo({
+        setDate(mindate);
+        setDateinfo({
           ...dateinfo,
           mindate: mindate,
           maxdate: maxdate,
@@ -25,7 +27,7 @@ function Search() {
 
   return (
     <>
-    <div className="body">
+    <div className="bodyimg">
     <Container>
         <Row>
             <Col className='d-flex justify-content-center'>
@@ -33,7 +35,7 @@ function Search() {
             <div className="headerSearch">
                 <span className="headerSearchItem">
                     <span>From:</span>
-                    <input type="text" className="headerSearchInput" onChange={(e)=>setDestination(e.target.value)} placeholder="Source" />
+                    <input type="text" className="headerSearchInput" onChange={(e)=>setSource(e.target.value)} placeholder="Source" />
                 </span>
 
                 <span className="headerSearchItem">
@@ -42,7 +44,7 @@ function Search() {
                 </span>
 
                 <span className="headerSearchItem">
-                    <input className='headerSearchInput' type="date" value={date} min={dateinfo.mindate} onChange={(e) => setdate(e.target.value)} />
+                    <input className='headerSearchInput' type="date" value={date} min={dateinfo.mindate} onChange={(e) => setDate(e.target.value)} />
                 </span>
             </div>
             </Col>
