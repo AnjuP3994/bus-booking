@@ -10,6 +10,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import bus from '../../Pages/assets/group-buses-driving-along-road-sunset.jpg'
 import user from '../../Pages/assets/take-look-text-message-i-have-received.jpg'
 import payment from '../../Pages/assets/contactless-cashless-payment-through-mobile-banking.jpg'
+import feedback from '../../Pages/assets/9834.jpg'
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 
@@ -76,7 +77,7 @@ function Dashboard() {
 
 
           </Col> */}
-          <Col lg={10} sm={12} className=' ' style={{ height: '100vh' }}>
+          <Col lg={10} sm={12} className=' '>
 
 
             <Row>
@@ -199,9 +200,71 @@ function Dashboard() {
             </Row>
           </Col>
         </Row>
+        <div className='d-flex justify-content-center mb-5'>
+          <img src={feedback} height={'250px'} alt="" />
+        </div>
+        <div className="container ">
+        <Row>
+          <Col lg={3} sm={12}>
+          <blockquote className="blockquote blockquote-custom bg-white p-3 shadow rounded">
+              <div className="blockquote-custom-icon bg-info shadow-sm"><i className="fa fa-quote-left text-white"></i></div>
+              <p className="mb-0 mt-2 font-italic">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.  <a href="#" className="text-info">@consequat</a>."</p>
+              <footer className="blockquote-footer pt-4 mt-4 border-top">Someone famous in
+                <cite title="Source Title">Source Title</cite>
+              </footer>
+            </blockquote>
+
+
+          </Col>
+          <Col lg={3} sm={12}>
+          <blockquote className="blockquote blockquote-custom bg-white p-3 shadow rounded">
+              <div className="blockquote-custom-icon bg-info shadow-sm"><i className="fa fa-quote-left text-white"></i></div>
+              <p className="mb-0 mt-2 font-italic">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.  <a href="#" className="text-info">@consequat</a>."</p>
+              <footer className="blockquote-footer pt-4 mt-4 border-top">Someone famous in
+                <cite title="Source Title">Source Title</cite>
+              </footer>
+            </blockquote>
+
+
+          </Col>
+          <Col lg={3} sm={12}>
+          <blockquote className="blockquote blockquote-custom bg-white p-3 shadow rounded">
+              <div className="blockquote-custom-icon bg-info shadow-sm"><i className="fa fa-quote-left text-white"></i></div>
+              <p className="mb-0 mt-2 font-italic">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.  <a href="#" className="text-info">@consequat</a>."</p>
+              <footer className="blockquote-footer pt-4 mt-4 border-top">Someone famous in
+                <cite title="Source Title">Source Title</cite>
+              </footer>
+            </blockquote>
+
+
+          </Col>
+          <Col lg={3} sm={12}>
+          <blockquote className="blockquote blockquote-custom bg-white p-3 shadow rounded">
+              <div className="blockquote-custom-icon bg-info shadow-sm"><i className="fa fa-quote-left text-white"></i></div>
+              <p className="mb-0 mt-2 font-italic">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.  <a href="#" className="text-info">@consequat</a>."</p>
+              <footer className="blockquote-footer pt-4 mt-4 border-top">Someone famous in
+                <cite title="Source Title">Source Title</cite>
+              </footer>
+            </blockquote>
+
+
+          </Col>
+         <div className='d-flex justify-content-center mb-3'><a href="">View more</a></div>
+        </Row>
+       
+
+        
+
+            
+          
+         
+      </div>
 
 
       </div>
+      
+     
+   
       <Footer/>
     </>
   )
