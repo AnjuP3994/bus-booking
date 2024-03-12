@@ -10,6 +10,7 @@ import BOHome from './BusOperator/HomePage/BOHome'
 import List from './Pages/List/List';
 import ManageUser from './Admin/ManageUser/ManageUser';
 import ManageBus from './Admin/ManageBus/ManageBus';
+import BOManageBus from './BusOperator/ManageBus/BOManageBus';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
         <Route path='/bologin' element={<BOLogin/>} />
         <Route path='/boregister' element={<BOLogin registerpage/>} />
         <Route path='/bohomepage' element={<BOHome/>} />
+        <Route path='/bomanagebus' element={<BOManageBus/>} />
 
         <Route path='/manageuser' element={<ManageUser/>} />
         <Route path='/managebus' element={<ManageBus/>} />
