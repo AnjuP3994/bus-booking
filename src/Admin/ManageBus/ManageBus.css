@@ -1,0 +1,49 @@
+.listContainer {
+    margin-top: 120px;
+  }
+  
+  .listWrapper {
+    width: 100%;
+    gap: 20px;
+  }
+  
+  .listSearch {
+    background-color: rgba(0, 149, 169, 0.786);
+    border-radius: 10px;
+    position: sticky;
+    top: 120px;
+    height: max-content;
+  }
+  
+  .lsTitle{
+    color: #414141;
+    font-weight: 800;
+  }
+
+  .filter{
+    border-bottom: #4141418c solid 1px;
+    margin-bottom: 20px;
+  }
+
+  .clearall{
+    cursor: pointer;
+  }
+
+  .lsOptionBtn{
+    border: none;
+    background-color: rgba(9, 112, 171, 0.881);
+    border-radius: 8px;
+    padding: 7px 25px;
+    font-size: 16px;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 2px #d3d3d389;
+  }
+  .lsOptionBtn:active{
+    box-shadow: 0 1px #d3d3d389;
+    transform: translateY(1px);
+  }
+  
+  
+  
+  

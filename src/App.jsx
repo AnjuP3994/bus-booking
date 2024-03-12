@@ -8,6 +8,8 @@ import Landing from './Pages/landing/Landing';
 import BOLogin from './BusOperator/Login/BOLogin';
 import BOHome from './BusOperator/HomePage/BOHome'
 import List from './Pages/List/List';
+import ManageUser from './Admin/ManageUser/ManageUser';
+import ManageBus from './Admin/ManageBus/ManageBus';
 
 
 function App() {
@@ -27,6 +29,9 @@ function App() {
         <Route path='/bologin' element={<BOLogin/>} />
         <Route path='/boregister' element={<BOLogin registerpage/>} />
         <Route path='/bohomepage' element={<BOHome/>} />
+
+        <Route path='/manageuser' element={<ManageUser/>} />
+        <Route path='/managebus' element={<ManageBus/>} />
 
       </Routes>
     </div>
