@@ -29,9 +29,24 @@ function Search() {
     <>
     <div className="bodyimg">
     <Container>
-        <Row>
+      
+
+        <div className='infodiv'>
+          <div>
+            <img src={safetyplus} alt="shield" />
+          </div>
+          <div>
+            <h4>Introducing Safety+ Program</h4>
+            <p>A unique certification program that ensures safety in all buses</p>
+          </div>
+          <div>
+            <button>know More</button>
+          </div>
+        </div>
+
+          <Row>
             <Col className='d-flex justify-content-center'>
-            <h2 className='heading'>India's No. 1 Online Bus Ticket Booking Site</h2>
+            <h2 className='heading text-light'>India's No. 1 Online Bus Ticket Booking Site</h2>
             <div className="headerSearch">
                 <span className="headerSearchItem">
                     <span>From:</span>
@@ -52,19 +67,6 @@ function Search() {
 
         <div className='search'>
           <Link to={'/buslist'}><button id='btnn' className="btn btn-outline-light">Search</button></Link>
-        </div>
-
-        <div className='infodiv'>
-          <div>
-            <img src={safetyplus} alt="shield" />
-          </div>
-          <div>
-            <h4>Introducing Safety+ Program</h4>
-            <p>A unique certification program that ensures safety in all buses</p>
-          </div>
-          <div>
-            <button>know More</button>
-          </div>
         </div>
     </Container>
     </div>

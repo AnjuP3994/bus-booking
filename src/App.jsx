@@ -8,6 +8,7 @@ import Landing from './Pages/landing/Landing';
 import BOLogin from './BusOperator/Login/BOLogin';
 import BOHome from './BusOperator/HomePage/BOHome'
 import List from './Pages/List/List';
+import Profile from './Admin/Profile/Profile';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 
         <Route path='/admin' element={<Dashboard/>} />
         <Route path='/admin/login' element={<AdminLogin/>} />
+        <Route path='/admin/profile' element={<Profile/>} />
 
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Login register/>} />
