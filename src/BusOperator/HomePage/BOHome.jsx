@@ -2,6 +2,7 @@ import React from 'react'
 import './BOHome.css'
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
+import { Link } from 'react-router-dom'
 
 function BOHome() {
   return (
@@ -39,7 +40,7 @@ function BOHome() {
                 </a>
               </div>
               <div className="col-lg-4 mb-5 mb-lg-0">
-                <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i className="bi bi-building"></i></div>
+                <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-solid fa-screwdriver-wrench" style={{color:"white"}}></i></div>
                 <h2 className="h4 fw-bolder">Bus Management</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
                 <a className="text-decoration-none" href="#!">
@@ -48,7 +49,7 @@ function BOHome() {
                 </a>
               </div>
               <div className="col-lg-4">
-                <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i className="bi bi-toggles2"></i></div>
+                <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-regular fa-user" style={{color:'white'}}></i></div>
                 <h2 className="h4 fw-bolder">Profile</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
                 <a className="text-decoration-none" href="#!">
@@ -57,7 +58,7 @@ function BOHome() {
                 </a>
               </div>
               <div className='d-flex mt-4'>
-                <div className=" col-lg-4">
+                {/* <div className=" col-lg-4">
                   <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i className="bi bi-toggles2"></i></div>
                   <h2 className="h4 fw-bolder">Profile</h2>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
@@ -65,11 +66,11 @@ function BOHome() {
                     View
                     <i className="bi bi-arrow-right"></i>
                   </a>
-                </div>
+                </div> */}
   
   
                 <div className=" col-lg-4 ">
-                  <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i className="bi bi-toggles2"></i></div>
+                  <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-solid fa-indian-rupee-sign" style={{color:'white'}}></i></div>
                   <h2 className="h4 fw-bolder">Payment status</h2>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
                   <a className="text-decoration-none" href="#!">
@@ -77,6 +78,19 @@ function BOHome() {
                     <i className="bi bi-arrow-right"></i>
                   </a>
                 </div>
+                <div className=" col-lg-4 ">
+                  <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-solid fa-bus-simple"  style={{color:'white'}} ></i></div>
+                  <h2 className="h4 fw-bolder">Add Bus</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
+                  <Link to={'/addbus'}>
+                    <a className="text-decoration-none" href="#!">
+                      View
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                  </Link>
+                </div>
+
+                
               </div>
   
             </div>

@@ -11,6 +11,8 @@ import List from './Pages/List/List';
 import Profile from './Admin/Profile/Profile';
 import ManageUser from './Admin/ManageUser/ManageUser';
 import ManageBus from './Admin/ManageBus/ManageBus';
+import Busadd from './BusOperator/bus add/Busadd';
+import Busprofile from './BusOperator/profile/Busprofile';
 
 
 function App() {
@@ -23,6 +25,10 @@ function App() {
         <Route path='/admin' element={<Dashboard/>} />
         <Route path='/admin/login' element={<AdminLogin/>} />
         <Route path='/admin/profile' element={<Profile/>} />
+        <Route path='/manageuser' element={<ManageUser/>} />
+        <Route path='/managebus' element={<ManageBus/>} />
+       
+
 
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Login register/>} />
@@ -31,9 +37,10 @@ function App() {
         <Route path='/bologin' element={<BOLogin/>} />
         <Route path='/boregister' element={<BOLogin registerpage/>} />
         <Route path='/bohomepage' element={<BOHome/>} />
+        <Route path='/addbus' element={<Busadd/>} />
+        <Route path='/bus/profile' element={<Busprofile/>} />
 
-        <Route path='/manageuser' element={<ManageUser/>} />
-        <Route path='/managebus' element={<ManageBus/>} />
+        
 
       </Routes>
     </div>
