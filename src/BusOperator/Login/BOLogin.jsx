@@ -22,6 +22,7 @@ function BOLogin({registerpage}) {
         username: "",
         password: "",
         description: "",
+        bus_img:"",
         address: "",
         website: ""
     })
@@ -29,11 +30,29 @@ function BOLogin({registerpage}) {
 
     const handleRegister = async(e)=>{
         e.preventDefault();
-        if (!BODetails.name || !BODetails.phone || !BODetails.website || !BODetails.address || !BODetails.description || !BODetails.username || !BODetails.password) {
+        const{name,phone,username,password,description,bus_img,address,website}=BODetails
+
+        if (!BODetails.name || !BODetails.phone || !BODetails.website || !BODetails.address || !BODetails.description || !BODetails.username || !BODetails.password || !BODetails.bus_img ) {
             toast.error("Please fill the form with valid data.")
-        } else {
+
+        }
+         else {
             //to store the user data
-            const result = await boregisterAPI(BODetails)
+            const reqHeader = {
+                "Content-Type": "multipart/form-data",
+            };
+            const reqBody=new FormData()
+            reqBody.append("name", name);
+            reqBody.append("phone", phone);
+            reqBody.append("username", username);
+            reqBody.append("password", password);
+            reqBody.append("description", description);
+            reqBody.append("bus_img", bus_img);
+            reqBody.append("address", address);
+            reqBody.append("website", website);
+
+
+            const result = await boregisterAPI(reqBody,reqHeader)
             console.log(result);
             if (result.status==200) {
                 Swal.fire({
@@ -47,6 +66,7 @@ function BOLogin({registerpage}) {
                     website:"",
                     address:"",
                     description:"",
+                    bus_img:"",
                     username:"",
                     password:""
                 })
@@ -60,6 +80,8 @@ function BOLogin({registerpage}) {
         if (!BODetails.username || !BODetails.password) {
             toast.error("Please fill the form with valid data.")
         } else {
+
+           
             const result = await bologinAPI(BODetails)
             console.log(result);
             if (result.status==200) {
@@ -122,6 +144,7 @@ function BOLogin({registerpage}) {
                                     <MDBTextArea value={BODetails.address} onChange={e => setBODetails({ ...BODetails, address: e.target.value })} label='Address' rows={3} />
                                     <MDBTextArea value={BODetails.description} onChange={e => setBODetails({ ...BODetails, description: e.target.value })} label='Description' rows={3} />
                                 </div>
+                                <MDBInput onChange={e => setBODetails({ ...BODetails, bus_img: e.target.files[0]})}  type='file' className='mb-3' />
                             </div>
                         }
                         <div className='text-center'>

@@ -1,8 +1,9 @@
 .bodyimg{
-    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230607/pngtree-hd-wallpaper-forest-scenery-mountains-mountain-wallpaper-image_2952455.jpg');
+    background-image: url('../../Pages/assets/wepik-export-20240312062209oM79.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position:bottom;
+    background-attachment: fixed;
     height: 570px;
 }
 

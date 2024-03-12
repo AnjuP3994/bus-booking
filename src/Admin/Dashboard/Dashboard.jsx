@@ -13,6 +13,7 @@ import payment from '../../Pages/assets/contactless-cashless-payment-through-mob
 import feedback from '../../Pages/assets/9834.jpg'
 import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
+import { Link } from 'react-router-dom';
 
 
 
@@ -187,7 +188,7 @@ function Dashboard() {
                           <hr />
                           <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, cum, vitae non inventore ullam
                           </p>
-                          <div className='d-flex justify-content-center'><Button variant="primary">View Profile</Button></div>
+                          <div className='d-flex justify-content-center'><Link to={'/admin/profile'}><Button variant="primary">View Profile</Button></Link></div>
                         </div>
                       </Collapse>
                     </Card.Body>

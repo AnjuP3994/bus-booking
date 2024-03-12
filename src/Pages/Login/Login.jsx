@@ -49,7 +49,7 @@ function Login({ register }) {
     address: "",
     profile_picture: ""
   })
-  console.log(userDetails);
+  // console.log(userDetails);
 
   const navigate = useNavigate()
 
@@ -74,10 +74,11 @@ function Login({ register }) {
         "Content-Type": "multipart/form-data",
       };
 
-      try {
+     
         const result = await registerAPI(reqBody, reqHeader);
         console.log(result)
         if (result.status === 200) {
+          console.log(result)
           Swal.fire({
             title: "Registration Successfull",
             text: `${result.data.name} has been Registered successfully`,
@@ -96,9 +97,7 @@ function Login({ register }) {
         } else {
           console.log(result.response.data);
         }
-      } catch (error) {
-        console.log(error.message);
-      }
+     
     }
   };
 
