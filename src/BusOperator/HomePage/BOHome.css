@@ -10838,3 +10838,12 @@ textarea.form-control-lg {
     background-position: bottom;
     background-size: cover;
 } */
+
+.feedback{
+  background-color: red;
+  background-image: url('../../Pages/assets/Jan-Survey_2.jpg');
+  background-size: contain;
+  background-position: center;
+  /* background-attachment: fixed; */
+}
+
