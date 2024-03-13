@@ -16,13 +16,13 @@ function BOManageBus() {
     return (
         <>
             <div className='d-flex'>
-                <div className=' bg-info' style={{ height: '100vh', width: '11%', position: 'fixed' }}>
-                    <h3 className=' ms-3 mt-3 text-center text-dark '> Manage BUS</h3><br />
-                    <div className=' ms-5 '>
-                        <Link>A/C</Link> <br />
-                        <Link>Non A/C</Link> <br />
-                        <Link>Seater</Link><br />
-                        <Link>Sleeper</Link> <br />
+                <div style={{ height: '100vh', width: '11%', position: 'fixed',backgroundColor:'#10a0b0' }}>
+                    <h3 className=' ms-1 mt-3 text-center text-dark fs-2'> Manage BUS</h3><br />
+                    <div className=' ms-5 fs-5 '>
+                        <Button className='mt-2 pe-4 ' style={{color:'#ffffff'}}> <i className="fas fa-snowflake ms-3 me-2  "></i> AC</Button> <br />
+                        <Button className='mt-3' style={{color:'#ffffff'}}> <i class="fa-solid fa-ban"></i> Non A/C</Button> <br />
+                        <Button className='mt-3'  style={{color:'#ffffff'}}><i class="fa-solid fa-couch"></i>  Seater</Button><br />
+                        <Button  className='mt-3' style={{color:'#ffffff'}}><i class="fa-solid fa-bed"></i> Sleeper</Button> <br />
                     </div>
                 </div>
                 <div className='mt-5' style={{ width: '100%', marginLeft: '15%' }}>
