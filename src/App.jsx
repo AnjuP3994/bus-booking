@@ -38,6 +38,9 @@ function App() {
         <Route path='/bologin' element={<BOLogin/>} />
         <Route path='/boregister' element={<BOLogin registerpage/>} />
         <Route path='/bohomepage' element={<BOHome/>} />
+        <Route path='/bomanagebus' element={<BOManageBus/>} />
+
+
 
         <Route path='/manageuser' element={<ManageUser/>} />
         <Route path='/managebus' element={<ManageBus/>} />
