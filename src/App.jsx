@@ -39,11 +39,13 @@ function App() {
         <Route path='/boregister' element={<BOLogin registerpage/>} />
         <Route path='/bohomepage' element={<BOHome/>} />
         <Route path='/bomanagebus' element={<BOManageBus/>} />
+        <Route path='/addbus' element={<Busadd/>} />
+        <Route path='/bus/profile' element={<Busprofile/>} />
 
 
 
-        <Route path='/manageuser' element={<ManageUser/>} />
-        <Route path='/managebus' element={<ManageBus/>} />
+        {/* <Route path='/manageuser' element={<ManageUser/>} />
+        <Route path='/managebus' element={<ManageBus/>} /> */}
 
       </Routes>
     </div>
