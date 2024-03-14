@@ -20,3 +20,8 @@ export const boregisterAPI = async(body,reqHeader)=>{
 export const bologinAPI = async(body)=>{
     return await commonAPI("post",`${BASE_URL}/BusOperator/token/`,body,"")
 }
+
+// 5.bus operator:add category
+export const addcategory = async(body,reqHeader)=>{
+    return await commonAPI("post",`${BASE_URL}/BusOperator/category/`,body,reqHeader)
+}

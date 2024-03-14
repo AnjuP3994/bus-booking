@@ -14,7 +14,6 @@ import ManageBus from './Admin/ManageBus/ManageBus';
 import Busadd from './BusOperator/bus add/Busadd';
 import Busprofile from './BusOperator/profile/Busprofile';
 import BOManageBus from './BusOperator/ManageBus/BOManageBus';
-import Booking from './BusOperator/BookingDetails/Booking';
 
 
 function App() {
@@ -42,8 +41,6 @@ function App() {
         <Route path='/bomanagebus' element={<BOManageBus/>} />
         <Route path='/addbus' element={<Busadd/>} />
         <Route path='/bus/profile' element={<Busprofile/>} />
-        <Route path='/booking' element={<Booking/>} />
-
 
 
 

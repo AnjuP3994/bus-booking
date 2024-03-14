@@ -1,10 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './BOHome.css'
 import Footer from '../../Components/Footer/Footer'
 import Header from '../../Components/Header/Header'
-import { Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
+import { Form } from 'react-bootstrap'
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { addcategory } from '../../Services/allAPIs'
+import Swal from 'sweetalert2';
+
 
 function BOHome() {
+  const [modalShow, setModalShow] = useState(false);
+  const[category,setCategory]=useState({
+    name:""
+  })
+  console.log(category)
+  const handleBookClick = (worker) => {
+    setModalShow(true);
+  };
+
+  const categoryadd=async()=>{
+    const{name}=category
+    if(!name){
+      alert('please select a category')
+    }else{
+      const token = sessionStorage.getItem('token')
+      console.log(token)
+        const reqHeader = {
+         
+          "Authorization": `Token ${token}`
+        }
+      
+      const result=await addcategory(category,reqHeader)
+      console.log(result)
+      if(result.status===200){
+        Swal.fire({
+          title: ``,
+          text: `${result.data.name} Categroy added successfully`,
+          icon: "success"
+        });
+      }
+      else{
+        console.log(result.response.data)
+      }
+    }
+  }
   return (
   <>
   
@@ -90,12 +131,68 @@ function BOHome() {
                   </Link>
                 </div>
 
+                <div className=" col-lg-4 ">
+                  <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-solid fa-bus-simple"  style={{color:'white'}} ></i></div>
+                  <h2 className="h4 fw-bolder">Add Category</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
+                  
+                    <a className="text-decoration-none" href="#!" onClick={ handleBookClick}>
+                      View
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                    <Modal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        {/* <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            BOOK NEEL
+          </Modal.Title>
+        </Modal.Header> */}
+        <Modal.Body>
+          <h4 className='text-center'>Add Categories of Your Bus </h4>
+         <Form>
+         <Form.Select id='district'  aria-label="Default select example" className='mt-2' onChange={(e) => setCategory({ ...category, name: e.target.value })}>
+              
+              <option value="AC Normal">AC Normal</option>
+              <option value="Non AC Normal">Non AC Normal</option>
+              <option value="AC Push back">AC Push back</option>
+              <option value="Non Push back">Non Push back</option>
+              <option value="AC Sleeper">AC Sleeper</option>
+              <option value="Non AC Sleeper">Non AC Sleeper</option>
+            </Form.Select>
+         </Form>
+
+        </Modal.Body>
+        <Modal.Footer>
+        <button className='btn btn-success' onClick={categoryadd} >ADD</button>
+
+          <Button onClick={() => setModalShow(false)}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+
+
+                </div>
+
                 
               </div>
   
             </div>
+
+
+           
           </div>
         </section>
+        <div className='d-flex justify-content-center '>
+          
+          <div className='d-flex justify-content-center align-items-center  b-5  mt-5 feedback b w-50 flex-column' style={{height:'300px'}}>
+         
+                <button className='btn btn-info'>feedbacks</button>
+              </div>
+        </div>
   
         {/* <section className="bg-light py-5 border-bottom">
           <div className="container px-5 my-5">
