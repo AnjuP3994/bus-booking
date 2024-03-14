@@ -1,0 +1,9 @@
+.fa-trash {
+    color: black; /* or any other default color */
+    transition: color 0.3s; /* smooth transition */
+  }
+
+  /* Change the color to red on hover */
+  .fa-trash:hover {
+    color: red;
+  }
