@@ -25,3 +25,15 @@ export const bologinAPI = async(body)=>{
 export const addcategory = async(body,reqHeader)=>{
     return await commonAPI("post",`${BASE_URL}/BusOperator/category/`,body,reqHeader)
 }
+
+// 6.bus operator:get category list
+
+export const getCatgory = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/BusOperator/category/`,"",reqHeader)
+}
+
+// 7.bus operator:add bus 
+
+export const addbus = async(categoryid,body,reqheader)=>{
+    return await commonAPI("post",`${BASE_URL}/BusOperator/category/${categoryid}/add_bus/`,body,reqheader)
+}
