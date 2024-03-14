@@ -1,0 +1,35 @@
+* {
+	box-sizing: border-box;
+  }
+  
+  .course {
+	background-color: #ebebeb;
+	border-radius: 10px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+	display: flex;
+	max-width: 100%;
+	margin: 20px;
+	overflow: hidden;
+	width: 700px;
+  }
+  
+  .course h6 {
+	opacity: 0.6;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+  }
+  
+  .course h2 {
+	letter-spacing: 1px;
+	margin: 10px 0;
+  }
+  
+  .course-info {
+	padding: 10px;
+
+	width: 100%;
+  }
+
+
+

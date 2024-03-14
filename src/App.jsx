@@ -14,6 +14,9 @@ import ManageBus from './Admin/ManageBus/ManageBus';
 import Busadd from './BusOperator/bus add/Busadd';
 import Busprofile from './BusOperator/profile/Busprofile';
 import BOManageBus from './BusOperator/ManageBus/BOManageBus';
+import Booking from './BusOperator/BookingDetails/Booking';
+import Feedback from './BusOperator/Feedback/Feedback';
+import BOBusList from './BusOperator/BoBusList/BOBusList';
 
 
 function App() {
@@ -35,12 +38,17 @@ function App() {
         <Route path='/register' element={<Login register/>} />
         <Route path='/buslist' element={<List/>} />
 
+
         <Route path='/bologin' element={<BOLogin/>} />
         <Route path='/boregister' element={<BOLogin registerpage/>} />
         <Route path='/bohomepage' element={<BOHome/>} />
         <Route path='/bomanagebus' element={<BOManageBus/>} />
         <Route path='/addbus' element={<Busadd/>} />
         <Route path='/bus/profile' element={<Busprofile/>} />
+        <Route path='/bookingdetails' element={<Booking/>} />
+        <Route path='/bofeedback' element={<Feedback/>} />
+        <Route path='/bobuslist' element={<BOBusList/>} />
+
 
 
 

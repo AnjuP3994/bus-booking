@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Table } from 'react-bootstrap'
 import './booking.css'
-import  bgImage from './assets/bgimage-booking.jpg'
+import  bgImage from './assets/bg4booking.jpg'
 
 function Booking() {
     return (
@@ -13,12 +13,13 @@ function Booking() {
                 backgroundPosition: 'center',
                 backgroundAttachment:'fixed',
                 overflow:'hidden',
-                opacity:'0.9'
+               
+                filter: 'blur(3px)'
                 
             }} >
-
+</div>
         
-        <div className='w-100 ' style={{height:'100vh'}}>
+        <div className='w-100 pt-5' style={{height:'100vh',marginTop:'-100vh',opacity:'.99'}}>
        
             <div className='ms-5' style={{width:'90%'}}>
             <div className='fs-1 mt-5 text-center'>My Bookings</div>
@@ -67,7 +68,7 @@ function Booking() {
             </div>
             </div>
             </div>
-            </div>
+            
         </>
     )
 }
