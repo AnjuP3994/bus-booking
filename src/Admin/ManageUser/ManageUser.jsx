@@ -31,7 +31,7 @@ function ManageUser() {
 
                     <div className='p-5 ms-5 me-5' >
 
-                        <Table bordered hover >
+                        <Table bordered hover style={{borderColor:'black'}} >
                             <thead>
                                 <tr style={{backgroundColor:'#0095a9'}} className='table-info fw-bold fs-3'>
                                     <th>#</th>
@@ -55,7 +55,7 @@ function ManageUser() {
                                     <td>@mdo</td>
                                     <td>01/01/2001</td>
                                     <td>asdf 620555</td>
-                                    <td><i className="fa-solid fa-trash "></i></td>
+                                    <td className=' text-center'><i className="fa-solid fa-trash "></i></td>
                                 </tr>
                                 <tr className='fs-3'>
                                     <td>2</td>
@@ -68,7 +68,7 @@ function ManageUser() {
                                     <td>@fat</td>
                                     <td>02/02/2002</td>
                                     <td>asdf 620555</td>
-                                    <td><i class="fa-solid fa-trash"></i></td>
+                                    <td  className=' text-center'><i class="fa-solid fa-trash"></i></td>
                                 </tr>
                                 <tr className='fs-3'>
                                     <td>3</td>
@@ -81,7 +81,7 @@ function ManageUser() {
                                     <td>@fat</td>
                                     <td>02/02/2002</td>
                                     <td>asdf 620555</td>
-                                    <td><i className="fa-solid fa-trash"></i></td>
+                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
 
                                 </tr>
 
@@ -96,7 +96,7 @@ function ManageUser() {
                                     <td>@fat</td>
                                     <td>02/02/2002</td>
                                     <td>asdf 620555</td>
-                                    <td><i className="fa-solid fa-trash"></i></td>
+                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
 
                                 </tr>
                                 <tr className='fs-3'>
@@ -110,7 +110,7 @@ function ManageUser() {
                                     <td>@fat</td>
                                     <td>02/02/2002</td>
                                     <td>asdf 620555</td>
-                                    <td><i className="fa-solid fa-trash" ></i></td>
+                                    <td className=' text-center'><i className="fa-solid fa-trash" ></i></td>
 
                                 </tr>
                                 <tr className='fs-3'>
@@ -124,7 +124,7 @@ function ManageUser() {
                                     <td>@fat</td>
                                     <td>02/02/2002</td>
                                     <td>asdf 620555</td>
-                                    <td><i className="fa-solid fa-trash"></i></td>
+                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
 
                                 </tr>
                                 <tr className='fs-3'>
@@ -138,7 +138,7 @@ function ManageUser() {
                                     <td>@fat</td>
                                     <td>02/02/2002</td>
                                     <td>asdf 620555</td>
-                                    <td><i className="fa-solid fa-trash"></i></td>
+                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
 
                                 </tr>
                                 <tr className='fs-3'>
@@ -152,7 +152,7 @@ function ManageUser() {
                                     <td>@fat</td>
                                     <td>02/02/2002</td>
                                     <td>asdf 620555</td>
-                                    <td><i className="fa-solid fa-trash"></i></td>
+                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
 
                                 </tr>
                                
