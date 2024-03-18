@@ -18,6 +18,7 @@ import Booking from './BusOperator/BookingDetails/Booking';
 import Feedback from './BusOperator/Feedback/Feedback';
 import BOBusList from './BusOperator/BoBusList/BOBusList';
 import AdminFeedback from './Admin/Feedback/AdminFeedback';
+import Bookinghistory from './Pages/Booking history/Bookinghistory';
 
 
 function App() {
@@ -40,6 +41,8 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Login register/>} />
         <Route path='/buslist' element={<List/>} />
+        <Route path='/bookinghistory' element={<Bookinghistory/>} />
+
         
 
 
