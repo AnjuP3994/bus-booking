@@ -6,6 +6,8 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
 
 function Feedback() {
+
+  
   return (
     <>
       <div style={{
@@ -20,7 +22,7 @@ function Feedback() {
         <div className='row' style={{ marginTop: '-100px' }}>
 
           <div className='col-lg-3 mt-4 mb-5' >
-            <div className='ms-5 p-2 pt-0' style={{ backgroundColor: 'whitesmoke', borderRadius: '20px', width: '360px',height:'110px',borderStyle:'solid',borderColor:''}}>
+            <div className='ms-5 p-2 pt-0' style={{ backgroundColor: 'whitesmoke', borderRadius: '20px', height:'auto',borderStyle:'solid',borderColor:''}}>
                <Box className="ms-5" style={{marginTop:'-30px'}}>
               <Fab className='bg-primary'  disabled aria-label="like">
                 <FormatQuoteIcon className='fs-1' style={{color:'white'}}/>

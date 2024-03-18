@@ -37,6 +37,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Login register/>} />
         <Route path='/buslist' element={<List/>} />
+        
 
 
         <Route path='/bologin' element={<BOLogin/>} />
