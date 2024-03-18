@@ -4,13 +4,10 @@ import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
-
-function Feedback() {
-
-  
+function AdminFeedback() {
   return (
     <>
-      <div style={{
+     <div style={{
         backgroundColor: '#fff4df',
         width: '100%',
         minHeight:'100vh',
@@ -22,7 +19,7 @@ function Feedback() {
         <div className='row' style={{ marginTop: '-100px' }}>
 
           <div className='col-lg-3 mt-4 mb-5' >
-            <div className='ms-5 p-2 pt-0' style={{ backgroundColor: 'whitesmoke', borderRadius: '20px', height:'auto',borderStyle:'solid',borderColor:''}}>
+            <div className='ms-5 p-2 pt-0' style={{ backgroundColor: 'whitesmoke', borderRadius: '20px', width: '360px',height:'110px',borderStyle:'solid',borderColor:''}}>
                <Box className="ms-5" style={{marginTop:'-30px'}}>
               <Fab className='bg-primary'  disabled aria-label="like">
                 <FormatQuoteIcon className='fs-1' style={{color:'white'}}/>
@@ -97,4 +94,4 @@ function Feedback() {
   )
 }
 
-export default Feedback
+export default AdminFeedback
