@@ -4,11 +4,10 @@ import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 
-
-function Feedback() {
+function AdminFeedback() {
   return (
     <>
-      <div style={{
+     <div style={{
         backgroundColor: '#fff4df',
         width: '100%',
         minHeight:'100vh',
@@ -95,4 +94,4 @@ function Feedback() {
   )
 }
 
-export default Feedback
+export default AdminFeedback

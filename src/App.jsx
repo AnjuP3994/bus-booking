@@ -17,6 +17,7 @@ import BOManageBus from './BusOperator/ManageBus/BOManageBus';
 import Booking from './BusOperator/BookingDetails/Booking';
 import Feedback from './BusOperator/Feedback/Feedback';
 import BOBusList from './BusOperator/BoBusList/BOBusList';
+import AdminFeedback from './Admin/Feedback/AdminFeedback';
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
         <Route path='/admin/profile' element={<Profile/>} />
         <Route path='/manageuser' element={<ManageUser/>} />
         <Route path='/managebus' element={<ManageBus/>} />
+        <Route path='/admin/feedback' element={<AdminFeedback/>} />
+
        
 
 
