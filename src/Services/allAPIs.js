@@ -37,3 +37,15 @@ export const getCatgory = async(reqHeader)=>{
 export const addbus = async(categoryid,body,reqheader)=>{
     return await commonAPI("post",`${BASE_URL}/BusOperator/category/${categoryid}/add_bus/`,body,reqheader)
 }
+
+// 8.user:get bus operator list
+
+export const getOperator = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Userapp/busoperators/`,"",reqHeader)
+}
+
+// 9.bus operator:booking details
+
+export const getBookings = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/BusOperator/ReservationView/`,"",reqHeader)
+}
