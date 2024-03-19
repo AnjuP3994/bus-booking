@@ -3,19 +3,22 @@ import bgImage from './assets/bg4feedback.png'
 import Box from '@mui/material/Box';
 import Fab from '@mui/material/Fab';
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
+import AdminHeader from '../Header/AdminHeader';
 
 function AdminFeedback() {
   return (
     <>
+    <AdminHeader/>
      <div style={{
         backgroundColor: '#fff4df',
         width: '100%',
         minHeight:'100vh',
-        height: '100%'
+        height: '100%',
+        marginTop:'60px'
         }}>
 
         <div className='d-flex justify-content-center '>
-          <img style={{ width: '33%', marginTop: '-20px' }} src={bgImage} alt="" /> </div>
+          <img style={{ width: '33%', marginTop: '-30px' }} src={bgImage} alt="" /> </div>
         <div className='row' style={{ marginTop: '-100px' }}>
 
           <div className='col-lg-3 mt-4 mb-5' >

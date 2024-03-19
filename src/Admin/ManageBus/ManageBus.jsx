@@ -7,6 +7,7 @@ import SearchItem from '../../Components/SearchItem/SearchItem'
 import Form from 'react-bootstrap/Form';
 import { MDBRadio, MDBBtnGroup } from 'mdb-react-ui-kit';
 import chair from '../../assets/Chair-icon.png'
+import AdminHeader from '../Header/AdminHeader';
 
 
 function ManageBus() {
@@ -53,6 +54,7 @@ function ManageBus() {
 
   return (
     <>
+    <AdminHeader/>
     <Container className="listContainer">
       <Row className="listWrapper">
 
@@ -83,7 +85,7 @@ function ManageBus() {
           {/* AC */}
           <div className='mt-3'>
             <div>
-              <label>AC</label>
+              <label></label>
             </div>
             <MDBBtnGroup className='gap-3'>
               <MDBRadio

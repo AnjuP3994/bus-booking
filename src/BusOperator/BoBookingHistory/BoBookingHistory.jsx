@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { Button, Card, Col, Collapse, Row } from 'react-bootstrap';
 import cardImg from './assets/busLoGo.jpg';
 import { useState } from 'react';
@@ -7,22 +7,18 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Header from '../../Components/Header/Header';
 
-
-function Bookinghistory() {
-  const [value, setValue] = React.useState(3);
-  // console.log(value );
-
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+function BoBookingHistory() {
+    const [value, setValue] = React.useState(3);
+    // console.log(value );
+  
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
   return (
     <>
-      <Header/>
-
-      <h1 style={{ marginTop: '100px' }} className='fw-bolder fs-1 text-center mb-5'> Booking History</h1>
+<h1 style={{ marginTop: '100px' }} className='fw-bolder fs-1 text-center mb-5'> Booking History</h1>
       <div className='container'>
         <Card className="max-w-sm">
           <div className="row no-gutters">
@@ -139,7 +135,7 @@ function Bookinghistory() {
         </Card>
       </div>
     </>
-  );
+  )
 }
 
-export default Bookinghistory;
+export default BoBookingHistory

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import './header.css'
+import React,{ useEffect, useState } from 'react'
 import Navbar from 'react-bootstrap/Navbar';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-function Header() {
 
+function AdminHeader() {
+    
   const [viewLogout, setViewLogout] = useState(false);
   const [logout, setLogout] = useState("");
 
@@ -31,42 +31,37 @@ function Header() {
   useEffect(()=>{
     checklogout()
   },[])
-
   return (
     <>
     <Navbar className="nav py-2" expand="lg" fixed="top">
           <Container>
 
-          <Navbar.Brand  className='fs-3'>
+          <Navbar.Brand /* href="/home" */ className='fs-3'>
             <img
               alt=""
               src="https://cdn-icons-png.flaticon.com/512/1036/1036175.png"
               width="50"
-              className="d-inline-block align-top me-2"
-            />{' '}
-               <Link to={'/'} className='bus w-75'>Bus<span  style={{color:'brown'}}/* className='hub' */ className='ms-2 '>Hubb</span></Link>
-        <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
-         <Link to={'/buslist'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Bus List </Link>
-         <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
-         <Link to={''} className='ms-4' style={{color:'black',fontSize:'18px'}}>Profile</Link>
-        </p>
-            
+              className="d-inline-block align-top "
+            />
+          <Link to={'/admin'} className='bus w-75'>Bus<span  style={{color:'brown'}}/* className='hub' */ className='ms-2 '>Hubb</span></Link>
+          <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
+         <Link to={'/managebus'} className='ms-5'  style={{color:'black',fontSize:'14px'}}>Manage Bus </Link>
+         <Link to={'/manageuser'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage User </Link>
+         <Link to={'/admin/payment'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage Payment</Link>
+         <Link /* to={'/'} */ className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage Bus Operators</Link>
+         <Link to={'/admin/feedback'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Feedback</Link>
+          </p>
           </Navbar.Brand>
-
-          <Navbar.Toggle/>
-
+          {/* <Navbar.Toggle/> */}
           {viewLogout===false?<Link to={'/login'} className="justify-content-end">
             <button id='btnnn' className='btn btn-outline-light'>Login or Create Account</button>
           </Link>:
-          
           <button id='btnnn' className='btn btn-outline-light' onClick={handleLogout}>Logout</button>
-        
           }
-
           </Container>
       </Navbar>
     </>
   )
 }
 
-export default Header
+export default AdminHeader

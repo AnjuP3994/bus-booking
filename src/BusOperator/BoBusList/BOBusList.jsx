@@ -2,13 +2,18 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import './boBusList.css'
 import buslogo from './assets/bus.jpg'
+import BoHeader from '../BoHeader/BoHeader'
 
 function BOBusList() { 
   
   return (
     <>
+    <BoHeader/>
+<div style={{marginTop:'100px'}}>
+
+
          
-                <div className="bus mt-5 ms-5">
+                <div className="bus mt-5 ms-5" >
 					<div>
 					<img style={{width:'240px',height:'200px'}} src={buslogo}/>
 					</div>
@@ -33,7 +38,7 @@ function BOBusList() {
 						<h6>Website</h6>
                          </div>
                     </div>
-
+</div>
 					
                 
     </>
