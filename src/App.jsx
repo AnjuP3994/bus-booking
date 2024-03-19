@@ -19,6 +19,7 @@ import Feedback from './BusOperator/Feedback/Feedback';
 import BOBusList from './BusOperator/BoBusList/BOBusList';
 import AdminFeedback from './Admin/Feedback/AdminFeedback';
 import Userprofile from './Pages/profile/Userprofile';
+import Bookinghistory from './Pages/Booking history/Bookinghistory';
 
 
 function App() {
@@ -41,10 +42,7 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Login register/>} />
         <Route path='/buslist' element={<List/>} />
-        <Route path='/user/profile' element={<Userprofile/>} />
-        <Route path='/bobuslist' element={<BOBusList/>} />
-
-
+        
 
 
         <Route path='/bologin' element={<BOLogin/>} />
