@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Table } from 'react-bootstrap'
 import './booking.css'
 import  bgImage from './assets/bg4booking.jpg'
+import { getBookings } from '../../Services/allAPIs'
 
 function Booking() {
+    const[bookingdetails,setBookingdetails]=useState([])
+
+    const getyourbookings = async () => {
+        const token = sessionStorage.getItem('token')
+        const reqHeader = {
+          "Authorization": `Token ${token}`
+        }
+        const result = await getBookings(reqHeader)
+        console.log(result.data)
+        setBookingdetails(result.data)
+      }
+    
+      useEffect(() => {
+        getyourbookings()
+      }, [])
+      console.log(bookingdetails)
     return (
         <>
           <div style={{
@@ -24,44 +41,52 @@ function Booking() {
             <div className='ms-5' style={{width:'90%'}}>
             <div className='fs-1 mt-5 text-center'>My Bookings</div>
             <div className='p-5 ms-5 me-5' >
-                <Table className='w-100' hover  responsive >
+                <Table className='w-100 table' hover  responsive >
                     <thead  >
-                        <tr style={{ backgroundColor:'' }} className='table-dark fw-bold  fs-4 text-center'>
+                        <tr style={{ backgroundColor:'' }} className='table-dark fw-bold  fs-8 text-center'>
                             <th>#</th>
-                            <th>Date</th>
+                            <th>Date of Booking</th>
                             <th>Bus Name</th>
-                            <th>Username</th>
+                            <th>Passenger Name</th>
+                            <th>Contact</th>
+
+                            <th>Boarding Place</th>
+                            <th>Boarding time</th>
+                            <th>Droping Place</th>
+                            <th>Droping time</th>
+
                             <th>Seat Number </th>
-                            <th>time</th>
-                            <th>Status</th>
+                            <th>Reservation date&time</th>
+                            <th>Reservation Status</th>
                             <th>Payment</th>
                             <th>Action</th>
 
                         </tr>
                     </thead>
                     <tbody className='bg-light'>
-                        <tr className=' m-3 fs-4 text-center'>
-                            <td>1</td>
-                            <td>01/01/2001 </td>
-                            <td>Fly travels</td>
-                            <td>max</td>
-                            <td>03</td>
-                            <td>14:00</td>
-                            <td><div> <Button style={{backgroundColor:'#f2f0f0',color:'#00e313' }}>Active</Button></div> </td>
-                            <td>Done</td>
-                            <td> <i className='fa-solid fa-trash'></i> </td>
-                        </tr>
-                        <tr className=' m-3 fs-4 text-center'>
-                            <td>1</td>
-                            <td>01/01/2001 </td>
-                            <td>Fly travels</td>
-                            <td>max</td>
-                            <td>03</td>
-                            <td>14:00</td>
-                            <td><div> <Button style={{backgroundColor:'#f2f0f0',color:'#00e313' }}>Active</Button></div> </td>
-                            <td>Done</td>
-                            <td> <i className='fa-solid fa-trash'></i> </td>
-                        </tr>
+                       {bookingdetails?.length>0?
+                       bookingdetails.map((item,index)=>( <tr className=' m-3 fs-8 text-center'>
+                       <td>{index+1}</td>
+                       <td>{item.journey_date
+} </td>
+                       <td>{item.bus.name}</td>
+                       <td>{item.user.name}</td>
+                       <td>7897897799</td>
+
+                       <td>{item.bus.boarding_point} </td>
+                       <td>{item.bus.boarding_time}</td>
+                        <td>{item.bus.dropping_point}</td>
+                        <td>{item.bus.dropping_time}</td>
+                       <td>{item.seat_number}</td>
+                       <td>{item.reservation_time}</td>
+                       <td> {item.reservation_status}</td>
+                       <td>Done</td>
+                       <td> <i className='fa-solid fa-trash'></i> </td>
+                   </tr>))
+                       
+                        : <p>nothing to show</p>
+                        }
+                       
                         
                          </tbody>
                 </Table>
