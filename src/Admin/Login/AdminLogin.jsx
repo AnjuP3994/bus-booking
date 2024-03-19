@@ -1,7 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './adminLogin.css'
+import Swal from 'sweetalert2';
+import { adminloginAPI } from '../../Services/allAPIs';
+import { useNavigate } from 'react-router';
+
 
 function AdminLogin() {
+
+  const [admindts,setAdmindts]=useState({
+    username:"",
+    password:""
+  })
+  console.log(admindts)
+  const navigate=useNavigate()
+ 
+
+  const handleLogin=async ()=>{
+    const{username,password}=admindts
+    if(!username || !password){
+      Swal.fire({
+        title: `incomplete form`,
+        text: `Please fill the form completely`,
+        icon: "warning"
+      });
+    }else{
+      const reqBody=admindts
+      const result=await adminloginAPI(reqBody)
+      console.log(result)
+      if(result.status===200){
+        Swal.fire({
+          title: `Login successfull`,
+          text: `${result.data.username} logged in successfully`,
+          icon: "success"
+        });
+        setTimeout(() => {
+          navigate('/admin')
+        }, 10);
+      }else{
+        Swal.fire({
+          title: `error`,
+          text: `Incorrect email or password`,
+          icon: "error"
+        });
+        console.log(result.response.data)
+      }
+    }
+  }
 
   return (
     <div>
@@ -44,12 +88,12 @@ function AdminLogin() {
                   </div> */}
 
                   <div className="form-outline mb-4">
-                    <input type="email" id="form3Example3" className="form-control text-light" />
-                    <label className="form-label text-light" htmlFor="form3Example3">Email address</label>
+                    <input type="text" id="form3Example3" className="form-control text-light"  onChange={(e) => setAdmindts({ ...admindts, username: e.target.value })} />
+                    <label className="form-label text-light" htmlFor="form3Example3">Username</label>
                   </div>
 
                   <div className="form-outline mb-4">
-                    <input  type="password" id="form3Example4" className="form-control text-light" />
+                    <input  type="password" id="form3Example4" className="form-control text-light" onChange={(e) => setAdmindts({ ...admindts, password: e.target.value })} />
                     <label className="form-label text-light" htmlFor="form3Example4">Password</label>
                   </div>
 
@@ -61,8 +105,8 @@ function AdminLogin() {
                     {/* <p className='text-light'>Already have a Account?Please login?</p> */}
                   </div>
 
-                  <button type="submit" className="btn btn-primary btn-block mb-4">
-                    Sign up
+                  <button type="button" className="btn btn-primary btn-block mb-4 " onClick={handleLogin}>
+                    Sign In
                   </button>
 
                   <div className="text-center">

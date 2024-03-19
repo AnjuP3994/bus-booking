@@ -49,3 +49,23 @@ export const getOperator = async(reqHeader)=>{
 export const getBookings = async(reqHeader)=>{
     return await commonAPI("get",`${BASE_URL}/BusOperator/ReservationView/`,"",reqHeader)
 }
+
+// 10.user:booking history
+
+export const getUserReservations = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Userapp/UserBuses/`,"",reqHeader)
+}
+
+
+// 11.user:add feedback
+
+export const addFeedback = async(busid,body,reqheader)=>{
+    return await commonAPI("post",`${BASE_URL}/Userapp/bus/${busid}/add_review/`,body,reqheader)
+}
+
+// 12.admin:login
+
+export const adminloginAPI = async(body)=>{
+    return await commonAPI("post",`${BASE_URL}/Manager/token/`,body,"")
+}
+
