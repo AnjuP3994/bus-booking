@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import './header.css'
 import Navbar from 'react-bootstrap/Navbar';
 import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './BoHeader.css'
 
-function Header() {
-
+function BoHeader() {
+    
   const [viewLogout, setViewLogout] = useState(false);
   const [logout, setLogout] = useState("");
 
@@ -31,26 +31,27 @@ function Header() {
   useEffect(()=>{
     checklogout()
   },[])
-
   return (
     <>
-    <Navbar className="nav py-2" expand="lg" fixed="top">
+
+<Navbar className="nav py-2" expand="lg" fixed="top">
           <Container>
 
-          <Navbar.Brand  className='fs-3'>
+          <Navbar.Brand className='fs-3'>
             <img
               alt=""
               src="https://cdn-icons-png.flaticon.com/512/1036/1036175.png"
               width="50"
               className="d-inline-block align-top me-2"
             />{' '}
-               <Link to={'/'} className='bus w-75'>Bus<span  style={{color:'brown'}}/* className='hub' */ className='ms-2 '>Hubb</span></Link>
-        <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
-         <Link to={'/buslist'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Bus List </Link>
-         <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
-         <Link to={''} className='ms-4' style={{color:'black',fontSize:'18px'}}>Profile</Link>
-        </p>
-            
+              <Link to={'/bohomepage'} className='bus w-75'>Bus<span  style={{color:'brown'}}/* className='hub' */ className='ms-2 '>Hubb</span></Link>
+            <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
+         <Link to={'/bomanagebus'} className='ms-5'  style={{color:'black',fontSize:'18px'}}>Manage Bus </Link>
+         <Link to={'/bobuslist'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Bus List </Link>
+         <Link to={'/bobookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
+         <Link to={'/bofeedback'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Feedback</Link>
+
+          </p>
           </Navbar.Brand>
 
           <Navbar.Toggle/>
@@ -65,8 +66,9 @@ function Header() {
 
           </Container>
       </Navbar>
+
     </>
   )
 }
 
-export default Header
+export default BoHeader

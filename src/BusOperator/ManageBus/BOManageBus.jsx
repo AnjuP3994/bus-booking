@@ -1,35 +1,33 @@
 import React, { useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import Modal from 'react-bootstrap/Modal';
-// import ManageBus from '../../Admin/ManageBus/ManageBus';
 import updateImg from './assets/updatebg.jpg'
-
-
+import BoHeader from '../BoHeader/BoHeader';
 
 function BOManageBus() {
     const [open, setOpen] = useState(false);
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
         <>
+            <BoHeader />
             <div className='d-flex'>
-                <div style={{ height: '100vh', width: '11%', position: 'fixed',backgroundColor:'#10a0b0' }}>
+                <div style={{ height: '100vh', width: '11%', position: 'fixed', backgroundColor: '#10a0b0', marginTop: '90px' }}>
                     <h3 className=' ms-1 mt-3 text-center text-dark fs-2'> Manage BUS</h3><br />
                     <div className=' ms-5 fs-5 '>
-                        <Button className='mt-2 pe-4 ' style={{color:'#ffffff'}}> <i className="fas fa-snowflake ms-3 me-2  "></i> AC</Button> <br />
-                        <Button className='mt-3' style={{color:'#ffffff'}}> <i class="fa-solid fa-ban"></i> Non A/C</Button> <br />
-                        <Button className='mt-3'  style={{color:'#ffffff'}}><i class="fa-solid fa-couch"></i>  Seater</Button><br />
-                        <Button  className='mt-3' style={{color:'#ffffff'}}><i class="fa-solid fa-bed"></i> Sleeper</Button> <br />
+                        <Button className='mt-2 pe-4 ' style={{ color: '#ffffff' }}> <i className="fas fa-snowflake ms-3 me-2  "></i> AC</Button> <br />
+                        <Button className='mt-3' style={{ color: '#ffffff' }}> <i class="fa-solid fa-ban"></i> Non A/C</Button> <br />
+                        <Button className='mt-3' style={{ color: '#ffffff' }}><i class="fa-solid fa-couch"></i>  Seater</Button><br />
+                        <Button className='mt-3' style={{ color: '#ffffff' }}><i class="fa-solid fa-bed"></i> Sleeper</Button> <br />
                     </div>
                 </div>
                 <div className='mt-5' style={{ width: '100%', marginLeft: '15%' }}>
-                    <div >
+                    <div style={{ marginTop: '70px' }}>
+                        <p className='text-center fs-1 me-5 pe-5' >  Your Buses </p>
                         <Row>
                             <Col lg={10} xs={10} md={4}>
-                                <div className="listcard shadow p-4 w-100 mt-4">
+                                <div className="listcard shadow p-4 w-100 ">
                                     <Row>
                                         <Col xs={4}>
                                             <h4 className='fw-bolder'>Surya Travels</h4>

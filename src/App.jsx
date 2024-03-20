@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './Pages/HomePage/Home'
 import Login from './Pages/Login/Login'
 import Dashboard from './Admin/Dashboard/Dashboard'
 import AdminLogin from './Admin/Login/AdminLogin'
@@ -20,6 +19,10 @@ import BOBusList from './BusOperator/BoBusList/BOBusList';
 import AdminFeedback from './Admin/Feedback/AdminFeedback';
 import Userprofile from './Pages/profile/Userprofile';
 import Bookinghistory from './Pages/Booking history/Bookinghistory';
+import UserPayment from './Pages/payment/UserPayment';
+import BoBookingHistory from './BusOperator/BoBookingHistory/BoBookingHistory';
+import AdminPayment from './Admin/AdminPayment/AdminPayment';
+
 import Mangeoperator from './Admin/Manage operators/Mangeoperator';
 
 
@@ -36,19 +39,17 @@ function App() {
         <Route path='/manageuser' element={<ManageUser/>} />
         <Route path='/managebus' element={<ManageBus/>} />
         <Route path='/admin/feedback' element={<AdminFeedback/>} />
-        <Route path='/manage/operator' element={<Mangeoperator/>} />
-
 
        
 
 
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Login register/>} />
-        <Route path='/home' element={<Home/>} />
         <Route path='/buslist' element={<List/>} />
-        <Route path='/bus/operators' element={<BOBusList/>} />
-        <Route path='/user/profile' element={<Userprofile/>} />
-        <Route path='/user/Booking/history' element={<Bookinghistory/>} />
+        <Route path='/bookinghistory' element={<Bookinghistory/>} />
+        <Route path='/payment' element={<UserPayment/>} />
+        <Route path='/buslist' element={<List/>}/>
+        <Route path='/profile' element={<Userprofile/>} />
         
 
 
@@ -60,8 +61,10 @@ function App() {
         <Route path='/bus/profile' element={<Busprofile/>} />
         <Route path='/bookingdetails' element={<Booking/>} />
         <Route path='/bofeedback' element={<Feedback/>} />
-       
+        <Route path='/bobuslist' element={<BOBusList/>} />
+        <Route path='/bobookinghistory' element={<BoBookingHistory/>} />
 
+        
 
 
 

@@ -9,6 +9,7 @@ import { Bounce, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import BoHeader from '../BoHeader/BoHeader';
 
 function BOLogin({registerpage}) {
 
@@ -101,6 +102,10 @@ function BOLogin({registerpage}) {
 
   return (
     <>
+    <BoHeader/>
+    <div style={{marginTop:'10px'}}>
+
+  
     <div className='body'>
 
         <Container className='center'>
@@ -176,6 +181,7 @@ function BOLogin({registerpage}) {
           pauseOnHover
           theme="light"
           transition={Bounce} />
+    </div>
     </div>
     </>
   )

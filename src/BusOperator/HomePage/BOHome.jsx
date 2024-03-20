@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { addcategory } from '../../Services/allAPIs'
 import Swal from 'sweetalert2';
+import BoHeader from '../BoHeader/BoHeader'
 
 
 function BOHome() {
@@ -48,9 +49,8 @@ function BOHome() {
   }
   return (
   <>
-  
-      <div>
-        <Header/>
+  <BoHeader/>
+      <div style={{marginTop:'50px'}}>
         <section className="bg-dark py-5 top-banner" >
           <div className="container px-5">
             <div className="row gx-5 justify-content-center">

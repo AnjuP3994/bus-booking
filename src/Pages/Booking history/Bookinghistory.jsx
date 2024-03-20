@@ -45,7 +45,7 @@ function Bookinghistory() {
     if(result.status===200){
       setReservations(result.data)
     }else{
-      console.log(result.response.data)
+      console.log(result.response)
     }
     
   }

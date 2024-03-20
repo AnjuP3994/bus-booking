@@ -11,9 +11,10 @@ import bus from '../../Pages/assets/group-buses-driving-along-road-sunset.jpg'
 import user from '../../Pages/assets/take-look-text-message-i-have-received.jpg'
 import payment from '../../Pages/assets/contactless-cashless-payment-through-mobile-banking.jpg'
 import feedback from '../../Pages/assets/9834.jpg'
-import Header from '../../Components/Header/Header';
+// import Header from '../../Components/Header/Header';
 import Footer from '../../Components/Footer/Footer';
 import { Link } from 'react-router-dom';
+import AdminHeader from '../Header/AdminHeader';
 
 
 
@@ -23,7 +24,7 @@ function Dashboard() {
   return (
     <>
       <div>
-        <Header />
+        <AdminHeader/>
         <Carousel data-bs-theme="dark" className='rounded'>
           <Carousel.Item>
             <img
