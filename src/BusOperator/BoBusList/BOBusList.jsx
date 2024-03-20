@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Button, Row ,Col} from 'react-bootstrap'
 import './boBusList.css'
 import buslogo from './assets/bus.jpg'
-<<<<<<< HEAD
 import BoHeader from '../BoHeader/BoHeader'
-=======
 import { getOperator } from '../../Services/allAPIs'
 
 function BOBusList() {
@@ -23,18 +21,15 @@ function BOBusList() {
   useEffect(() => {
     getBuslist()
   }, [])
->>>>>>> 110f5d7ab56a389acf0f60f5b09e85c32586da13
 
   return (
     <>
-<<<<<<< HEAD
     <BoHeader/>
 <div style={{marginTop:'100px'}}>
 
 
          
                 <div className="bus mt-5 ms-5" >
-=======
       <Row>
         {operators?.length>0?
         operators.map((item)=>( <Col lg={6} sm={12}>
@@ -75,7 +70,6 @@ function BOBusList() {
       </Row>
 
       {/* <div className="bus mt-5 ms-5">
->>>>>>> 110f5d7ab56a389acf0f60f5b09e85c32586da13
 					<div>
 					<img style={{width:'240px',height:'200px'}} src={buslogo}/>
 					</div>
@@ -89,8 +83,7 @@ function BOBusList() {
                     </div> */}
 
 
-<<<<<<< HEAD
-					<div className="bus mt-5 ms-5">
+					{/* <div className="bus mt-5 ms-5">
 					<div>
 					<img style={{width:'240px',height:'200px'}} src={buslogo}/>
 					</div>
@@ -101,13 +94,11 @@ function BOBusList() {
 						<h6>Address</h6>
 						<h6>Website</h6>
                          </div>
-                    </div>
+                    </div> */}
 </div>
-					
+</div>
                 
-=======
 
->>>>>>> 110f5d7ab56a389acf0f60f5b09e85c32586da13
     </>
   )
 }

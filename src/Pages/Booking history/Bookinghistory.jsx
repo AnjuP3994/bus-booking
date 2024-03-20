@@ -7,13 +7,9 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-<<<<<<< HEAD
-import Header from '../../Components/Header/Header';
-=======
 import { addFeedback, getUserReservations } from '../../Services/allAPIs';
 import Swal from 'sweetalert2';
 
->>>>>>> 110f5d7ab56a389acf0f60f5b09e85c32586da13
 
 
 function Bookinghistory() {
@@ -49,7 +45,7 @@ function Bookinghistory() {
     if(result.status===200){
       setReservations(result.data)
     }else{
-      console.log(result.response.data)
+      console.log(result.response)
     }
     
   }
@@ -94,32 +90,6 @@ function Bookinghistory() {
   }
   return (
     <>
-<<<<<<< HEAD
-      <Header/>
-
-      <h1 style={{ marginTop: '100px' }} className='fw-bolder fs-1 text-center mb-5'> Booking History</h1>
-      <div className='container'>
-        <Card className="max-w-sm">
-          <div className="row no-gutters">
-            <div className="col-md-4">
-              <Card.Img variant="top" src={cardImg} style={{ height: '23rem', width: '100%' }} />
-            </div>
-            <div className="col-md-8">
-              <Card.Body>
-                <Card.Title className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {/* Noteworthy Travels */}
-                </Card.Title>
-                <Card.Text className="font-normal text-gray-700 ">
-                  <div className="  p-3 w-100 mb-4">
-                    <Row>
-                      <Col >
-                        <h4 className='fw-bolder '>Surya Travels</h4>
-                        <p>Bharat Benz A/C Semi Sleeper</p>
-                        <p className='text'>Contact no: 9874563210</p>
-                        <h4 >Seat No : <span className='fw-bolder mb-3 me-5'> 33</span ></h4>
-                        <p className='rating ps-1 p-2'><i style={{ fontSize: '12px' }} class="fa-solid fa-star me-1"></i>4.6</p>
-                      </Col>
-=======
       <h1 className='fw-bolder text-center'>Booking History</h1>
       
      <div className='d-flex justify-content-center'>
@@ -160,7 +130,6 @@ function Bookinghistory() {
     <span className='text-success'>{item.reservation_status}</span>
   }
 </p>
->>>>>>> 110f5d7ab56a389acf0f60f5b09e85c32586da13
 
            </div>
          </Col>
