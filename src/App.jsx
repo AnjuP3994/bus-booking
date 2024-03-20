@@ -20,6 +20,7 @@ import BOBusList from './BusOperator/BoBusList/BOBusList';
 import AdminFeedback from './Admin/Feedback/AdminFeedback';
 import Userprofile from './Pages/profile/Userprofile';
 import Bookinghistory from './Pages/Booking history/Bookinghistory';
+import Mangeoperator from './Admin/Manage operators/Mangeoperator';
 
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
         <Route path='/manageuser' element={<ManageUser/>} />
         <Route path='/managebus' element={<ManageBus/>} />
         <Route path='/admin/feedback' element={<AdminFeedback/>} />
+        <Route path='/manage/operator' element={<Mangeoperator/>} />
+
 
        
 

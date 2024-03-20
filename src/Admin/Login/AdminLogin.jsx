@@ -28,9 +28,11 @@ function AdminLogin() {
       const result=await adminloginAPI(reqBody)
       console.log(result)
       if(result.status===200){
+        sessionStorage.setItem("token",result.data.token)
         Swal.fire({
+         
           title: `Login successfull`,
-          text: `${result.data.username} logged in successfully`,
+          text: `admin logged in successfully`,
           icon: "success"
         });
         setTimeout(() => {

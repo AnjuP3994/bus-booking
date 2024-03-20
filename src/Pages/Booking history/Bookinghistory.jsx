@@ -96,7 +96,8 @@ function Bookinghistory() {
          <div className="listcard shadow p-3 w-75 mb-4">
         <Row>
        {reservations?.length>0?
-       reservations.map((item)=>( <Col className='d-flex'>
+       reservations.map((item)=>( 
+       <Col className='d-flex'>
         
        <Col lg={2} sm={12}>
            <div  className='d-flex justify-content-center align-items-center' ><img src={cardImg} className='img-fluid' height={'100%'} alt="" /></div>

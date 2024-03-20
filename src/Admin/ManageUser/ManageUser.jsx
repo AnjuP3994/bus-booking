@@ -1,12 +1,63 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { Table } from 'react-bootstrap';
 import bgImage  from "./assets/manage-user-bg.jpg"
 import profileImage  from "./assets/user_img.jpg"
+import Swal from 'sweetalert2';
 
 import './mangeUser.css'
+import { deleteUser, getUser } from '../../Services/allAPIs';
+import { BASE_URL } from '../../Services/baseURL';
 function ManageUser() {
+    const [users,setUsers]=useState([])
+
+
+    
+    const handleuser = async () => {
+        const token = sessionStorage.getItem('token')
+        const reqHeader = {
+          "Authorization": `Token ${token}`
+        }
+        const result = await getUser(reqHeader)
+        console.log(result)
+        setUsers(result.data)
+      }
+    
+      useEffect(() => {
+        handleuser()
+      }, [])
+      console.log(users)
+
+    //  console.log(`${BASE_URL}${users[0].profile_picture}`)
+
+    const handleDelete=async(id)=>{
+        const token = sessionStorage.getItem('token')
+        const reqHeader = {
+          "Authorization": `Token ${token}`
+        }
+        const result = await deleteUser(id,reqHeader)
+        console.log(result)
+        if(result.status===204){
+            Swal.fire({
+         
+                title: ` successfull`,
+                text: `User has been deleted successfully`,
+                icon: "success"
+              });
+              handleuser()
+        } else{
+            Swal.fire({
+         
+                title: ` error`,
+                text: `something went wrong`,
+                icon: "error"
+              });
+
+              console.log(result.response.data)
+
+        } 
+    }
 
     return (
         <>
@@ -31,7 +82,7 @@ function ManageUser() {
 
                     <div className='p-5 ms-5 me-5' >
 
-                        <Table bordered hover style={{borderColor:'black'}} >
+                        <Table bordered hover style={{borderColor:'black',fontSize: '1.5rem'}} >
                             <thead>
                                 <tr style={{backgroundColor:'#0095a9'}} className='table-info fw-bold fs-3'>
                                     <th>#</th>
@@ -44,117 +95,23 @@ function ManageUser() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className='fs-3'>
-                                    <td>1</td>
-                                    <td  className='d-flex'>
-                                         <Stack direction="row" >
-                                         <Avatar  alt="Remy Sharp" src={profileImage} sx={{ width: 35, height: 35 }} /> </Stack>
-                                         <p className='ms-5 mt-2'> Mark </p>
-                                    </td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>01/01/2001</td>
-                                    <td>asdf 620555</td>
-                                    <td className=' text-center'><i className="fa-solid fa-trash "></i></td>
-                                </tr>
-                                <tr className='fs-3'>
-                                    <td>2</td>
-                                    <td  className='d-flex'>
-                                         <Stack direction="row" >
-                                         <Avatar  alt="Remy Sharp" src={profileImage} sx={{ width: 35, height: 35 }} /> </Stack>
-                                         <p className='ms-5 mt-2'> Jacob </p>
-                                    </td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>02/02/2002</td>
-                                    <td>asdf 620555</td>
-                                    <td  className=' text-center'><i class="fa-solid fa-trash"></i></td>
-                                </tr>
-                                <tr className='fs-3'>
-                                    <td>3</td>
-                                    <td  className='d-flex'>
-                                         <Stack direction="row" >
-                                         <Avatar  alt="Remy Sharp" src={profileImage} sx={{ width: 35, height: 35 }} /> </Stack>
-                                         <p className='ms-5 mt-2'> Jacob </p>
-                                    </td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>02/02/2002</td>
-                                    <td>asdf 620555</td>
-                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
-
-                                </tr>
-
-                                <tr className='fs-3'>
-                                    <td>4</td>
-                                    <td  className='d-flex'>
-                                         <Stack direction="row" >
-                                         <Avatar  alt="Remy Sharp" src={profileImage} sx={{ width: 35, height: 35 }} /> </Stack>
-                                         <p className='ms-5 mt-2'> Jacob </p>
-                                    </td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>02/02/2002</td>
-                                    <td>asdf 620555</td>
-                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
-
-                                </tr>
-                                <tr className='fs-3'>
-                                    <td>5</td>
-                                    <td  className='d-flex'>
-                                         <Stack direction="row" >
-                                         <Avatar  alt="Remy Sharp" src={profileImage} sx={{ width: 35, height: 35 }} /> </Stack>
-                                         <p className='ms-5 mt-2'> Jacob </p>
-                                    </td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>02/02/2002</td>
-                                    <td>asdf 620555</td>
-                                    <td className=' text-center'><i className="fa-solid fa-trash" ></i></td>
-
-                                </tr>
-                                <tr className='fs-3'>
-                                    <td>6</td>
-                                    <td  className='d-flex'>
-                                         <Stack direction="row" >
-                                         <Avatar  alt="Remy Sharp" src={profileImage} sx={{ width: 35, height: 35 }} /> </Stack>
-                                         <p className='ms-5 mt-2'> Jacob </p>
-                                    </td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>02/02/2002</td>
-                                    <td>asdf 620555</td>
-                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
-
-                                </tr>
-                                <tr className='fs-3'>
-                                    <td>7</td>
-                                    <td  className='d-flex'>
-                                         <Stack direction="row" >
-                                         <Avatar  alt="Remy Sharp" src={profileImage} sx={{ width: 35, height: 35 }} /> </Stack>
-                                         <p className='ms-5 mt-2'> Jacob </p>
-                                    </td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>02/02/2002</td>
-                                    <td>asdf 620555</td>
-                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
-
-                                </tr>
-                                <tr className='fs-3'>
-                                    <td>8</td>
-                                    <td  className='d-flex'>
-                                         <Stack direction="row" >
-                                         <Avatar  alt="Remy Sharp" src={profileImage} sx={{ width: 35, height: 35 }} /> </Stack>
-                                         <p className='ms-5 mt-2'> Jacob </p>
-                                    </td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>02/02/2002</td>
-                                    <td>asdf 620555</td>
-                                    <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
-
-                                </tr>
+                               { users?.length>0?
+                               users.map((item,index)=>(<tr className='fs-3'>
+                               <td>{index+1}</td>
+                               <td  className='d-flex'>
+                                    <img src={`${BASE_URL}${item.profile_picture}`} alt="" />
+                                    <p className='ms-5 mt-2'>{item.name}</p>
+                               </td>
+                               <td>{item.phone}</td>
+                               <td>{item.username}</td>
+                               <td>{item.date_of_birth}</td>
+                               <td>{item.address}</td>
+                               <td className=' text-center'><i className="fa-solid fa-trash " onClick={()=>handleDelete(item.id)}></i></td>
+                               {/* <img src={`${BASE_URL}${item.profile_picture}`} alt="" /> */}
+                           </tr>
+                           ))
+                                : <p>nothing to show</p> }
+                                
                                
                               
                             </tbody>

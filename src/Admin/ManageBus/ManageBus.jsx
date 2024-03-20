@@ -2,17 +2,20 @@ import React, { useEffect, useState } from 'react'
 import './ManageBus.css'
 import Header from '../../Components/Header/Header'
 import { useLocation } from 'react-router-dom';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row,Button } from 'react-bootstrap';
 import SearchItem from '../../Components/SearchItem/SearchItem'
 import Form from 'react-bootstrap/Form';
 import { MDBRadio, MDBBtnGroup } from 'mdb-react-ui-kit';
 import chair from '../../assets/Chair-icon.png'
+import { admindeletebus, getbus } from '../../Services/allAPIs';
+import Swal from 'sweetalert2';
 
 
 function ManageBus() {
 
     const [date, setDate] = useState("");
     const [dateinfo, setDateinfo] = useState({});
+    const[buses,setBuses]=useState([])
   
     useEffect(() => {
       let mindate = new Date().toISOString().split("T")[0];
@@ -50,6 +53,47 @@ function ManageBus() {
       setIsSleeperSelected(false);
       setIsSeaterSelected(true);
     };
+
+    const handlegetbus=async ()=>{
+      const token = sessionStorage.getItem('token')
+      const reqHeader = {
+        "Authorization": `Token ${token}`
+      }
+      const result = await getbus(reqHeader)
+      console.log(result)
+      setBuses(result.data)
+    }
+    useEffect(()=>{
+      handlegetbus()
+    },[])
+
+    const handleDeletebus=async(id)=>{
+      const token = sessionStorage.getItem('token')
+      const reqHeader = {
+        "Authorization": `Token ${token}`
+      }
+      const result = await admindeletebus(id,reqHeader)
+      console.log(result)
+      if(result.status===204){
+          Swal.fire({
+       
+              title: ` successfull`,
+              text: `Bus has been deleted successfully`,
+              icon: "success"
+            });
+            handlegetbus()
+      } else{
+          Swal.fire({
+       
+              title: ` error`,
+              text: `something went wrong`,
+              icon: "error"
+            });
+
+            console.log(result.response.data)
+
+      } 
+  }
 
   return (
     <>
@@ -137,14 +181,57 @@ function ManageBus() {
       </Col>
 
       <Col xs={8} className="listResult">
-        <SearchItem/>
-        {/* <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/> */}
+       
+       {buses?.length>0?
+       buses.map((item)=>( <div className="listcard shadow p-3 w-100 mb-4">
+       <Row>
+        <div className='d-flex'>
+           <Col xs={4}>
+             <h4 className='fw-bolder'>{item.name}</h4>
+             <p>{item.category}</p>
+             {/* <p className='text'>Contact no: 9874563210</p> */}
+             <p className='rating ps-1'><i style={{fontSize:'12px'}} class="fa-solid fa-star me-1"></i>4.6</p>
+           </Col>
+   
+           <Col xs={5} className='d-flex justify-content-center mt-3'>
+              <Row className='time'>
+             <Col lg={5} className='text-center'>
+               <p className='textclr fw-bolder fs-9 ' style={{lineHeight:'1rem'}}>{item.boarding_point}</p>
+               <p className='textclr fw-bolder'>{item.boarding_time}</p>
+             </Col>
+             <Col lg={2} className='mt-3'>
+               <p className='fw-bolder fs-5'>to</p>
+             </Col>
+             <Col lg={5} className='text-center'>
+               <p className='textclr fw-bolder fs-9' style={{lineHeight:'1rem'}}>{item.dropping_point}</p>
+               <p className='textclr fw-bolder'>{item.dropping_time}</p>
+             </Col>
+             
+           </Row>
+           </Col>
+   
+           <Col xs={3} className='text-end mt-2'>
+             <h3 className='text-danger fw-bolder'><i style={{fontSize:'25px'}} class="fa-solid fa-indian-rupee-sign me-2"></i>{item.price}</h3>
+             <div className='text-end mt-5'>
+               <Button className='btn btn-danger' onClick={()=>handleDeletebus(item.id)}>Delete</Button>
+             </div>
+           </Col>
+        </div>
+       </Row>
+       
+       <Row>
+         <Col>
+           {/* <Collapse in={open}>
+             <div id="example-collapse-text">
+               Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
+               terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
+               labore wes anderson cred nesciunt sapiente ea proident.
+             </div>
+           </Collapse> */}
+         </Col>
+       </Row>
+     </div>))
+        : <p>nothing to  show</p> }
       </Col>
       </Row>
     </Container>
