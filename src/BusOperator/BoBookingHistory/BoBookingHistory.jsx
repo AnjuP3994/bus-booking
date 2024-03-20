@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import BoHeader from '../BoHeader/BoHeader';
 
 function BoBookingHistory() {
     const [value, setValue] = React.useState(3);
@@ -18,6 +19,7 @@ function BoBookingHistory() {
     const handleShow = () => setShow(true);
   return (
     <>
+    <BoHeader/>
 <h1 style={{ marginTop: '100px' }} className='fw-bolder fs-1 text-center mb-5'> Booking History</h1>
       <div className='container'>
         <Card className="max-w-sm">

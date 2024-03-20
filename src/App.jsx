@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './Pages/HomePage/Home'
 import Login from './Pages/Login/Login'
 import Dashboard from './Admin/Dashboard/Dashboard'
 import AdminLogin from './Admin/Login/AdminLogin'
@@ -64,8 +63,9 @@ function App() {
         <Route path='/bobuslist' element={<BOBusList/>} />
 
         <Route path='/buslist' element={<List/>}/>
-        <Route path='/bookinghistory' element={<Bookinghistory/>} />
+        <Route path='/bobookinghistory' element={<BoBookingHistory/>} />
         <Route path='/payment' element={<UserPayment/>} />
+        <Route path='/profile' element={<Userprofile/>} />
 
 
 
