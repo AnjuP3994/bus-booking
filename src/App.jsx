@@ -49,6 +49,8 @@ function App() {
         <Route path='/buslist' element={<List/>} />
         <Route path='/bookinghistory' element={<Bookinghistory/>} />
         <Route path='/payment' element={<UserPayment/>} />
+        <Route path='/buslist' element={<List/>}/>
+        <Route path='/profile' element={<Userprofile/>} />
         
 
 
@@ -61,11 +63,9 @@ function App() {
         <Route path='/bookingdetails' element={<Booking/>} />
         <Route path='/bofeedback' element={<Feedback/>} />
         <Route path='/bobuslist' element={<BOBusList/>} />
-
-        <Route path='/buslist' element={<List/>}/>
         <Route path='/bobookinghistory' element={<BoBookingHistory/>} />
-        <Route path='/payment' element={<UserPayment/>} />
-        <Route path='/profile' element={<Userprofile/>} />
+
+        
 
 
 
