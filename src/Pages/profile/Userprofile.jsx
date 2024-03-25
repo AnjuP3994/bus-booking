@@ -4,6 +4,7 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 import { Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Header from '../../Components/Header/Header';
 function Userprofile() {
 
     const [modalShow, setModalShow] = useState(false)
@@ -13,6 +14,9 @@ function Userprofile() {
         setModalShow(true);
     };
   return (
+    <>
+  
+    <Header/>
     <div className='d-flex justify-content-center align-items-center profile' style={{height:'100vh'}} >
           <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
@@ -140,6 +144,7 @@ function Userprofile() {
         </MDBRow>
       </MDBContainer>
     </div>
+    </>
   )
 }
 

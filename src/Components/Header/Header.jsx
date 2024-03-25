@@ -34,6 +34,7 @@ function Header() {
 
   return (
     <>
+    
     <Navbar className="nav py-2" expand="lg" fixed="top">
           <Container>
 
@@ -48,7 +49,7 @@ function Header() {
         <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
          <Link to={'/buslist'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Bus List </Link>
          <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
-         <Link to={''} className='ms-4' style={{color:'black',fontSize:'18px'}}>Profile</Link>
+         <Link to={'/profile'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Profile</Link>
         </p>
             
           </Navbar.Brand>

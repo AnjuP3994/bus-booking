@@ -37,10 +37,10 @@ function Footer() {
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
             <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-              <h5 className='text-uppercase fw-bold mb-4'>
-                <img src="https://cdn-icons-png.flaticon.com/512/1036/1036175.png" width={'30px'} className='me-2' alt="" />
-                <span className='bus'>Bus</span><span className='hub'>Hubb</span>
-              </h5>
+              <div>  <h5 className='d-flex text-uppercase fw-bold mb-4'>
+                <img src="https://cdn-icons-png.flaticon.com/512/1036/1036175.png" width={'50px'} alt="" />
+               <p className='bus'>Bus<span className='hub'>Hubb </span></p>
+              </h5> </div>
               <p>
               BusHubb is the India's largest online bus ticket booking service trusted by over 25 million happy customers. 
               BusHubb offers bus ticket booking through its website, iOS and Android mobile apps for all major routes.

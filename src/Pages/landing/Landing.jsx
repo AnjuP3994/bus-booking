@@ -35,7 +35,7 @@ function Landing() {
                             </h1>
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quas voluptate sunt laborum ut repellat quia tempore esse voluptas? Officiis autem commodi vitae enim dolore id alias amet illo possimus!</p>
                             <div className='d-flex'>
-                                <Link to={'/home'}><button className='btnbgclr mt-2'>Get Now</button></Link>
+                                <Link to={'/user/home'}><button className='btnbgclr mt-2'>Get Now</button></Link>
                             </div>
                         </div>
                     </Col>
