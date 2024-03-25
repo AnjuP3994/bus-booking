@@ -29,7 +29,7 @@ function Bookinghistory() {
       rating: value
     }));
   }, [value]);
-  console.log(feedback)
+  // console.log(feedback)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

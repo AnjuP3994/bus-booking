@@ -104,6 +104,61 @@ export const admindeleteoperator = async(operatorId,reqHeader)=>{
     return await commonAPI("delete",`${BASE_URL}/Manager/busoperators/${operatorId}`,{},reqHeader)
 }
 
+// 16:user:get bus
+
+export const usergetbus = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Userapp/bus/`,"",reqHeader)
+}
+
+// 17:user:reserve bus
+
+export const BookbusAPI = async(busid,body,reqHeader)=>{
+    return await commonAPI("post",`${BASE_URL}/Userapp/bus/${busid}/reserve_bus/`,body,reqHeader)
+}
+
+// 17:user:payment
+
+export const PaymentAPI = async(resId,reqHeader)=>{
+    return await commonAPI("post",`${BASE_URL}/Userapp/UserBuses/${resId}/payment/`,"",reqHeader)
+}
+
+// admin:get admin profile
+
+export const getadminprofile = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Manager/profile/`,"",reqHeader)
+}
+
+// admin:update admin profile
+
+export const updateadminprofile = async(reqHeader,reqBody)=>{
+    return await commonAPI("put",`${BASE_URL}/Manager/profile/`,reqBody,reqHeader)
+}
+
+
+
+
+// admin:get feedback
+
+export const admingetfeedback = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/BusOperator/reviews/`,"",reqHeader)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -7,12 +7,12 @@ import SearchItem from '../../Components/SearchItem/SearchItem'
 import Form from 'react-bootstrap/Form';
 import { MDBRadio, MDBBtnGroup } from 'mdb-react-ui-kit';
 import chair from '../../assets/Chair-icon.png'
-<<<<<<< HEAD
+
 import { admindeletebus, getbus } from '../../Services/allAPIs';
 import Swal from 'sweetalert2';
-=======
+
 import AdminHeader from '../Header/AdminHeader';
->>>>>>> f31845cf5e8ebc3e9b49a1569cd69d6fa89f48fa
+
 
 
 function ManageBus() {

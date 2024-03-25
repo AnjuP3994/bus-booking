@@ -58,7 +58,8 @@ function Mangeoperator() {
     <div>
          <Row>
         {operators?.length>0?
-        operators.map((item)=>( <Col lg={6} sm={12}>
+        operators.map((item)=>( 
+        <Col lg={6} sm={12}>
           <div className="bus mt-5 ">
             <Row>
               <Col lg={6} sm={12}  className='d-flex justify-content-center align-items-center'>

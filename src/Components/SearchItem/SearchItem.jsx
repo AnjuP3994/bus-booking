@@ -1,60 +1,316 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './searchItem.css'
 import { Col, Row } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
+import Modal from 'react-bootstrap/Modal';
+import { style } from '@mui/system';
+import Form from 'react-bootstrap/Form';
+import Swal from 'sweetalert2';
+import { BookbusAPI, PaymentAPI } from '../../Services/allAPIs';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {
+  MDBCard,
+  MDBCardBody,
+  MDBCol,
+  MDBContainer,
+  MDBIcon,
+  MDBInput,
+  MDBRow,
+} from "mdb-react-ui-kit";
 
-function SearchItem() {
+
+
+function SearchItem({ bus }) {
+  const [date, setDate] = useState("");
+  const [show, setShow] = useState(false);
+  const [dateinfo, setDateinfo] = useState({});
+
 
   const [open, setOpen] = useState(false);
 
+  const [busdts, setBusdts] = useState([])
+  const [bookdts, setBookdts] = useState({
+    journey_date: date,
+    seat_number: ""
+  })
+
+  const [collapseOpen, setCollapseOpen] = useState(false);
+
+
+  const [buttonColor, setButtonColor] = useState('');
+  const handleClose = () => {
+    setShow(false);
+    setCollapseOpen(false);
+  };
+  const handleShow = () => setShow(true);
+
+  const [reservedts, setReservedts] = useState([])
+  console.log(reservedts)
+  
+
+
+  useEffect(() => {
+    let mindate = new Date().toISOString().split("T")[0];
+    let maxdate = new Date().toISOString().split("T")[0];
+    // console.log(mindate, maxdate);
+    setDate(mindate);
+    setDateinfo({
+      ...dateinfo,
+      mindate: mindate,
+      maxdate: maxdate,
+    });
+  }, []);
+  const handleDateChange = (e) => {
+    const selectedDate = e.target.value;
+    setBookdts({ ...bookdts, journey_date: selectedDate });
+  };
+  console.log(bookdts)
+  console.log(date)
+
+  useEffect(() => {
+    setBusdts(bus)
+  }, [])
+
+  const handlebook = async (id) => {
+    const { seat_number, journey_date } = bookdts
+    if (!seat_number || !journey_date) {
+      Swal.fire({
+        title: `incomplete form`,
+        text: `Please fill the form completely`,
+        icon: "warning"
+      });
+    } else {
+      const token = sessionStorage.getItem('token')
+      console.log(token)
+      const reqHeader = {
+        "Authorization": `Token ${token}`
+      }
+      const result = await BookbusAPI(id, bookdts, reqHeader)
+      console.log(result)
+      if (result.status === 200) {
+        setReservedts(result.data)
+        toast("Reservation successfull!")
+
+        setCollapseOpen(true);
+      }
+      else {
+        console.log(result.response.data)
+      }
+    }
+
+
+  };
+  const handleClick = (index) => {
+    // Example: Changing the button's color to red when clicked
+    setBookdts({ ...bookdts, seat_number: index + 1 });
+
+
+
+
+  }
+
+  const handlePayment=async(id)=>{
+
+    const token = sessionStorage.getItem('token')
+      console.log(token)
+      const reqHeader = {
+        "Authorization": `Token ${token}`
+      }
+      const result = await PaymentAPI(id,reqHeader)
+      console.log(result)
+      if(result.status===200){
+
+        Swal.fire({
+          title: `successfull`,
+          text: `Payment successfull`,
+          icon: "success"
+        });
+        setShow(false);
+        setCollapseOpen(false);
+        setReservedts([])
+      }else{
+        console.log(result.response.data)
+        Swal.fire({
+          title: `error`,
+          text: `Something went wrong`,
+          icon: "error"
+        });
+
+      }
+
+  }
+
   return (
     <>
-    <div className="listcard shadow p-3 w-100 mb-4">
-      <Row>
-        <Col xs={4}>
-          <h4 className='fw-bolder'>Surya Travels</h4>
-          <p>Bharat Benz A/C Semi Sleeper</p>
-          <p className='text'>Contact no: 9874563210</p>
-          <p className='rating ps-1'><i style={{fontSize:'12px'}} class="fa-solid fa-star me-1"></i>4.6</p>
-        </Col>
+      <div className="listcard shadow p-3 w-100 mb-4">
+        <div>
+          {bus?.length > 0 ? (
+            bus.map((item, index) => (
+              <div>
+                <Row>
+                  <div className='d-flex'>
+                    <Col xs={4}>
+                      <h4 className='fw-bolder'>{item.name}</h4>
+                      <p>{item.category}</p>
+                      {/* <p className='text'>Contact no: 9874563210</p> */}
+                      <p className='rating ps-1'><i style={{ fontSize: '12px' }} class="fa-solid fa-star me-1"></i>4.6</p>
+                    </Col>
 
-        <Col xs={5} className='d-flex justify-content-center mt-3'>
-          <Row className='time'>
-            <Col className='text-center'>
-              <p className='textclr fw-bolder fs-5'>Palakkad</p>
-              <p className='textclr fw-bolder'>8:30am</p>
-            </Col>
-            <Col className='mt-3'>
-              <p className='fw-bolder fs-5'>to</p>
-            </Col>
-            <Col className='text-center'>
-              <p className='textclr fw-bolder fs-5'>Ernakulam</p>
-              <p className='textclr fw-bolder'>12:30pm</p>
-            </Col>
-          </Row>
-        </Col>
+                    <Col xs={5} className='d-flex justify-content-center mt-3'>
+                      <Row className='time'>
+                        <Col lg={5} className='text-center'>
+                          <p className='textclr fw-bolder fs-9 ' style={{ lineHeight: '1rem' }}>{item.boarding_point}</p>
+                          <p className='textclr fw-bolder'>{item.boarding_time}</p>
+                        </Col>
+                        <Col lg={2} className='mt-3'>
+                          <p className='fw-bolder fs-5'>to</p>
+                        </Col>
+                        <Col lg={5} className='text-center'>
+                          <p className='textclr fw-bolder fs-9' style={{ lineHeight: '1rem' }}>{item.dropping_point}</p>
+                          <p className='textclr fw-bolder'>{item.dropping_time}</p>
+                        </Col>
 
-        <Col xs={3} className='text-end mt-2'>
-          <h3 className='text-danger fw-bolder'><i style={{fontSize:'25px'}} class="fa-solid fa-indian-rupee-sign me-2"></i>350</h3>
-          <div className='text-end mt-5'>
-            <Button onClick={() => setOpen(!open)} aria-expanded={open}>View Seats</Button>
-          </div>
-        </Col>
-      </Row>
-      
-      <Row>
-        <Col>
-          <Collapse in={open}>
-            <div id="example-collapse-text">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-              terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-              labore wes anderson cred nesciunt sapiente ea proident.
-            </div>
-          </Collapse>
-        </Col>
-      </Row>
-    </div>
+                      </Row>
+                    </Col>
+
+                    <Col xs={3} className='text-end mt-2'>
+                      <h3 className='text-danger fw-bolder'><i style={{ fontSize: '25px' }} class="fa-solid fa-indian-rupee-sign me-2"></i>{item.price}</h3>
+                      <div className='text-end mt-5'>
+                        <Button className='btn btn-info' onClick={() => setOpen(!open)} aria-expanded={open}>View Seats</Button>
+                      </div>
+                    </Col>
+                  </div>
+                </Row>
+
+                <Row>
+                  <Col>
+                    <Collapse in={open}>
+                      <div id="example-collapse-text">
+
+                        <div>
+                          {[...Array(item.capacity)].map((_, index) => (
+                            <button
+                              key={index}
+                              className='btn btn-success ms-2 mt-2'
+                              onClick={() => handleClick(index)}
+                              style={{ backgroundColor: bookdts.seat_number === index + 1 ? 'red' : '' }}
+                              value={index + 1}
+                            >
+                              {index + 1}
+                            </button>
+                          ))}
+                        </div>
+                        <button className='btn btn-info ' onClick={handleShow}  >BOOK</button>
+                        <Modal show={show} onHide={handleClose}>
+                          <Modal.Header closeButton>
+                            <Modal.Title>Confirm your details</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            <div className='d-flex justify-content-center align-items-center'>
+                              <button className='btn btn-info '>
+                                {bookdts.seat_number}
+                              </button>
+                            </div>
+                            <Form>
+                              <Form>
+                                <label>Date</label>
+                                <Form.Control
+                                  type="date"
+                                  value={bookdts.journey_date}
+                                  min={dateinfo.mindate}
+                                  onChange={handleDateChange}
+                                />
+                              </Form>
+                            </Form>
+                          </Modal.Body>
+                          <Modal.Footer>
+                            {/* <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button> */}
+                            <Button variant="primary" onClick={() => handlebook(item.id)} >
+                              proceed to reserve
+                            </Button>
+                          </Modal.Footer>
+                          <Collapse in={collapseOpen}>
+                            <div className=''>
+                              <MDBContainer className="py-5" >
+                                <MDBRow className=" ">
+                                  <MDBCol>
+                                    <MDBCard>
+                                      <MDBCardBody className="p-3">
+                                        <MDBRow>
+                                          <MDBCol lg="12">
+                                            <MDBCard className="bg-primary text-white rounded-3 p-4">
+                                              <MDBCardBody>
+                                                <div className="d-flex justify-content-between align-items-center mb-4">
+                                                </div>
+                                                <p className="small">Card type</p>
+                                                <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-mastercard fa-2x me-2" /></a>
+                                                <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-visa fa-2x me-2" /></a>
+                                                <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-amex fa-2x me-2" /></a>
+                                                <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-paypal fa-2x me-2" /></a>
+                                                <form className="mt-4">
+                                                  <MDBInput className="mb-4" label="Cardholder's Name" placeholder="Cardholder's Name" type="text" size="lg" contrast />
+                                                  <MDBInput className="mb-4" label="Card Number" type="text" size="lg" minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast />
+                                                  <MDBRow className="mb-4">
+                                                    <MDBCol md="6">
+                                                      <MDBInput className="mb-4" label="Expiration" type="text" size="lg" minLength="6" maxLength="6" placeholder="MM/YY" contrast />
+                                                    </MDBCol>
+                                                    <MDBCol md="6">
+                                                      <MDBInput className="mb-4" label="CVV" type="text" size="lg" minLength="3" maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast />
+                                                    </MDBCol>
+                                                  </MDBRow>
+                                                </form>
+                                                {/* <hr /> */}
+                                                <div className="d-flex justify-content-between">
+                                                  <p className="mb-2">Total(Incl. taxes):<span className='text-danger fs-3 fw-bold'>{item.price}</span></p>
+                                                </div>
+                                                <Button variant="info" color="info" block size="lg" onClick={()=>handlePayment(reservedts.id)} >
+                                                  Pay Now
+                                                </Button>
+                                              </MDBCardBody>
+                                            </MDBCard>
+                                          </MDBCol>
+                                        </MDBRow>
+                                      </MDBCardBody>
+                                    </MDBCard>
+                                  </MDBCol>
+                                </MDBRow>
+                              </MDBContainer>
+
+                            </div>
+                          </Collapse>
+                        </Modal>
+                      </div>
+
+                    </Collapse>
+                  </Col>
+                </Row>
+              </div>
+
+            ))
+          ) : (
+            <p>Nothing to show</p>
+          )}
+        </div>
+
+      </div>
+
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+
+      />
     </>
   )
 }

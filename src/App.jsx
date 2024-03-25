@@ -20,9 +20,8 @@ import AdminFeedback from './Admin/Feedback/AdminFeedback';
 import Userprofile from './Pages/profile/Userprofile';
 import Bookinghistory from './Pages/Booking history/Bookinghistory';
 import UserPayment from './Pages/payment/UserPayment';
-import BoBookingHistory from './BusOperator/BoBookingHistory/BoBookingHistory';
 import AdminPayment from './Admin/AdminPayment/AdminPayment';
-
+import Home from './Pages/HomePage/Home'
 import Mangeoperator from './Admin/Manage operators/Mangeoperator';
 
 
@@ -39,10 +38,14 @@ function App() {
         <Route path='/manageuser' element={<ManageUser/>} />
         <Route path='/managebus' element={<ManageBus/>} />
         <Route path='/admin/feedback' element={<AdminFeedback/>} />
+        <Route path='/admin/operator' element={<Mangeoperator/>} />
+        <Route path='/admin/payment' element={<AdminPayment/>} />
+
+
 
        
 
-
+        <Route path='/user/home' element={<Home/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Login register/>} />
         <Route path='/buslist' element={<List/>} />
@@ -50,6 +53,7 @@ function App() {
         <Route path='/payment' element={<UserPayment/>} />
         <Route path='/buslist' element={<List/>}/>
         <Route path='/profile' element={<Userprofile/>} />
+        <Route path='/user/operators' element={<BOBusList/>} />
         
 
 
@@ -61,8 +65,8 @@ function App() {
         <Route path='/bus/profile' element={<Busprofile/>} />
         <Route path='/bookingdetails' element={<Booking/>} />
         <Route path='/bofeedback' element={<Feedback/>} />
-        <Route path='/bobuslist' element={<BOBusList/>} />
-        <Route path='/bobookinghistory' element={<BoBookingHistory/>} />
+       
+        
 
         
 
