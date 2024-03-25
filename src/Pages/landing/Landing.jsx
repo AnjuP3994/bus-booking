@@ -2,7 +2,6 @@ import React from 'react'
 import './landing.css'
 import { Row, Col, Container } from 'react-bootstrap'
 import bus from '../assets/50906.jpg'
-import Header from '../../Components/Header/Header'
 import owner from '../assets/5638969.jpg'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -11,11 +10,12 @@ import img from '../assets/7iaL9jAaT-modified.png'
 import banner from '../assets/removed bg.png'
 import banner_2 from '../assets/BOOK (1).png'
 import { Link } from 'react-router-dom'
+import LandingHeader from '../LandingHeader/LandingHeader'
 
 function Landing() {
     return (
         <div>
-            <Header />
+            <LandingHeader />
 
             <div className='container'>
 
