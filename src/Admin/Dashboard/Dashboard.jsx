@@ -101,7 +101,7 @@ function Dashboard() {
                                     <p style={{textAlign:'justify'}}>
                                       It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                                     </p>
-                                   <div className='d-flex justify-content-center'> <button type="button" className="read_more_btn">View More</button></div>
+                                   <div className='d-flex justify-content-center'> <Link to={'/managebus'}><button type="button" className="read_more_btn">View More</button></Link></div>
                                   </div>
                                 </div>
 
@@ -127,7 +127,7 @@ function Dashboard() {
                                     <p>
                                       It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                                     </p>
-                                    <div className='d-flex justify-content-center' ><button type="button" className="read_more_btn">View More</button></div>
+                                    <div className='d-flex justify-content-center' ><Link to={'/manageuser'}><button type="button" className="read_more_btn">View More</button></Link></div>
                                   </div>
                                 </div>
 
@@ -150,7 +150,7 @@ function Dashboard() {
                                     <p>
                                       It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                                     </p>
-                                    <div className='d-flex justify-content-center' ><button type="button" className="read_more_btn">View More</button></div>
+                                    <div className='d-flex justify-content-center' ><Link to={'/admin/operator'}><button type="button" className="read_more_btn">View More</button></Link></div>
                              
                                   </div>
                                 </div>
@@ -251,7 +251,7 @@ function Dashboard() {
 
 
           </Col>
-         <div className='d-flex justify-content-center mb-3'><a href="">View more</a></div>
+         <div className='d-flex justify-content-center mb-3'><Link to={'/admin/feedback'}><a href="">View more</a></Link></div>
         </Row>
        
 

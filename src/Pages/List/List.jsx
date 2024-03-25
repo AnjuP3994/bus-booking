@@ -7,12 +7,14 @@ import SearchItem from '../../Components/SearchItem/SearchItem'
 import Form from 'react-bootstrap/Form';
 import { MDBRadio, MDBBtnGroup } from 'mdb-react-ui-kit';
 import chair from '../../assets/Chair-icon.png'
+import { usergetbus } from '../../Services/allAPIs';
 
 
 function List() {
 
   const [date, setDate] = useState("");
   const [dateinfo, setDateinfo] = useState({});
+  const [allbusdetials,setAllbusdetials]=useState([])
 
   useEffect(() => {
     let mindate = new Date().toISOString().split("T")[0];
@@ -50,6 +52,20 @@ function List() {
     setIsSleeperSelected(false);
     setIsSeaterSelected(true);
   };
+
+
+  const getallbus=async ()=>{
+    const token = sessionStorage.getItem('token')
+    const reqHeader = {
+      "Authorization": `Token ${token}`
+    }
+    const result = await usergetbus(reqHeader)
+    console.log(result.data)
+    setAllbusdetials(result.data)
+  }
+  useEffect(() => {
+    getallbus()
+  }, [])
 
   return (
     <>
@@ -139,14 +155,8 @@ function List() {
       </Col>
 
       <Col xs={8} className="listResult">
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
-        <SearchItem/>
+        <SearchItem bus={allbusdetials} />
+       
       </Col>
 
       </Row>

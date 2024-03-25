@@ -115,7 +115,7 @@ function Login({ register }) {
                 username:"",
                 password:""
             })
-            navigate('/')
+            navigate('/user/home')
         } 
         else {
             toast.error("Login Failed.")

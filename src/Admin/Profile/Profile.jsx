@@ -1,9 +1,80 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Profile.css'
 import { Row,Col } from 'react-bootstrap'
 import admin_img from '../../Pages/assets/836.jpg'
+import { getadminprofile, updateadminprofile } from '../../Services/allAPIs'
+import Swal from 'sweetalert2';
+import { Await } from 'react-router-dom'
 
 function Profile() {
+  const[adprofile,setAdprofile]=useState({
+    name:"",
+    username:"",
+    email_address:"",
+    phone_number:""
+})
+  const[updtprofile,setUpdtprofile]=useState({
+    name:"",
+    username:"",
+    email_address:"",
+    phone_number:""
+  })
+
+  console.log(adprofile)
+
+  const handlegetprofile=async ()=>{
+    const token = sessionStorage.getItem('token')
+    const reqHeader = {
+      "Authorization": `Token ${token}`
+    }
+    const result = await getadminprofile(reqHeader)
+    console.log(result)
+    setAdprofile(result.data)
+  }
+
+  useEffect(()=>{
+    handlegetprofile()
+  },[])
+
+
+  const handleupdate=async ()=>{
+    const{name,username,email_address,phone_number}=adprofile
+    if(!name || !username || !email_address || !phone_number ){
+      Swal.fire({
+        title: `incomplete form`,
+        text: `Please fill the form completely`,
+        icon: "warning"
+      });
+
+    }else{
+      const token = sessionStorage.getItem('token')
+      const reqHeader = {
+        "Content-Type": "multipart/form-data",
+        "Authorization": `Token ${token}`
+    };
+    const result= await updateadminprofile(reqHeader,adprofile)
+    console.log(result)
+    if(result.status===200){
+      Swal.fire({
+        title: `successful`,
+        text: `profile  updated successfully`,
+        icon: "success"
+      });
+
+      handlegetprofile()
+
+    }
+    else{
+      Swal.fire({
+        title: `error`,
+        text: `something went wrong`,
+        icon: "error"
+      });
+
+      console.log(result.response.data)
+    }
+    }
+  }
   return (
     <>
         <div>
@@ -44,29 +115,33 @@ function Profile() {
                       <Row className='mt-5'>
                         <Col lg={6} sm={12}>
                         <div className="form-outline mb-4">
-                        <input type="text" id="form3Example3" className="form-control text-light" />
-                        <label className="form-label text-light" htmlFor="form3Example3">First Name</label>
+                        <label className=" text-light"  htmlFor="form3Example3"> Name</label> 
+                        <input type="text" id="form3Example3" value={adprofile.name} onChange={(e) => setAdprofile({ ...adprofile, name: e.target.value })} className="form-control text-light" />
+                     
                       </div>
 
                         </Col>
                         <Col lg={6} sm={12}>
                         <div className="form-outline mb-4">
-                        <input  type="password" id="form3Example4" className="form-control text-light" />
-                        <label className="form-label text-light" htmlFor="form3Example4">Last Name</label>
+                        <label className=" text-light" htmlFor="form3Example4">Username</label>
+                        <input  type="text" id="form3Example4" value={adprofile.username} onChange={(e) => setAdprofile({ ...adprofile, username: e.target.value })} className="form-control text-light" />
+                       
                       </div>
 
                         </Col>
                         <Col lg={6} sm={12}>
                         <div className="form-outline mb-4">
-                        <input type="email" id="form3Example3" className="form-control text-light" />
-                        <label className="form-label text-light" htmlFor="form3Example3">Email</label>
+                        <label className="form text-light" htmlFor="form3Example3">Email</label>
+                        <input type="email" id="form3Example3" value={adprofile.email_address} onChange={(e) => setAdprofile({ ...adprofile, email_address: e.target.value })} className="form-control text-light" />
+                       
                       </div>
 
                         </Col>
                         <Col lg={6} sm={12}>
                         <div className="form-outline mb-4">
-                        <input  type="password" id="form3Example4" className="form-control text-light" />
-                        <label className="form-label text-light" htmlFor="form3Example4">Username</label>
+                        <label className=" text-light" htmlFor="form3Example4">Phone</label>
+                        <input  type="text" id="form3Example4" value={adprofile.phone_number} onChange={(e) => setAdprofile({ ...adprofile, phone_number: e.target.value })}className="form-control text-light" />
+                       
                       </div>
 
                         </Col>
@@ -87,7 +162,7 @@ function Profile() {
                       </div>
     
                      <div className=' d-flex justify-content-center'>
-                          <button type="submit" className="btn btn-primary btn-block mb-4 w-50">
+                          <button type="button" className="btn btn-primary btn-block mb-4 w-50" onClick={handleupdate}>
                            Update
                           </button>
                      </div>

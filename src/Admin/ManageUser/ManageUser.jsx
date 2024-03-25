@@ -78,7 +78,8 @@ function ManageUser() {
                 <h1 className='d-flex fw-bolder ms-5 ps-5 pt-5  '>Manage User</h1>
                 <div className='containter' style={{ height: '50vh', overflowY: 'auto'}}>
                     <div className='p-5 ms-5 me-5' >
-                        <Table bordered hover style={{borderColor:'black'}} >
+
+                        <Table bordered hover style={{borderColor:'black',fontSize: '1.5rem'}} >
                             <thead>
                                 <tr style={{backgroundColor:'#0095a9'}}  className='table-info fw-bold fs-3'>
                                     <th>#</th>

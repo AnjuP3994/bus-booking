@@ -47,8 +47,8 @@ function AdminHeader() {
           <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
          <Link to={'/managebus'} className='ms-5'  style={{color:'black',fontSize:'14px'}}>Manage Bus </Link>
          <Link to={'/manageuser'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage User </Link>
-         <Link to={'/admin/payment'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage Payment</Link>
-         <Link /* to={'/'} */ className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage Bus Operators</Link>
+         <Link to={'/admin/profile'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage Profile</Link>
+         <Link to={'/admin/operator'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage Bus Operators</Link>
          <Link to={'/admin/feedback'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Feedback</Link>
           </p>
           </Navbar.Brand>

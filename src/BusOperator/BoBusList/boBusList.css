@@ -1,9 +1,9 @@
 * {
 	box-sizing: border-box;
   }
-  /* .bus-container{
+  .bus-container{
 	margin-top: '70px';
-  } */
+  }
   .bus {
 	background-color: #ebebeb;
 	border-radius: 10px;
