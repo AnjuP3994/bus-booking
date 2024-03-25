@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { addFeedback, getUserReservations } from '../../Services/allAPIs';
 import Swal from 'sweetalert2';
+import Header from '../../Components/Header/Header';
 
 
 
@@ -81,16 +82,15 @@ function Bookinghistory() {
           rating:value,
           comment:''
         })
-
       }else{
         console.log(result.response.data)
-
       }
     }
   }
   return (
     <>
-      <h1 className='fw-bolder text-center'>Booking History</h1>
+    <Header/>
+      <h1 style={{marginTop:'100px'}} className='fw-bolder text-center'>Booking History</h1>
       
      <div className='d-flex justify-content-center'>
          <div className="listcard shadow p-3 w-75 mb-4">
@@ -108,7 +108,6 @@ function Bookinghistory() {
            <p className='text'>Seat No: <span className='text-danger fw-bold'>{item.seat_number}</span></p>
            <p className='rating ps-1'><i style={{fontSize:'12px'}} class="fa-solid fa-star me-1"></i>4.6</p>
          </Col>
- 
          <Col lg={4} sm={12} className='d-flex justify-content-center mt-3 flex-column'>
            <Row className='time'>
              <Col lg={5} className='text-center'>
@@ -122,7 +121,6 @@ function Bookinghistory() {
                <p className='textclr fw-bolder fs-9' style={{lineHeight:'1rem'}}>{item.bus.dropping_point}</p>
                <p className='textclr fw-bolder'>{item.bus.dropping_time}</p>
              </Col>
-             
            </Row>
            <div>
            <p className='text-center'>STATUS:
@@ -131,10 +129,8 @@ function Bookinghistory() {
     <span className='text-success'>{item.reservation_status}</span>
   }
 </p>
-
            </div>
          </Col>
- 
          <Col lg={2} sm={12} className='text-end mt-2'>
            <h3 className='text-danger fw-bolder'><i style={{fontSize:'25px'}} class="fa-solid fa-indian-rupee-sign me-2"></i>{item.bus.price}</h3>
            <p>Journey Date: {item.journey_date}</p>
@@ -155,7 +151,6 @@ function Bookinghistory() {
                            </Modal.Header>
                            <Modal.Body>
                              Review
-
                              <Box
                                component="form"
                                sx={{
@@ -164,7 +159,6 @@ function Bookinghistory() {
                                noValidate
                                autoComplete="off"
                              >
-
                                <TextField id="standard-basic" value={feedback.comment} onChange={(e) => setFeedback({ ...feedback, comment: e.target.value })} label="Leave us a Review" variant="standard" />
                              </Box>
                              <Box
@@ -192,12 +186,8 @@ function Bookinghistory() {
                        </div>
          </Col>
     </Col>))
-       
-       
-      
        : <p>nothing to show</p> }
         </Row>
-        
         {/* <Row>
           <Col>
             <Collapse in={open}>
@@ -211,8 +201,6 @@ function Bookinghistory() {
         </Row> */}
       </div>
      </div>
-
-
     </>
   );
 }

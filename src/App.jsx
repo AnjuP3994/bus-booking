@@ -51,7 +51,7 @@ function App() {
         <Route path='/buslist' element={<List/>} />
         <Route path='/bookinghistory' element={<Bookinghistory/>} />
         <Route path='/payment' element={<UserPayment/>} />
-        <Route path='/buslist' element={<List/>}/>
+        {/* <Route path='/buslist' element={<List/>}/> */}
         <Route path='/profile' element={<Userprofile/>} />
         <Route path='/user/operators' element={<BOBusList/>} />
         
