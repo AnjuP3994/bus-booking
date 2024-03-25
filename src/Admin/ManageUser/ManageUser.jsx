@@ -1,13 +1,69 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { Table } from 'react-bootstrap';
 import bgImage  from "./assets/manage-user-bg.jpg"
 import profileImage  from "./assets/user_img.jpg"
+<<<<<<< HEAD
+import Swal from 'sweetalert2';
+
+import './mangeUser.css'
+import { deleteUser, getUser } from '../../Services/allAPIs';
+import { BASE_URL } from '../../Services/baseURL';
+=======
 import './mangeUser.css'
 import AdminHeader from '../Header/AdminHeader';
 
+>>>>>>> f31845cf5e8ebc3e9b49a1569cd69d6fa89f48fa
 function ManageUser() {
+    const [users,setUsers]=useState([])
+
+
+    
+    const handleuser = async () => {
+        const token = sessionStorage.getItem('token')
+        const reqHeader = {
+          "Authorization": `Token ${token}`
+        }
+        const result = await getUser(reqHeader)
+        console.log(result)
+        setUsers(result.data)
+      }
+    
+      useEffect(() => {
+        handleuser()
+      }, [])
+      console.log(users)
+
+    //  console.log(`${BASE_URL}${users[0].profile_picture}`)
+
+    const handleDelete=async(id)=>{
+        const token = sessionStorage.getItem('token')
+        const reqHeader = {
+          "Authorization": `Token ${token}`
+        }
+        const result = await deleteUser(id,reqHeader)
+        console.log(result)
+        if(result.status===204){
+            Swal.fire({
+         
+                title: ` successfull`,
+                text: `User has been deleted successfully`,
+                icon: "success"
+              });
+              handleuser()
+        } else{
+            Swal.fire({
+         
+                title: ` error`,
+                text: `something went wrong`,
+                icon: "error"
+              });
+
+              console.log(result.response.data)
+
+        } 
+    }
 
     return (
         <>
@@ -25,7 +81,12 @@ function ManageUser() {
                 <h1 className='d-flex fw-bolder ms-5 ps-5 pt-5  '>Manage User</h1>
                 <div className='containter' style={{ height: '50vh', overflowY: 'auto'}}>
                     <div className='p-5 ms-5 me-5' >
+<<<<<<< HEAD
+
+                        <Table bordered hover style={{borderColor:'black',fontSize: '1.5rem'}} >
+=======
                         <Table bordered hover style={{borderColor:'black'}} >
+>>>>>>> f31845cf5e8ebc3e9b49a1569cd69d6fa89f48fa
                             <thead>
                                 <tr style={{backgroundColor:'#0095a9'}}  className='table-info fw-bold fs-3'>
                                     <th>#</th>
@@ -38,6 +99,25 @@ function ManageUser() {
                                 </tr>
                             </thead>
                             <tbody>
+<<<<<<< HEAD
+                               { users?.length>0?
+                               users.map((item,index)=>(<tr className='fs-3'>
+                               <td>{index+1}</td>
+                               <td  className='d-flex'>
+                                    <img src={`${BASE_URL}${item.profile_picture}`} alt="" />
+                                    <p className='ms-5 mt-2'>{item.name}</p>
+                               </td>
+                               <td>{item.phone}</td>
+                               <td>{item.username}</td>
+                               <td>{item.date_of_birth}</td>
+                               <td>{item.address}</td>
+                               <td className=' text-center'><i className="fa-solid fa-trash " onClick={()=>handleDelete(item.id)}></i></td>
+                               {/* <img src={`${BASE_URL}${item.profile_picture}`} alt="" /> */}
+                           </tr>
+                           ))
+                                : <p>nothing to show</p> }
+                                
+=======
                                 <tr className='fs-3'>
                                     <td>1</td>
                                     <td  className='d-flex'>
@@ -129,6 +209,7 @@ function ManageUser() {
                                     <td>asdf 620555</td>
                                     <td className=' text-center'><i className="fa-solid fa-trash"></i></td>
                                 </tr>
+>>>>>>> f31845cf5e8ebc3e9b49a1569cd69d6fa89f48fa
                                
                               
                             </tbody>

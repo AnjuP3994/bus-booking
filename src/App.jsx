@@ -23,6 +23,7 @@ import UserPayment from './Pages/payment/UserPayment';
 import BoBookingHistory from './BusOperator/BoBookingHistory/BoBookingHistory';
 import AdminPayment from './Admin/AdminPayment/AdminPayment';
 
+import Mangeoperator from './Admin/Manage operators/Mangeoperator';
 
 
 function App() {
@@ -38,8 +39,6 @@ function App() {
         <Route path='/manageuser' element={<ManageUser/>} />
         <Route path='/managebus' element={<ManageBus/>} />
         <Route path='/admin/feedback' element={<AdminFeedback/>} />
-        <Route path='/admin/payment' element={<AdminPayment/>} />
-    
 
        
 

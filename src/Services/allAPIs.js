@@ -69,3 +69,43 @@ export const adminloginAPI = async(body)=>{
     return await commonAPI("post",`${BASE_URL}/Manager/token/`,body,"")
 }
 
+// 13.admin:get user 
+export const getUser = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Manager/users/`,"",reqHeader)
+}
+
+// 14.admin:delete user
+
+export const deleteUser = async(userId,reqHeader)=>{
+    return await commonAPI("delete",`${BASE_URL}/Manager/users/${userId}`,{},reqHeader)
+}
+
+// 13.admin:get bus
+
+export const getbus = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Manager/buses/`,"",reqHeader)
+}
+
+// 14.admin:delete bus
+
+export const admindeletebus = async(busId,reqHeader)=>{
+    return await commonAPI("delete",`${BASE_URL}/Manager/buses/${busId}`,{},reqHeader)
+}
+
+// 15:admin:get operators
+
+export const admingetgetoperators = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Manager/busoperators/`,"",reqHeader)
+}
+
+// 15:admin:delete operators
+
+export const admindeleteoperator = async(operatorId,reqHeader)=>{
+    return await commonAPI("delete",`${BASE_URL}/Manager/busoperators/${operatorId}`,{},reqHeader)
+}
+
+
+
+
+
+

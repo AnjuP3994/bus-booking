@@ -144,7 +144,7 @@ function Dashboard() {
                               <div className="solution_cards_box">
                                 <div className="solution_card">
                                   <div className="solu_title">
-                                    <h3 className='text-center'>Manage Payments</h3>
+                                    <h3 className='text-center'>Manage Bus Operators</h3>
                                   </div>
                                   <div className="solu_description">
                                     <p>
