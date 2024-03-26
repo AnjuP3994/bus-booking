@@ -65,6 +65,8 @@ function App() {
         <Route path='/bus/profile' element={<Busprofile/>} />
         <Route path='/bookingdetails' element={<Booking/>} />
         <Route path='/bofeedback' element={<Feedback/>} />
+        <Route path='/bobuslist' element={<BOBusList/>} />
+
        
         
 

@@ -32,7 +32,7 @@ function BOBusList() {
 
 
       <>
-      <div className='mb-5'><BoHeader/></div>
+      <div className='mb-5 mt-3 pt-5'><BoHeader/></div>
           <div className='mt-5' >
             
            <div className='mt-5' style={{marginTop:'5rem'}}>

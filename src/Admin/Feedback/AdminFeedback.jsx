@@ -40,10 +40,9 @@ function AdminFeedback() {
         backgroundColor: '#fff4df',
         width: '100%',
         minHeight: '100vh',
-        height: '100%',
-        marginTop: '60px'
+        height: '100%'
       }}>
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-center mt-5 pt-5'>
           <img style={{ width: '33%', marginTop: '-30px' }} src={bgImage} alt="" />
         </div>
         <div className='row' style={{ marginTop: '-100px' }}>
