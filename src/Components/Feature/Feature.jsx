@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom'
 function Feature() {
   return (
     <>
-    <div className='infogrid py-5'>
+      <div className='infogrid py-5'>
         <div className='coupon'>
           <span>save upto rs 150</span>
           <span className='offerImage'>
@@ -42,53 +42,53 @@ function Feature() {
 
 
       <Container>
-    
-      <Row>
-        <Col  xs={6} md={3}>
-          <div className="m-3 mb-5">
-  <div class="article-card">
-    <div class="content">
-      <p class="title">Search Bus </p>
-    </div>
-    <Link to={'/buslist'}> <img  src={SearchTemp} alt="article-cover" /> </Link>
-  </div>
-</div>
-        </Col>
 
-        <Col  xs={6} md={3}>
-          <div className="m-3 mb-5">
-  <div class="article-card">
-    <div class="content">
-      <p class="title"> Bus List </p>
-    </div>
-    <Link to={'/buslist '}> <img  src={ListTemp} alt="article-cover" /></Link>
-  </div>
-</div>
-        </Col>
+        <Row>
+          <Col xs={6} md={3}>
+            <div className="m-3 mb-5">
+              <div class="article-card">
+                <div class="content">
+                  <p class="title">Search Bus </p>
+                </div>
+                <Link to={'/buslist'}> <img src={SearchTemp} alt="article-cover" /> </Link>
+              </div>
+            </div>
+          </Col>
 
-        <Col  xs={6} md={3}>
-          <div className="m-3 mb-5">
-  <div class="article-card">
-    <div class="content">
-      <p class="title">Booking HIstory </p>
-    </div>
-    <Link to={'/profile'}> <img  src={historyTemp} alt="article-cover" /> </Link>
-  </div>
-</div>
-        </Col>
+          <Col xs={6} md={3}>
+            <div className="m-3 mb-5">
+              <div class="article-card">
+                <div class="content">
+                  <p class="title"> Bus List </p>
+                </div>
+                <Link to={'/buslist '}> <img src={ListTemp} alt="article-cover" /></Link>
+              </div>
+            </div>
+          </Col>
 
-        <Col  xs={6} md={3}>
-          <div className="m-3 mb-5">
-  <div class="article-card">
-    <div class="content">
-      <p class="title">Profile </p>
-    </div>
-   <Link to={'/profile'}> <img  src={profileTemp} alt="article-cover" /></Link>
-  </div>
-</div>
-        </Col>
-      </Row>
-    </Container>
+          <Col xs={6} md={3}>
+            <div className="m-3 mb-5">
+              <div class="article-card">
+                <div class="content">
+                  <p class="title">Booking HIstory </p>
+                </div>
+                <Link to={'/profile'}> <img src={historyTemp} alt="article-cover" /> </Link>
+              </div>
+            </div>
+          </Col>
+
+          <Col xs={6} md={3}>
+            <div className="m-3 mb-5">
+              <div class="article-card">
+                <div class="content">
+                  <p class="title">Profile </p>
+                </div>
+                <Link to={'/profile'}> <img src={profileTemp} alt="article-cover" /></Link>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
 
     </>
   )
