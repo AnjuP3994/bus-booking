@@ -45,7 +45,7 @@ function Header() {
               width="50"
               className="d-inline-block align-top me-2"
             />{' '}
-               <Link to={'/'} className='bus w-75'>Bus<span  style={{color:'brown'}}/* className='hub' */ className='ms-2 '>Hubb</span></Link>
+               <Link to={'/user/home'} className='bus w-75'>Bus<span  style={{color:'brown'}}/* className='hub' */ className='ms-2 '>Hubb</span></Link>
         <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
          <Link to={'/buslist'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Bus List </Link>
          <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>

@@ -4,7 +4,10 @@ import Table from 'react-bootstrap/Table';
 
 function PaymentHistory() {
   return (
-    <div>    <Table striped bordered hover>
+    <div>  
+      <h2 className='text-center'>Payment History</h2>
+      
+        <Table striped bordered hover>
     <thead>
       <tr>
         <th>#</th>

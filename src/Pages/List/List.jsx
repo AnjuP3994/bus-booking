@@ -111,13 +111,21 @@ function List() {
     setIsAcSelected(false);
     setIsNonAcSelected(false);
 
-      }else{
+      }else if(result.status===203){
         Swal.fire({
           title: `No results`,
           
           icon: "error"
         });
-        console.log(result.response.data)
+        
+
+      }
+      else{
+        Swal.fire({
+          title: `something went wrong`,
+          
+          icon: "error"
+        });
 
       }
       
@@ -211,7 +219,7 @@ function List() {
                 btnColor={isSeaterSelected ? 'primary' : 'secondary'}
                 id='btn-radio-seater'
                 wrapperTag='span'
-                value={'Non Ac Seater'}
+                value={'Non AC Seater'}
                 label={<><i class="fa-solid fa-couch me-2"></i>Non Ac Seater</>}
                 onClick={handleSeaterClick}
                 onChange={(e)=>setSearchvalue({ ...searchvalue, category: e.target.value })}
