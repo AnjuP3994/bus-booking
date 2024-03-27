@@ -46,9 +46,9 @@ function Feature() {
         <Row>
           <Col xs={6} md={3}>
             <div className="m-3 mb-5">
-              <div class="article-card">
-                <div class="content">
-                  <p class="title">Search Bus </p>
+              <div className="article-card">
+                <div className="content">
+                  <p className="title">Search Bus </p>
                 </div>
                 <Link to={'/buslist'}> <img src={SearchTemp} alt="article-cover" /> </Link>
               </div>
@@ -57,9 +57,9 @@ function Feature() {
 
           <Col xs={6} md={3}>
             <div className="m-3 mb-5">
-              <div class="article-card">
-                <div class="content">
-                  <p class="title"> Bus List </p>
+              <div className="article-card">
+                <div className="content">
+                  <p className="title"> Bus List </p>
                 </div>
                 <Link to={'/buslist '}> <img src={ListTemp} alt="article-cover" /></Link>
               </div>
@@ -68,20 +68,20 @@ function Feature() {
 
           <Col xs={6} md={3}>
             <div className="m-3 mb-5">
-              <div class="article-card">
-                <div class="content">
-                  <p class="title">Booking HIstory </p>
+              <div className="article-card">
+                <div className="content">
+                  <p className="title">Booking HIstory </p>
                 </div>
-                <Link to={'/profile'}> <img src={historyTemp} alt="article-cover" /> </Link>
+                <Link to={'/bookinghistory'}> <img src={historyTemp} alt="article-cover" /> </Link>
               </div>
             </div>
           </Col>
 
           <Col xs={6} md={3}>
             <div className="m-3 mb-5">
-              <div class="article-card">
-                <div class="content">
-                  <p class="title">Profile </p>
+              <div className="article-card">
+                <div className="content">
+                  <p className="title ">Profile </p>
                 </div>
                 <Link to={'/profile'}> <img src={profileTemp} alt="article-cover" /></Link>
               </div>
