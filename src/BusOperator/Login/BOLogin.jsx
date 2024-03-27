@@ -21,9 +21,10 @@ function BOLogin({registerpage}) {
         name: "",
         phone: "",
         username: "",
+        email: "",
         password: "",
         description: "",
-        bus_img:"",
+        logo:"",
         address: "",
         website: ""
     })
@@ -31,9 +32,9 @@ function BOLogin({registerpage}) {
 
     const handleRegister = async(e)=>{
         e.preventDefault();
-        const{name,phone,username,password,description,bus_img,address,website}=BODetails
+        const{name,phone,username,password,description,logo,address,website,email}=BODetails
 
-        if (!BODetails.name || !BODetails.phone || !BODetails.website || !BODetails.address || !BODetails.description || !BODetails.username || !BODetails.password || !BODetails.bus_img ) {
+        if (!BODetails.name || !BODetails.phone || !BODetails.website || !BODetails.address || !BODetails.description || !BODetails.username || !BODetails.password || !BODetails.logo || !BODetails.email ) {
             toast.error("Please fill the form with valid data.")
 
         }
@@ -46,9 +47,10 @@ function BOLogin({registerpage}) {
             reqBody.append("name", name);
             reqBody.append("phone", phone);
             reqBody.append("username", username);
+            reqBody.append("email",email)
             reqBody.append("password", password);
             reqBody.append("description", description);
-            reqBody.append("bus_img", bus_img);
+            reqBody.append("logo", logo);
             reqBody.append("address", address);
             reqBody.append("website", website);
 
@@ -149,10 +151,11 @@ function BOLogin({registerpage}) {
                                     <MDBTextArea value={BODetails.address} onChange={e => setBODetails({ ...BODetails, address: e.target.value })} label='Address' rows={3} />
                                     <MDBTextArea value={BODetails.description} onChange={e => setBODetails({ ...BODetails, description: e.target.value })} label='Description' rows={3} />
                                 </div>
-                                <MDBInput onChange={e => setBODetails({ ...BODetails, bus_img: e.target.files[0]})}  type='file' className='mb-3' />
+                                <MDBInput onChange={e => setBODetails({ ...BODetails, logo: e.target.files[0]})}  type='file' className='mb-3' />
                             </div>
                         }
                         <div className='text-center'>
+                        <MDBInput value={BODetails.email} onChange={e => setBODetails({ ...BODetails, email: e.target.value })} label='Email' type='text' className='mb-3' />
                             <MDBInput value={BODetails.username} onChange={e => setBODetails({ ...BODetails, username: e.target.value })} label='Username' type='text' />
                             <MDBInput value={BODetails.password} onChange={e => setBODetails({ ...BODetails, password: e.target.value })} label='Password' className='mt-3 mb-4' type='password' />
                             { BOregister?

@@ -22,13 +22,14 @@ import {
 
 
 
-function SearchItem({ bus }) {
+function SearchItem({ bus,search }) {
   const [date, setDate] = useState("");
   const [show, setShow] = useState(false);
   const [dateinfo, setDateinfo] = useState({});
 
 
   const [open, setOpen] = useState(false);
+  const[resultsearch,setResultsearch]=useState(null)
 
   const [busdts, setBusdts] = useState([])
   const [bookdts, setBookdts] = useState({
@@ -44,6 +45,14 @@ function SearchItem({ bus }) {
     setShow(false);
     setCollapseOpen(false);
   };
+
+  useEffect(()=>{
+    if(search){
+      setResultsearch(search)
+    }
+  },[search])
+
+  console.log(resultsearch)
   const handleShow = () => setShow(true);
 
   const [reservedts, setReservedts] = useState([])
@@ -139,6 +148,7 @@ function SearchItem({ bus }) {
         });
 
       }
+      
 
   }
 
@@ -146,16 +156,19 @@ function SearchItem({ bus }) {
     <>
       <div className="listcard shadow p-3 w-100 mb-4">
         <div>
-          {bus?.length > 0 ? (
-            bus.map((item, index) => (
-              <div>
+          
+        {resultsearch?.length > 0 ? (
+  resultsearch.map((item) => (
+    <div>
                 <Row>
                   <div className='d-flex'>
                     <Col xs={4}>
                       <h4 className='fw-bolder'>{item.name}</h4>
-                      <p>{item.category}</p>
-                      {/* <p className='text'>Contact no: 9874563210</p> */}
+                      <p>{item.category_name}</p>
+                      
+                   
                       <p className='rating ps-1'><i style={{ fontSize: '12px' }} class="fa-solid fa-star me-1"></i>4.6</p>
+                      
                     </Col>
 
                     <Col xs={5} className='d-flex justify-content-center mt-3'>
@@ -177,6 +190,7 @@ function SearchItem({ bus }) {
 
                     <Col xs={3} className='text-end mt-2'>
                       <h3 className='text-danger fw-bolder'><i style={{ fontSize: '25px' }} class="fa-solid fa-indian-rupee-sign me-2"></i>{item.price}</h3>
+                      <h8>Duration:{item.duration}</h8>
                       <div className='text-end mt-5'>
                         <Button className='btn btn-info' onClick={() => setOpen(!open)} aria-expanded={open}>View Seats</Button>
                       </div>
@@ -289,11 +303,158 @@ function SearchItem({ bus }) {
                   </Col>
                 </Row>
               </div>
+  ))
+) : (
+  bus?.length > 0 ? (
+    bus.map((item, index) => (
+      <div>
+                <Row>
+                  <div className='d-flex'>
+                    <Col xs={4}>
+                      <h4 className='fw-bolder'>{item.name}</h4>
+                      <p>{item.category_name}</p>
+                   
+                      <p className='rating ps-1'><i style={{ fontSize: '12px' }} class="fa-solid fa-star me-1"></i>4.6</p>
+                    </Col>
 
-            ))
-          ) : (
-            <p>Nothing to show</p>
-          )}
+                    <Col xs={5} className='d-flex justify-content-center mt-3'>
+                      <Row className='time'>
+                        <Col lg={5} className='text-center'>
+                          <p className='textclr fw-bolder fs-9 ' style={{ lineHeight: '1rem' }}>{item.boarding_point}</p>
+                          <p className='textclr fw-bolder'>{item.boarding_time}</p>
+                        </Col>
+                        <Col lg={2} className='mt-3'>
+                          <p className='fw-bolder fs-5'>to</p>
+                        </Col>
+                        <Col lg={5} className='text-center'>
+                          <p className='textclr fw-bolder fs-9' style={{ lineHeight: '1rem' }}>{item.dropping_point}</p>
+                          <p className='textclr fw-bolder'>{item.dropping_time}</p>
+                        </Col>
+
+                      </Row>
+                    </Col>
+
+                    <Col xs={3} className='text-end mt-2'>
+                      <h3 className='text-danger fw-bolder'><i style={{ fontSize: '25px' }} class="fa-solid fa-indian-rupee-sign me-2"></i>{item.price}</h3>
+                      <h8>Duration:{item.duration}</h8>
+                      <div className='text-end mt-5'>
+                        <Button className='btn btn-info' onClick={() => setOpen(!open)} aria-expanded={open}>View Seats</Button>
+                      </div>
+                    </Col>
+                  </div>
+                </Row>
+
+                <Row>
+                  <Col>
+                    <Collapse in={open}>
+                      <div id="example-collapse-text">
+
+                        <div>
+                          {[...Array(item.capacity)].map((_, index) => (
+                            <button
+                              key={index}
+                              className='btn btn-success ms-2 mt-2'
+                              onClick={() => handleClick(index)}
+                              style={{ backgroundColor: bookdts.seat_number === index + 1 ? 'red' : '' }}
+                              value={index + 1}
+                            >
+                              {index + 1}
+                            </button>
+                          ))}
+                        </div>
+                        <button className='btn btn-info ' onClick={handleShow}  >BOOK</button>
+                        <Modal show={show} onHide={handleClose}>
+                          <Modal.Header closeButton>
+                            <Modal.Title>Confirm your details</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            <div className='d-flex justify-content-center align-items-center'>
+                              <button className='btn btn-info '>
+                                {bookdts.seat_number}
+                              </button>
+                            </div>
+                            <Form>
+                              <Form>
+                                <label>Date</label>
+                                <Form.Control
+                                  type="date"
+                                  value={bookdts.journey_date}
+                                  min={dateinfo.mindate}
+                                  onChange={handleDateChange}
+                                />
+                              </Form>
+                            </Form>
+                          </Modal.Body>
+                          <Modal.Footer>
+                            {/* <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button> */}
+                            <Button variant="primary" onClick={() => handlebook(item.id)} >
+                              proceed to reserve
+                            </Button>
+                          </Modal.Footer>
+                          <Collapse in={collapseOpen}>
+                            <div className=''>
+                              <MDBContainer className="py-5" >
+                                <MDBRow className=" ">
+                                  <MDBCol>
+                                    <MDBCard>
+                                      <MDBCardBody className="p-3">
+                                        <MDBRow>
+                                          <MDBCol lg="12">
+                                            <MDBCard className="bg-primary text-white rounded-3 p-4">
+                                              <MDBCardBody>
+                                                <div className="d-flex justify-content-between align-items-center mb-4">
+                                                </div>
+                                                <p className="small">Card type</p>
+                                                <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-mastercard fa-2x me-2" /></a>
+                                                <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-visa fa-2x me-2" /></a>
+                                                <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-amex fa-2x me-2" /></a>
+                                                <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-paypal fa-2x me-2" /></a>
+                                                <form className="mt-4">
+                                                  <MDBInput className="mb-4" label="Cardholder's Name" placeholder="Cardholder's Name" type="text" size="lg" contrast />
+                                                  <MDBInput className="mb-4" label="Card Number" type="text" size="lg" minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast />
+                                                  <MDBRow className="mb-4">
+                                                    <MDBCol md="6">
+                                                      <MDBInput className="mb-4" label="Expiration" type="text" size="lg" minLength="6" maxLength="6" placeholder="MM/YY" contrast />
+                                                    </MDBCol>
+                                                    <MDBCol md="6">
+                                                      <MDBInput className="mb-4" label="CVV" type="text" size="lg" minLength="3" maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast />
+                                                    </MDBCol>
+                                                  </MDBRow>
+                                                </form>
+                                                {/* <hr /> */}
+                                                <div className="d-flex justify-content-between">
+                                                  <p className="mb-2">Total(Incl. taxes):<span className='text-danger fs-3 fw-bold'>{item.price}</span></p>
+                                                </div>
+                                                <Button variant="info" color="info" block size="lg" onClick={()=>handlePayment(reservedts.id)} >
+                                                  Pay Now
+                                                </Button>
+                                              </MDBCardBody>
+                                            </MDBCard>
+                                          </MDBCol>
+                                        </MDBRow>
+                                      </MDBCardBody>
+                                    </MDBCard>
+                                  </MDBCol>
+                                </MDBRow>
+                              </MDBContainer>
+
+                            </div>
+                          </Collapse>
+                        </Modal>
+                      </div>
+
+                    </Collapse>
+                  </Col>
+                </Row>
+              </div>
+    ))
+  ) : (
+    <p>Nothing to show</p>
+  )
+)}
+
         </div>
 
       </div>

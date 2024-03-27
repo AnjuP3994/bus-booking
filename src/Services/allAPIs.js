@@ -130,7 +130,7 @@ export const getadminprofile = async(reqHeader)=>{
 
 // admin:update admin profile
 
-export const updateadminprofile = async(reqHeader,reqBody)=>{
+export const updateadminprofile = async(reqBody,reqHeader)=>{
     return await commonAPI("put",`${BASE_URL}/Manager/profile/`,reqBody,reqHeader)
 }
 
@@ -142,6 +142,67 @@ export const updateadminprofile = async(reqHeader,reqBody)=>{
 export const admingetfeedback = async(reqHeader)=>{
     return await commonAPI("get",`${BASE_URL}/BusOperator/reviews/`,"",reqHeader)
 }
+
+// busoperator:get operator profile
+
+export const getoperatorprofile = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/BusOperator/profile/`,"",reqHeader)
+}
+
+// busoperator:update profile
+
+export const updateaoperatorprofile = async(reqBody,reqHeader)=>{
+    return await commonAPI("put",`${BASE_URL}/BusOperator/profile/`,reqBody,reqHeader)
+}
+
+// busoperator:get bus
+
+export const getallbus = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/BusOperator/bus/`,"",reqHeader)
+}
+
+// operator:update bus
+
+export const updateBus = async(id,reqBody,reqHeader)=>{
+    return await commonAPI("put",`${BASE_URL}/BusOperator/bus/${id}`,reqBody,reqHeader)
+}
+
+// user:search bus
+
+export const searchBus = async(reqBody)=>{
+    return await commonAPI("post",`${BASE_URL}/Userapp/buses/search/`,reqBody,"")
+}
+
+// user:get user profile
+
+export const getUserprofile = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Userapp/profile/`,"",reqHeader)
+}
+
+
+// user:update profile
+
+export const updateuserprofile = async(reqBody,reqHeader)=>{
+    return await commonAPI("put",`${BASE_URL}/Userapp/profile/`,reqBody,reqHeader)
+}
+
+// 15:operator:delete bus
+
+export const deleteBusapi = async(busId,reqHeader)=>{
+    return await commonAPI("delete",`${BASE_URL}/BusOperator/bus/${busId}`,{},reqHeader)
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

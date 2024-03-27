@@ -157,12 +157,12 @@ function BOHome() {
          <Form>
          <Form.Select id='district'  aria-label="Default select example" className='mt-2' onChange={(e) => setCategory({ ...category, name: e.target.value })}>
               
-              <option value="AC Normal">AC Normal</option>
-              <option value="Non AC Normal">Non AC Normal</option>
-              <option value="AC Push back">AC Push back</option>
-              <option value="Non Push back">Non Push back</option>
+              <option value="AC Seater ">AC Seater </option>
+              <option value="Non AC Seater ">Non AC Seater </option>
               <option value="AC Sleeper">AC Sleeper</option>
-              <option value="Non AC Sleeper">Non AC Sleeper</option>
+              <option value="Non Ac Sleeper">Non Ac Sleeper</option>
+              {/* <option value=" Sleeper">Sleeper</option>
+              <option value="Non AC Sleeper"> Sleeper</option> */}
             </Form.Select>
          </Form>
 

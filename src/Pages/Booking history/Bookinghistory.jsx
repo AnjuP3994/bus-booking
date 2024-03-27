@@ -97,10 +97,10 @@ function Bookinghistory() {
         <Row>
        {reservations?.length>0?
        reservations.map((item)=>( 
-       <Col className='d-flex'>
+       <Col lg={12} className='d-flex'>
         
        <Col lg={2} sm={12}>
-           <div  className='d-flex justify-content-center align-items-center' ><img src={cardImg} className='img-fluid' height={'100%'} alt="" /></div>
+           <div  className='d-flex justify-content-center align-items-center' ><img src={item.image} className='img-fluid' height={'100%'} alt="" /></div>
          </Col>
          <Col lg={3} sm={12}>
            <h4 className='fw-bolder'>{item.bus.name}</h4>
