@@ -35,7 +35,7 @@ function Dashboard() {
             <Carousel.Caption className='d-flex justify-content-center'>
               <div className='card' style={{ width: '15rem', backgroundColor: '#b9b6b6', height: '6rem' }}>
                 <h4 className='text-dark'>Manage Bus</h4>
-                <div className='d-flex justify-content-center'>  <button className='btn btn-success w-50'>Go</button></div>
+                <div className='d-flex justify-content-center'>  <Link to={'/managebus'} className='btn btn-success w-50'>Go</Link></div>
               </div>
             </Carousel.Caption>
           </Carousel.Item>
@@ -48,7 +48,7 @@ function Dashboard() {
             <Carousel.Caption className='d-flex justify-content-center'>
               <div className='card' style={{ width: '15rem', backgroundColor: '#b9b6b6', height: '6rem' }}>
                 <h4 className='text-dark'>Manage user</h4>
-                <div className='d-flex justify-content-center'>  <button className='btn btn-success w-50'>Go</button></div>
+                <div className='d-flex justify-content-center'>  <Link to={'/manageuser'} className='btn btn-success w-50'>Go</Link ></div>
               </div>
             </Carousel.Caption>
           </Carousel.Item>
@@ -61,7 +61,7 @@ function Dashboard() {
             <Carousel.Caption className='d-flex justify-content-center'>
               <div className='card' style={{ width: '15rem', backgroundColor: '#b9b6b6', height: '6rem' }}>
                 <h4 className='text-dark'>Manage Payment</h4>
-                <div className='d-flex justify-content-center'>  <button className='btn btn-success w-50'>Go</button></div>
+                <div className='d-flex justify-content-center'>  <Link to={'/admin/payment'} className='btn btn-success w-50'>Go</Link></div>
               </div>
             </Carousel.Caption>
           </Carousel.Item>

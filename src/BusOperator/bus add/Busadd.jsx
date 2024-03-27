@@ -14,6 +14,7 @@ import { Form } from 'react-bootstrap';
 import { addbus, getCatgory } from '../../Services/allAPIs';
 import Swal from 'sweetalert2';
 import { BASE_URL } from '../../Services/baseURL';
+import BoHeader from '../BoHeader/BoHeader';
 
 function Busadd() {
   const [busdts, setBusdts] = useState({
@@ -116,11 +117,14 @@ function Busadd() {
 
   }
   return (
-    <div>
-      <MDBContainer fluid>
+    <> <BoHeader/>
+    <div className='mt-5'>
+     
+      
+      <MDBContainer fluid >
         <Form>
 
-          <MDBRow className='justify-content-center align-items-center m-5 shadow'>
+          <MDBRow className='justify-content-center align-items-center m-5 m shadow'>
 
             <MDBCard>
               <MDBCardBody className='px-4'>
@@ -231,7 +235,8 @@ function Busadd() {
       </MDBContainer>
 
     </div>
-  )
+    </>
+    )
 }
 
 export default Busadd

@@ -1,19 +1,21 @@
 import React,{ useEffect, useState } from 'react'
 import Navbar from 'react-bootstrap/Navbar';
 import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function AdminHeader() {
     
   const [viewLogout, setViewLogout] = useState(false);
   const [logout, setLogout] = useState("");
+  const navigate = useNavigate()
 
   const handleLogout = async (e) => {
     e.preventDefault();
     if (sessionStorage.getItem("token")) {
       setLogout(sessionStorage.removeItem("token"))
-      window.location.reload();
+      // window.location.reload();
+      navigate ('/admin/login')
     } else {
       console.log("Existing user not found in sessionStorage");
     }
@@ -53,7 +55,7 @@ function AdminHeader() {
           </p>
           </Navbar.Brand>
           {/* <Navbar.Toggle/> */}
-          {viewLogout===false?<Link to={'/login'} className="justify-content-end">
+          {viewLogout===false?<Link to={'/admin/login'} className="justify-content-end">
             <button id='btnnn' className='btn btn-outline-light'>Login or Create Account</button>
           </Link>:
           <button id='btnnn' className='btn btn-outline-light' onClick={handleLogout}>Logout</button>
