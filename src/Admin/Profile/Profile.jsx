@@ -5,6 +5,7 @@ import admin_img from '../../Pages/assets/836.jpg'
 import { getadminprofile, updateadminprofile } from '../../Services/allAPIs'
 import Swal from 'sweetalert2';
 import { Await } from 'react-router-dom'
+import AdminHeader from '../Header/AdminHeader'
 
 function Profile() {
   const[adprofile,setAdprofile]=useState({
@@ -77,7 +78,8 @@ function Profile() {
   }
   return (
     <>
-        <div>
+    <AdminHeader/>
+        <div className='mt-4'>
             {/* <Row>
                 <Col lg={6} sm={12}  >
                    <div className='d-flex justify-content-center align-items-center'> <img src={admin_img} height={'700px'} alt="" /></div>

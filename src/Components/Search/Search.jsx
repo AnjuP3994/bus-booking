@@ -46,8 +46,8 @@ function Search() {
 
           <Row>
             <Col className='d-flex justify-content-center'>
-            <h2 className='heading text-light'>India's No. 1 Online Bus Ticket Booking Site</h2>
-            <div className="headerSearch">
+            <h2 className='heading '> <p className='heading-in'> India's No. 1 Online Bus Ticket Booking Site </p></h2>
+            {/* <div className="headerSearch">
                 <span className="headerSearchItem">
                     <span>From:</span>
                     <input type="text" className="headerSearchInput" onChange={(e)=>setSource(e.target.value)} placeholder="Source" />
@@ -61,13 +61,13 @@ function Search() {
                 <span className="headerSearchItem">
                     <input className='headerSearchInput' type="date" value={date} min={dateinfo.mindate} onChange={(e) => setDate(e.target.value)} />
                 </span>
-            </div>
+            </div> */}
             </Col>
         </Row>
 
-        <div className='search'>
+        {/* <div className='search'>
           <Link to={'/buslist'}><button id='btnn' className="btn btn-outline-light">Search</button></Link>
-        </div>
+        </div> */}
     </Container>
     </div>
     </>

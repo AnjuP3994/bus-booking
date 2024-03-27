@@ -41,7 +41,7 @@ function AdminLogin() {
       }else{
         Swal.fire({
           title: `error`,
-          text: `Incorrect email or password`,
+          text: `Incorrect Username or Password`,
           icon: "error"
         });
         console.log(result.response.data)

@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import './mangeUser.css'
 import { deleteUser, getUser } from '../../Services/allAPIs';
 import { BASE_URL } from '../../Services/baseURL';
+import './mangeUser.css'
 import AdminHeader from '../Header/AdminHeader';
 
 function ManageUser() {
@@ -64,7 +65,7 @@ function ManageUser() {
     return (
         <>
             <AdminHeader/>
-            <div style={{
+            <div className='mt-4' style={{
                 backgroundImage:`url(${bgImage})`,
                 width:'100%',height:'100vh',
                 backgroundSize: 'cover',
@@ -96,18 +97,17 @@ function ManageUser() {
                                <td>{index+1}</td>
                                <td  className='d-flex'>
                                     <img src={`${BASE_URL}${item.profile_picture}`} alt="" />
-                                    <p className='ms-5 mt-2'>{item.name}</p>
+                                    <p className='ms-1 mt-2 '>{item.name}</p>
                                </td>
                                <td>{item.phone}</td>
                                <td>{item.username}</td>
                                <td>{item.date_of_birth}</td>
                                <td>{item.address}</td>
-                               <td className=' text-center'><i className="fa-solid fa-trash " onClick={()=>handleDelete(item.id)}></i></td>
+                               <td className='text-center'><i className="fa-solid fa-trash " onClick={()=>handleDelete(item.id)}></i></td>
                                {/* <img src={`${BASE_URL}${item.profile_picture}`} alt="" /> */}
                            </tr>
                            ))
-                                : <p>nothing to show</p> }
-                                
+                                : <p>nothing to show</p>}
                                
                               
                             </tbody>

@@ -10,10 +10,15 @@ import {
     MDBTypography,
 } from "mdb-react-ui-kit";
 import { Button } from "react-bootstrap";
+import Header from '../../Components/Header/Header';
 
 function UserPayment() {
     return (
         <>
+        <Header/>
+        <div className='mt-5 pt-5'>
+
+        
             <section  style={{ backgroundColor: "#eee" ,height:'100vh'}} >
                 <MDBContainer className="py-5" style={{maxWidth:'700px'}}>
                     <MDBRow className="justify-content-center align-items-center ">
@@ -62,6 +67,7 @@ function UserPayment() {
                     </MDBRow>
                 </MDBContainer>
             </section>
+        </div>
         </>
     )
 }

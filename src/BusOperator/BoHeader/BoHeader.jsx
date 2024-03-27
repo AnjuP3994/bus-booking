@@ -46,9 +46,11 @@ function BoHeader() {
             />{' '}
               <Link to={'/bohomepage'} className='bus w-75'>Bus<span  style={{color:'brown'}}/* className='hub' */ className='ms-2 '>Hubb</span></Link>
             <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
+            <Link to={'/addbus'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Add Bus</Link>
+
          <Link to={'/bomanagebus'} className='ms-5'  style={{color:'black',fontSize:'18px'}}>Manage Bus </Link>
          <Link to={'/bobuslist'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Bus List </Link>
-         <Link to={'/bobookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
+         <Link to={'/bookingdetails'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
          <Link to={'/bofeedback'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Feedback</Link>
 
           </p>

@@ -4,6 +4,7 @@ import './manage.css'
 import { admindeleteoperator, admingetgetoperators } from '../../Services/allAPIs'
 import buslogo from '../../BusOperator/BoBusList/assets/bus.jpg'
 import Swal from 'sweetalert2';
+import AdminHeader from '../Header/AdminHeader'
 
 function Mangeoperator() {
   const [operators,setOperators]=useState([])
@@ -56,7 +57,8 @@ function Mangeoperator() {
 
   return (
     <div>
-         <Row>
+       <AdminHeader />
+         <Row className='mt-5 pt-5'>
         {operators?.length>0?
         operators.map((item)=>( 
         <Col lg={6} sm={12}>
