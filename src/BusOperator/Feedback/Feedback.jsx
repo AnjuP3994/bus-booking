@@ -13,6 +13,7 @@ import AdminHeader from '../../Admin/Header/AdminHeader';
 function Feedback() {
   const [fdback, setFdback] = useState([]);
   const[oprprofile,setOprprofile]=useState([])
+  
 
   const handlegetprofile=async ()=>{
     const token = sessionStorage.getItem('token')
@@ -33,6 +34,8 @@ function Feedback() {
   useEffect(()=>{
     handlegetprofile()
   },[])
+
+  console.log(oprprofile.name)
 
   const handlefdback = async () => {
     const token = sessionStorage.getItem('token');
@@ -57,7 +60,7 @@ function Feedback() {
   }, []);
   return (
     <>
-      <AdminHeader />
+      <BoHeader/>
       <div style={{
         backgroundColor: '#fff4df',
         width: '100%',
@@ -72,7 +75,7 @@ function Feedback() {
           {fdback?.length > 0 ?
   fdback
     .filter(item => item.bus_operators
-      .toLowerCase() === oprprofile.name.toLowerCase()) // Filtering based on user_name after converting to lowercase
+       === oprprofile.name) 
     .map((item) => (
               <div className='col-lg-3 mt-4 mb-5'>
                 <div className='ms-5 p-2 pt-0' style={{ backgroundColor: 'whitesmoke', borderRadius: '20px', width: 'auto', height: 'auto', borderStyle: 'solid', borderColor: '' }}>

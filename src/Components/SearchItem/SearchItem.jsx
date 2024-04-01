@@ -22,7 +22,7 @@ import {
 
 
 
-function SearchItem({ bus,search }) {
+function SearchItem({ bus,search,operatervalue }) {
   const [date, setDate] = useState("");
   const [show, setShow] = useState(false);
   const [dateinfo, setDateinfo] = useState({});
@@ -38,7 +38,7 @@ function SearchItem({ bus,search }) {
   })
 
   const [collapseOpen, setCollapseOpen] = useState(false);
-
+const [bId,setBid] = useState("")
 
   const [buttonColor, setButtonColor] = useState('');
   const handleClose = () => {
@@ -52,12 +52,18 @@ function SearchItem({ bus,search }) {
     }
   },[search])
 
-  console.log(resultsearch)
+  // console.log(resultsearch)
   const handleShow = () => setShow(true);
 
   const [reservedts, setReservedts] = useState([])
-  console.log(reservedts)
+  // console.log(reservedts)
   
+  const[paydts,setPaydts]=useState({
+    name:"",
+    card_number:"",
+    expiration:"",
+    cvv:""
+  })
 
 
   useEffect(() => {
@@ -75,14 +81,15 @@ function SearchItem({ bus,search }) {
     const selectedDate = e.target.value;
     setBookdts({ ...bookdts, journey_date: selectedDate });
   };
-  console.log(bookdts)
-  console.log(date)
+  // console.log(bookdts)
+  // console.log(date)
 
   useEffect(() => {
     setBusdts(bus)
   }, [])
 
   const handlebook = async (id) => {
+    console.log("qwertyuio",id)
     const { seat_number, journey_date } = bookdts
     if (!seat_number || !journey_date) {
       Swal.fire({
@@ -96,8 +103,9 @@ function SearchItem({ bus,search }) {
       const reqHeader = {
         "Authorization": `Token ${token}`
       }
-      const result = await BookbusAPI(id, bookdts, reqHeader)
-      console.log(result)
+      console.log(id)
+      const result = await BookbusAPI(bId, bookdts, reqHeader)
+      console.log(result.data)
       if (result.status === 200) {
         setReservedts(result.data)
         toast("Reservation successfull!")
@@ -111,6 +119,8 @@ function SearchItem({ bus,search }) {
 
 
   };
+
+  
   const handleClick = (index) => {
     // Example: Changing the button's color to red when clicked
     setBookdts({ ...bookdts, seat_number: index + 1 });
@@ -121,15 +131,25 @@ function SearchItem({ bus,search }) {
   }
 
   const handlePayment=async(id)=>{
+    const{card_number,name,expiration,cvv}=paydts
+    if(!card_number || !name || !expiration || !cvv  ){
+      Swal.fire({
+        title: `warning`,
+        text: `Please fill the details completley`,
+        icon: "warning"
+      });
 
-    const token = sessionStorage.getItem('token')
+
+    }
+    else{
+      const token = sessionStorage.getItem('token')
       console.log(token)
       const reqHeader = {
         "Authorization": `Token ${token}`
       }
       const result = await PaymentAPI(id,reqHeader)
-      console.log(result)
-      if(result.status===200){
+      // console.log(result.data)
+      if(result.status===201){
 
         Swal.fire({
           title: `successfull`,
@@ -150,6 +170,16 @@ function SearchItem({ bus,search }) {
       }
       
 
+    }
+
+    
+
+  }
+
+
+  const Openclicked=(id)=>{
+    setBid(id)
+    setOpen(!open)
   }
 
   return (
@@ -304,7 +334,8 @@ function SearchItem({ bus,search }) {
                 </Row>
               </div>
   ))
-) : (
+) :
+ (
   bus?.length > 0 ? (
     bus.map((item, index) => (
       <div>
@@ -338,7 +369,7 @@ function SearchItem({ bus,search }) {
                       <h3 className='text-danger fw-bolder'><i style={{ fontSize: '25px' }} class="fa-solid fa-indian-rupee-sign me-2"></i>{item.price}</h3>
                       <h8>Duration:{item.duration}</h8>
                       <div className='text-end mt-5'>
-                        <Button className='btn btn-info' onClick={() => setOpen(!open)} aria-expanded={open}>View Seats</Button>
+                        <Button className='btn btn-info' onClick={() => Openclicked(item.id)} aria-expanded={open}>View Seats</Button>
                       </div>
                     </Col>
                   </div>
@@ -412,14 +443,14 @@ function SearchItem({ bus,search }) {
                                                 <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-amex fa-2x me-2" /></a>
                                                 <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-paypal fa-2x me-2" /></a>
                                                 <form className="mt-4">
-                                                  <MDBInput className="mb-4" label="Cardholder's Name" placeholder="Cardholder's Name" type="text" size="lg" contrast />
-                                                  <MDBInput className="mb-4" label="Card Number" type="text" size="lg" minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast />
+                                                  <MDBInput className="mb-4" label="Cardholder's Name" placeholder="Cardholder's Name" type="text" size="lg" contrast onChange={(e) => setPaydts({ ...paydts, name: e.target.value })}  />
+                                                  <MDBInput className="mb-4" label="Card Number" type="text" size="lg" minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast  onChange={(e) => setPaydts({ ...paydts, card_number: e.target.value })} />
                                                   <MDBRow className="mb-4">
                                                     <MDBCol md="6">
-                                                      <MDBInput className="mb-4" label="Expiration" type="text" size="lg" minLength="6" maxLength="6" placeholder="MM/YY" contrast />
+                                                      <MDBInput className="mb-4" label="Expiration" type="text" size="lg" minLength="6" maxLength="6" placeholder="MM/YY" contrast onChange={(e) => setPaydts({ ...paydts, expiration: e.target.value })}  />
                                                     </MDBCol>
                                                     <MDBCol md="6">
-                                                      <MDBInput className="mb-4" label="CVV" type="text" size="lg" minLength="3" maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast />
+                                                      <MDBInput className="mb-4" label="CVV" type="text" size="lg" minLength="3" maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast onChange={(e) => setPaydts({ ...paydts, cvv: e.target.value })}  />
                                                     </MDBCol>
                                                   </MDBRow>
                                                 </form>

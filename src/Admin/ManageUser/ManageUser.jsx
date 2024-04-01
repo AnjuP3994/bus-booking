@@ -83,6 +83,7 @@ function ManageUser() {
                             <thead>
                                 <tr style={{backgroundColor:'#0095a9'}}  className='table-info fw-bold fs-3'>
                                     <th>#</th>
+                                    <th>Image</th>
                                     <th>Name</th>
                                     <th>Mobile No</th>
                                     <th>Username</th>
@@ -95,8 +96,9 @@ function ManageUser() {
                                { users?.length>0?
                                users.map((item,index)=>(<tr className='fs-3'>
                                <td>{index+1}</td>
+                               <td><img src={`${BASE_URL}${item.profile_picture}`} className='img-fluid' alt="" /></td>
                                <td  className='d-flex'>
-                                    <img src={`${BASE_URL}${item.profile_picture}`} alt="" />
+                                    
                                     <p className='ms-1 mt-2 '>{item.name}</p>
                                </td>
                                <td>{item.phone}</td>

@@ -48,7 +48,9 @@ function Header() {
                <Link to={'/user/home'} className='bus w-75'>Bus<span  style={{color:'brown'}}/* className='hub' */ className='ms-2 '>Hubb</span></Link>
         <p  className='ms-5 mt-3 ps-5 text-center' style={{color:'black'}}> 
          <Link to={'/buslist'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Bus List </Link>
+         <Link to={'/user/operators'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Operators List </Link>
          <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
+         <Link to={'/user/paymentHistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Payment History</Link>
          <Link to={'/profile'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Profile</Link>
         </p>
             

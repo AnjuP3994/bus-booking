@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './list.css'
 import Header from '../../Components/Header/Header'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 import SearchItem from '../../Components/SearchItem/SearchItem'
 import Form from 'react-bootstrap/Form';
@@ -16,6 +16,21 @@ function List() {
   const [date, setDate] = useState("");
   const [dateinfo, setDateinfo] = useState({});
   const [allbusdetials,setAllbusdetials]=useState([])
+  const [oprter,setOprter]=useState("")
+
+  const [searchParams] = useSearchParams();
+  const operators = searchParams.get('operator');
+  // console.log(`op:${operators}`)
+
+  useEffect(()=>{
+    if(operators){
+      setOprter(operators)
+    }else{
+      setOprter("")
+    }
+
+  },[])
+  console.log(oprter)
 
   useEffect(() => {
     let mindate = new Date().toISOString().split("T")[0];
@@ -234,7 +249,7 @@ function List() {
       </Col>
 
       <Col xs={8} className="listResult">
-        <SearchItem bus={allbusdetials} search={searchResults}  />
+        <SearchItem bus={allbusdetials} search={searchResults} operatervalue={oprter}  />
        
       </Col>
 

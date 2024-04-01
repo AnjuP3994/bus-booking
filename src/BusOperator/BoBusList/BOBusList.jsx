@@ -6,6 +6,7 @@ import BoHeader from '../BoHeader/BoHeader'
 import { getOperator } from '../../Services/allAPIs'
 import { Link } from 'react-router-dom'
 import { BASE_URL } from '../../Services/baseURL'
+import Header from '../../Components/Header/Header'
 
 function BOBusList() {
   const [operators, setOperators] = useState([])
@@ -32,7 +33,7 @@ function BOBusList() {
 
 
       <>
-      <div className='mb-5 mt-3 pt-5'><BoHeader/></div>
+      <div className='mb-5 mt-3 pt-5'><Header/></div>
           <div className='mt-5' > 
             
            <div className='mt-5' style={{marginTop:'5rem'}}>
@@ -58,7 +59,7 @@ function BOBusList() {
                               <h6>Website</h6>
                               <p>{item.website}</p>
                               <hr />
-                              <Link to={`/buslist?operator=${item.name}`}><button className='btn btn-info'>View</button></Link>
+                              {/* <Link to={`/buslist?operator=${item.name}`}><button className='btn btn-info'>View</button></Link> */}
                             </div>
                           </Col>
                         </Row>

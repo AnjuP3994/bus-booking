@@ -102,7 +102,7 @@ function ManageBus() {
     <Container className="listContainer">
       <Row className="listWrapper">
 
-      <Col className="listSearch p-4">
+      {/* <Col className="listSearch p-4">
         <div>
 
           <div className='filter d-flex justify-content-between'>
@@ -110,7 +110,7 @@ function ManageBus() {
             <h6 className='clearall mt-2'>Clear all</h6>
           </div>
 
-          {/* Source and Destination */}
+         
           <Form className='d-flex justify-content-between gap-3'>
             <Form.Group className="mb-3">
               <label>Source</label>
@@ -126,7 +126,7 @@ function ManageBus() {
               <Form.Control type="date" value={date} min={dateinfo.mindate} onChange={(e) => setDate(e.target.value)} />
           </Form>
 
-          {/* AC */}
+        
           <div className='mt-3'>
             <div>
               <label></label>
@@ -151,7 +151,7 @@ function ManageBus() {
             </MDBBtnGroup>
           </div>
 
-          {/* Seat Type */}
+        
           <div className='mt-3'>
             <div>
               <label>Seat Type</label>
@@ -180,7 +180,7 @@ function ManageBus() {
             <button className='lsOptionBtn'>Search</button>
           </div>
         </div>
-      </Col>
+      </Col> */}
 
       <Col xs={8} className="listResult">
        

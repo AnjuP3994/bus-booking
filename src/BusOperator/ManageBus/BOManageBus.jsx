@@ -191,7 +191,7 @@ function BOManageBus() {
             Swal.fire({
          
                 title: ` successfull`,
-                text: `User has been deleted successfully`,
+                text: `bus  has been deleted successfully`,
                 icon: "success"
               });
               handlegetprofile()

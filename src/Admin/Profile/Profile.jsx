@@ -50,10 +50,10 @@ function Profile() {
     }else{
       const token = sessionStorage.getItem('token')
       const reqHeader = {
-        "Content-Type": "multipart/form-data",
+        
         "Authorization": `Token ${token}`
     };
-    const result= await updateadminprofile(reqHeader,adprofile)
+    const result= await updateadminprofile(adprofile,reqHeader)
     console.log(result)
     if(result.status===200){
       Swal.fire({
