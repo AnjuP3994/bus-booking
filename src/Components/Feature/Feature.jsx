@@ -59,9 +59,9 @@ function Feature() {
             <div className="m-3 mb-5">
               <div className="article-card">
                 <div className="content">
-                  <p className="title"> Bus List </p>
+                  <p className="title"> Payment History </p>
                 </div>
-                <Link to={'/buslist '}> <img src={ListTemp} alt="article-cover" /></Link>
+                <Link to={'/user/paymentHistory '}> <img src='https://img.freepik.com/free-vector/cash-payment-concept-illustration_114360-3320.jpg?t=st=1711537444~exp=1711541044~hmac=d5630167a8bf1e242676e414ca5873639c3ac55ba023024209bef559b74dc256&w=740' alt="article-cover" /></Link>
               </div>
             </div>
           </Col>

@@ -75,28 +75,34 @@ function BOHome() {
                 <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i className="bi bi-collection"></i></div>
                 <h2 className="h4 fw-bolder"> Bookings</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
-                <a className="text-decoration-none" href="#!">
-                  View
-                  <i className="bi bi-arrow-right"></i>
-                </a>
+                <Link to={'/bookingdetails'}>
+                 
+                    View
+                    <i className="bi bi-arrow-right"></i>
+                 
+                </Link>
               </div>
               <div className="col-lg-4 mb-5 mb-lg-0">
                 <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-solid fa-screwdriver-wrench" style={{color:"white"}}></i></div>
                 <h2 className="h4 fw-bolder">Bus Management</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
-                <a className="text-decoration-none" href="#!">
-                  View
-                  <i className="bi bi-arrow-right"></i>
-                </a>
+                <Link to={'/bomanagebus'}>
+                    <a className="text-decoration-none" href="#!">
+                      View
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                  </Link>
               </div>
               <div className="col-lg-4">
                 <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-regular fa-user" style={{color:'white'}}></i></div>
                 <h2 className="h4 fw-bolder">Profile</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
-                <a className="text-decoration-none" href="#!">
-                  View
-                  <i className="bi bi-arrow-right"></i>
-                </a>
+                <Link to={'/bus/profile'}>
+                  <a className="text-decoration-none" href="#!">
+                    View
+                    <i className="bi bi-arrow-right"></i>
+                  </a>
+                </Link>
               </div>
               <div className='d-flex mt-4'>
                 {/* <div className=" col-lg-4">
@@ -114,10 +120,12 @@ function BOHome() {
                   <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-solid fa-indian-rupee-sign" style={{color:'white'}}></i></div>
                   <h2 className="h4 fw-bolder">Payment status</h2>
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia delectus enim adipisci et esse quibusdam labore numquam dolorem perspiciatis animi corrupti molestiae, inventore unde similique, rem temporibus iste odit neque?</p>
-                  <a className="text-decoration-none" href="#!">
-                    View
-                    <i className="bi bi-arrow-right"></i>
-                  </a>
+                  <Link to={'/bus/payments'}>
+                    <a className="text-decoration-none" href="#!">
+                      View
+                      <i className="bi bi-arrow-right"></i>
+                    </a>
+                  </Link>
                 </div>
                 <div className=" col-lg-4 ">
                   <div className="feature  bg-gradient text-white rounded-3 mb-3" style={{backgroundColor:'#0095A9'}}><i class="fa-solid fa-bus-simple"  style={{color:'white'}} ></i></div>
@@ -190,8 +198,11 @@ function BOHome() {
           
           <div className='d-flex justify-content-center align-items-center  b-5  mt-5 feedback b w-50 flex-column' style={{height:'300px'}}>
          
-                <button className='btn btn-info'>feedbacks</button>
-              </div>
+               <Link to={'/bofeedback'}>
+                  <button className='btn btn-info'>feedbacks</button>
+                  </Link>
+                </div>
+              
         </div>
   
         {/* <section className="bg-light py-5 border-bottom">

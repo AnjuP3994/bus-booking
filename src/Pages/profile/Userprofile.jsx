@@ -76,7 +76,7 @@ function Userprofile() {
       reqBody.append("description", description)
       reqBody.append("address", address)
       reqBody.append("website", website)
-      profileimg ? reqBody.append('logo', bus_logo) : reqBody.append('logo', logo)
+      profileimg && reqBody.append('profile_picture', bus_logo) 
   
       const result= await updateuserprofile(reqBody,reqHeader)
       console.log(result)
@@ -147,7 +147,7 @@ function Userprofile() {
                         <label htmlFor="img">
 
 
-                          {oprprofile.logo == null || "" ? <img className='img-fluid' style={{ height: '250px', width: '250px', borderRadius: '50%' }} src={profileimg ? profileimg : `https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp`} alt="logo" />
+                          {oprprofile.profile_picture == null || "" ? <img className='img-fluid' style={{ height: '250px', width: '250px', borderRadius: '50%' }} src={profileimg ? profileimg : `https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp`} alt="logo" />
                             : <img className='img-fluid' style={{ height: '250px', width: '250px', borderRadius: '50%' }} src={profileimg ? profileimg : `${BASE_URL}${oprprofile.profile_picture}`} alt="logo" />
                           }
                         </label>

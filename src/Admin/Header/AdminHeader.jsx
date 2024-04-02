@@ -51,7 +51,8 @@ function AdminHeader() {
          <Link to={'/manageuser'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage User </Link>
          <Link to={'/admin/profile'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage Profile</Link>
          <Link to={'/admin/operator'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Manage Bus Operators</Link>
-         <Link to={'/admin/feedback'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Feedback</Link>
+         <Link to={'/admin/feedback'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Payments</Link>
+         <Link to={'/admin/paymentHistory'} className='ms-4' style={{color:'black',fontSize:'14px'}}>Feedback</Link>
           </p>
           </Navbar.Brand>
           {/* <Navbar.Toggle/> */}

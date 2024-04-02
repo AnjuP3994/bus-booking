@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import Table from 'react-bootstrap/Table';
-import { getbuspayment } from '../../Services/allAPIs';
+import { Table } from 'react-bootstrap'
+import { getbuspayment } from '../../Services/allAPIs'
+import BoHeader from '../BoHeader/BoHeader'
 
-
-function PaymentHistory() {
-  const[payment,setPayment]=useState([])
+function Buspayment() {
+    const[payment,setPayment]=useState([])
 
 
     const handlepayment=async()=>{
@@ -23,7 +23,7 @@ function PaymentHistory() {
     <div>  
         {/* <BoHeader/> */}
     <div className='mt-5'>
-        <h2 className='text-center'>Payment History</h2>
+        <h2 className='text-center'>operator Payment History</h2>
         
           <Table striped bordered hover>
       <thead>
@@ -69,4 +69,4 @@ function PaymentHistory() {
   )
 }
 
-export default PaymentHistory
+export default Buspayment

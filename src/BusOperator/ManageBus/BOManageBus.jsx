@@ -144,7 +144,7 @@ function BOManageBus() {
         reqBody.append("name", name)
         reqBody.append("description", description)
         reqBody.append("price", price)
-        profileimg ? reqBody.append('image', bus_logo) : reqBody.append('image', image)
+        profileimg && reqBody.append('image', bus_logo) 
         reqBody.append("category", category)
         reqBody.append("boarding_point", boarding_point)
         reqBody.append("boarding_time", boarding_time)
@@ -159,9 +159,12 @@ function BOManageBus() {
         if(result.status===200){
           Swal.fire({
             title: `successful`,
-            text: `profile  updated successfully`,
+            text: `bus  updated successfully`,
             icon: "success"
           });
+          handlegetprofile()
+
+
     
           
     
@@ -184,11 +187,11 @@ function BOManageBus() {
         }
         const result = await deleteBusapi(id,reqHeader)
         console.log(result)
-        if(result.status===204){
+        if(result.status===200){
             Swal.fire({
          
                 title: ` successfull`,
-                text: `User has been deleted successfully`,
+                text: `bus  has been deleted successfully`,
                 icon: "success"
               });
               handlegetprofile()

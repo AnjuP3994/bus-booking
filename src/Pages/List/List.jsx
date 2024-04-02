@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './list.css'
 import Header from '../../Components/Header/Header'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { Col, Container, Row } from 'react-bootstrap';
 import SearchItem from '../../Components/SearchItem/SearchItem'
 import Form from 'react-bootstrap/Form';
@@ -16,6 +16,21 @@ function List() {
   const [date, setDate] = useState("");
   const [dateinfo, setDateinfo] = useState({});
   const [allbusdetials,setAllbusdetials]=useState([])
+  const [oprter,setOprter]=useState("")
+
+  const [searchParams] = useSearchParams();
+  const operators = searchParams.get('operator');
+  // console.log(`op:${operators}`)
+
+  useEffect(()=>{
+    if(operators){
+      setOprter(operators)
+    }else{
+      setOprter("")
+    }
+
+  },[])
+  console.log(oprter)
 
   useEffect(() => {
     let mindate = new Date().toISOString().split("T")[0];
@@ -111,13 +126,21 @@ function List() {
     setIsAcSelected(false);
     setIsNonAcSelected(false);
 
-      }else{
+      }else if(result.status===203){
         Swal.fire({
           title: `No results`,
           
           icon: "error"
         });
-        console.log(result.response.data)
+        
+
+      }
+      else{
+        Swal.fire({
+          title: `something went wrong`,
+          
+          icon: "error"
+        });
 
       }
       
@@ -211,7 +234,7 @@ function List() {
                 btnColor={isSeaterSelected ? 'primary' : 'secondary'}
                 id='btn-radio-seater'
                 wrapperTag='span'
-                value={'Non Ac Seater'}
+                value={'Non AC Seater'}
                 label={<><i class="fa-solid fa-couch me-2"></i>Non Ac Seater</>}
                 onClick={handleSeaterClick}
                 onChange={(e)=>setSearchvalue({ ...searchvalue, category: e.target.value })}
@@ -226,7 +249,7 @@ function List() {
       </Col>
 
       <Col xs={8} className="listResult">
-        <SearchItem bus={allbusdetials} search={searchResults}  />
+        <SearchItem bus={allbusdetials} search={searchResults} operatervalue={oprter}  />
        
       </Col>
 

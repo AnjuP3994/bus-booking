@@ -150,12 +150,14 @@ function BOLogin({registerpage}) {
                                 <div className='d-flex justify-content-between gap-4 my-3'>
                                     <MDBTextArea value={BODetails.address} onChange={e => setBODetails({ ...BODetails, address: e.target.value })} label='Address' rows={3} />
                                     <MDBTextArea value={BODetails.description} onChange={e => setBODetails({ ...BODetails, description: e.target.value })} label='Description' rows={3} />
+                                      
                                 </div>
                                 <MDBInput onChange={e => setBODetails({ ...BODetails, logo: e.target.files[0]})}  type='file' className='mb-3' />
+                                <MDBInput value={BODetails.email} onChange={e => setBODetails({ ...BODetails, email: e.target.value })} label='Email' type='text' className='mb-3' />
                             </div>
                         }
                         <div className='text-center'>
-                        <MDBInput value={BODetails.email} onChange={e => setBODetails({ ...BODetails, email: e.target.value })} label='Email' type='text' className='mb-3' />
+                      
                             <MDBInput value={BODetails.username} onChange={e => setBODetails({ ...BODetails, username: e.target.value })} label='Username' type='text' />
                             <MDBInput value={BODetails.password} onChange={e => setBODetails({ ...BODetails, password: e.target.value })} label='Password' className='mt-3 mb-4' type='password' />
                             { BOregister?

@@ -164,7 +164,7 @@ export const getallbus = async(reqHeader)=>{
 // operator:update bus
 
 export const updateBus = async(id,reqBody,reqHeader)=>{
-    return await commonAPI("put",`${BASE_URL}/BusOperator/bus/${id}`,reqBody,reqHeader)
+    return await commonAPI("put",`${BASE_URL}/BusOperator/bus/${id}/`,reqBody,reqHeader)
 }
 
 // user:search bus
@@ -186,11 +186,33 @@ export const updateuserprofile = async(reqBody,reqHeader)=>{
     return await commonAPI("put",`${BASE_URL}/Userapp/profile/`,reqBody,reqHeader)
 }
 
-// 15:operator:delete bus
+// operator:delete bus
 
 export const deleteBusapi = async(busId,reqHeader)=>{
-    return await commonAPI("delete",`${BASE_URL}/BusOperator/bus/${busId}`,{},reqHeader)
+    return await commonAPI("delete",`${BASE_URL}/BusOperator/bus/${busId}/`,{},reqHeader)
 }
+
+// operator:payment details
+
+export const getbuspayment = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/BusOperator/PaymentView/`,"",reqHeader)
+}
+
+// user:payment History
+
+export const getuserpayment = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Userapp/Userpayment/`,"",reqHeader)
+}
+
+// admin:payment History
+
+export const getadminuserpayment = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Manager/PaymentView/`,"",reqHeader)
+}
+
+
+
+
 
 
 

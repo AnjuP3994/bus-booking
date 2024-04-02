@@ -24,6 +24,8 @@ function Busprofile() {
   const [bus_logo, setBus_logo] = useState(null)
   console.log(bus_logo)
   const [profileimg, setProfileimg] = useState("")
+ 
+
   useEffect(() => {
     if (bus_logo) {
       setProfileimg(URL.createObjectURL(bus_logo))
@@ -41,6 +43,7 @@ function Busprofile() {
   const handlegetprofile = async () => {
     const token = sessionStorage.getItem('token')
     const reqHeader = {
+      "Content-Type": "multipart/form-data",
       "Authorization": `Token ${token}`
     }
     const result = await getoperatorprofile(reqHeader)
@@ -78,7 +81,7 @@ function Busprofile() {
     reqBody.append("description", description)
     reqBody.append("address", address)
     reqBody.append("website", website)
-    profileimg ? reqBody.append('logo', bus_logo) : reqBody.append('logo', logo)
+    profileimg && reqBody.append('logo', bus_logo)
 
     const result= await updateaoperatorprofile(reqBody,reqHeader)
     console.log(result)
