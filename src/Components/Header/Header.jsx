@@ -50,6 +50,8 @@ function Header() {
          <Link to={'/buslist'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Bus List </Link>
          <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
          <Link to={'/profile'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Profile</Link>
+         <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Feedback</Link>
+
         </p>
             
           </Navbar.Brand>

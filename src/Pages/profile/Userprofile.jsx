@@ -7,6 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import { getUserprofile, updateaoperatorprofile, updateuserprofile } from '../../Services/allAPIs';
 import Swal from 'sweetalert2';
 import { BASE_URL } from '../../Services/baseURL';
+import Header from '../../Components/Header/Header';
 function Userprofile() {
 
     const [modalShow, setModalShow] = useState(false)
@@ -108,7 +109,10 @@ function Userprofile() {
     };
 
     
-  return (
+  return (<>
+
+    <Header/>
+
     <section className="vh-100" style={{ backgroundColor: '#f4f5f7' }}>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
@@ -250,6 +254,7 @@ function Userprofile() {
         </MDBRow>
       </MDBContainer>
     </section>
+    </>
   )
 }
 
