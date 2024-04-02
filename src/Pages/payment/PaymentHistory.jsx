@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import { getbuspayment } from '../../Services/allAPIs';
+import BoHeader from '../../BusOperator/BoHeader/BoHeader';
 
 
 function PaymentHistory() {
@@ -21,9 +22,9 @@ function PaymentHistory() {
     },[])
   return (
     <div>  
-        {/* <BoHeader/> */}
-    <div className='mt-5'>
-        <h2 className='text-center'>Payment History</h2>
+        <BoHeader/>
+    <div >
+        <h2 className='text-center' style={{marginBottom:'1%',marginTop:'7%'}}> Payment History</h2>
         
           <Table striped bordered hover>
       <thead>
