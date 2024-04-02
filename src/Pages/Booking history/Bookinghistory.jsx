@@ -10,6 +10,7 @@ import TextField from '@mui/material/TextField';
 import { addFeedback, getUserReservations } from '../../Services/allAPIs';
 import Swal from 'sweetalert2';
 import Header from '../../Components/Header/Header';
+import { BASE_URL } from '../../Services/baseURL';
 
 
 
@@ -42,7 +43,7 @@ function Bookinghistory() {
       "Authorization": `Token ${token}`
     }
     const result=await getUserReservations(reqHeader)
-    // console.log(result)
+    console.log(result)
     if(result.status===200){
       setReservations(result.data)
     }else{
@@ -92,15 +93,19 @@ function Bookinghistory() {
     <Header/>
       <h1 style={{marginTop:'100px'}} className='fw-bolder text-center'>Booking History</h1>
       
-     <div className='d-flex justify-content-center'>
-         <div className="listcard shadow p-3 w-75 mb-4">
-        <Row>
+     
        {reservations?.length>0?
        reservations.map((item)=>( 
+        <div className='d-flex justify-content-center'>
+         <div className="listcard shadow p-3 w-75 mb-4">
+        <Row>
        <Col lg={12} className='d-flex'>
         
        <Col lg={2} sm={12}>
-           <div  className='d-flex justify-content-center align-items-center' ><img src={item.image} className='img-fluid' height={'100%'} alt="" /></div>
+           <div  className='d-flex justify-content-center align-items-center' >
+           <img src={`${BASE_URL}${item.bus.image}`} className='img-fluid' height={'100%'} alt="" />
+
+            </div>
          </Col>
          <Col lg={3} sm={12}>
            <h4 className='fw-bolder'>{item.bus.name}</h4>
@@ -185,9 +190,13 @@ function Bookinghistory() {
                          </Modal>
                        </div>
          </Col>
-    </Col>))
+    </Col>
+    </Row>
+
+    </div>
+     </div>))
        : <p>nothing to show</p> }
-        </Row>
+        
         {/* <Row>
           <Col>
             <Collapse in={open}>
@@ -199,8 +208,7 @@ function Bookinghistory() {
             </Collapse>
           </Col>
         </Row> */}
-      </div>
-     </div>
+      
     </>
   );
 }

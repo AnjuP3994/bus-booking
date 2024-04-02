@@ -211,6 +211,14 @@ export const getadminuserpayment = async(reqHeader)=>{
 }
 
 
+// admin:all reservation
+
+
+export const getadminallReservations = async(reqHeader)=>{
+    return await commonAPI("get",`${BASE_URL}/Manager/reservation/`,"",reqHeader)
+}
+
+
 
 
 

@@ -26,6 +26,7 @@ import Mangeoperator from './Admin/Manage operators/Mangeoperator';
 import PaymentHistory from './Pages/payment/PaymentHistory';
 import Buspayment from './BusOperator/Buspayment/Buspayment';
 import AdpaymentHistory from './Admin/Paymentdetails/AdpaymentHistory';
+import Allreservation from './Admin/Allreservations/Allreservation';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
         <Route path='/admin/operator' element={<Mangeoperator/>} />
         {/* <Route path='/admin/payment' element={<AdminPayment/>} /> */}
         <Route path='/admin/paymentHistory' element={<AdpaymentHistory/>} />
+        <Route path='/admin/allreservations' element={<Allreservation/>} />
 
 
 

@@ -184,11 +184,13 @@ const [bId,setBid] = useState("")
 
   return (
     <>
-      <div className="listcard shadow p-3 w-100 mb-4">
-        <div>
+      
           
         {resultsearch?.length > 0 ? (
-  resultsearch.map((item) => (
+  resultsearch.map((item,index) => (
+    <div key={index} className="listcard shadow p-3 w-100 mb-4 mt-4">
+        <div>
+
     <div>
                 <Row>
                   <div className='d-flex'>
@@ -333,11 +335,17 @@ const [bId,setBid] = useState("")
                   </Col>
                 </Row>
               </div>
+              </div>
+
+      </div>
   ))
 ) :
  (
   bus?.length > 0 ? (
+
     bus.map((item, index) => (
+      <div key={index} className="listcard shadow p-3 w-100 mb-4">
+        <div>
       <div>
                 <Row>
                   <div className='d-flex'>
@@ -480,15 +488,16 @@ const [bId,setBid] = useState("")
                   </Col>
                 </Row>
               </div>
+
+              </div>
+              </div>
     ))
   ) : (
     <p>Nothing to show</p>
   )
 )}
 
-        </div>
-
-      </div>
+        
 
       <ToastContainer
         position="top-center"
