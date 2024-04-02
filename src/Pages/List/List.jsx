@@ -116,15 +116,7 @@ function List() {
       if(result.status===200){
         setSearchResults(result.data)
         console.log(searchResults)
-        setSearchvalue({
-          from_location:"",
-          to_location:"",
-          category:""
-        })
-        setIsSleeperSelected(false);
-    setIsSeaterSelected(false);
-    setIsAcSelected(false);
-    setIsNonAcSelected(false);
+    
 
       }else if(result.status===203){
         Swal.fire({
@@ -150,6 +142,21 @@ function List() {
     }
   }
 
+  const handleclear=()=>{
+        setSearchvalue({
+          from_location:"",
+          to_location:"",
+          category:""
+        })
+        setIsSleeperSelected(false);
+    setIsSeaterSelected(false);
+    setIsAcSelected(false);
+    setIsNonAcSelected(false);
+    window.location.reload();
+
+
+  }
+
   return (
     <>
     <Header/>
@@ -162,7 +169,7 @@ function List() {
 
           <div className='filter d-flex justify-content-between'>
             <h3 className="lsTitle">Filter</h3>
-            <h6 className='clearall mt-2'>Clear all</h6>
+            <h6 className='clearall mt-2 text-danger' onClick={handleclear}>Clear all</h6>
           </div>
 
           {/* Source and Destination */}
