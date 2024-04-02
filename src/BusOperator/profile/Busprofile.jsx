@@ -8,6 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { getoperatorprofile, updateaoperatorprofile } from '../../Services/allAPIs';
 import { BASE_URL } from '../../Services/baseURL';
 import Swal from 'sweetalert2';
+import BoHeader from '../BoHeader/BoHeader';
 
 function Busprofile() {
   const [modalShow, setModalShow] = useState(false)
@@ -115,7 +116,8 @@ function Busprofile() {
 
   return (
 
-
+<>
+<BoHeader/>
     <section className="vh-100" style={{ backgroundColor: '#f4f5f7' }}>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
@@ -141,7 +143,7 @@ function Busprofile() {
                     {/* <Modal.Header closeButton>
        <Modal.Title id="contained-modal-title-vcenter">
          BOOK NEEL
-       </Modal.Title>
+         </Modal.Title>
      </Modal.Header> */}
                     <Modal.Body>
                       <h4 className='text-center'>Update your Profile </h4>
@@ -243,7 +245,7 @@ function Busprofile() {
                    <a href="#!"><MDBIcon fab icon="facebook me-3" size="lg" /></a>
                    <a href="#!"><MDBIcon fab icon="twitter me-3" size="lg" /></a>
                    <a href="#!"><MDBIcon fab icon="instagram me-3" size="lg" /></a>
-                 </div> */}
+                  </div> */}
                   </MDBCardBody>
                 </MDBCol>
               </MDBRow>
@@ -255,6 +257,7 @@ function Busprofile() {
         </MDBRow>
       </MDBContainer>
     </section>
+  </>
 
 
   )

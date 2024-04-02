@@ -21,12 +21,11 @@ function Buspayment() {
     },[])
   return (
     <div>  
-        {/* <BoHeader/> */}
-    <div className='mt-5'>
-        <h2 className='text-center'>operator Payment History</h2>
-        
-          <Table striped bordered hover>
-      <thead>
+        <BoHeader/>
+    <div >
+        <h2 className='text-center  ' style={{marginTop:'7%',marginBottom:'1%'}}>operator Payment History</h2>
+          <Table striped bordered hover >
+      <thead >
         <tr>
           <th>#</th>
           <th>User Name</th>
@@ -39,7 +38,6 @@ function Buspayment() {
           <th>Amount</th>
           <th>Payment Date and time </th>
           <th>Status</th>
-          
         </tr>
       </thead>
       <tbody>

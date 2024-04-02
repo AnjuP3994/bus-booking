@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import { getadminuserpayment } from '../../Services/allAPIs';
 import { useEffect } from 'react';
+import AdminHeader from '../Header/AdminHeader';
 
 function AdpaymentHistory() {
     const [payment, setPayment] = useState([])
@@ -21,9 +22,9 @@ function AdpaymentHistory() {
     }, [])
     return (
         <div>
-            {/* <BoHeader/> */}
-            <div className='mt-5'>
-                <h2 className='text-center'>  all Payment History</h2>
+            <AdminHeader/>
+            <div >
+                <h2 className='text-center' style={{marginTop:'7%',marginBottom:'1%'}}>  all Payment History</h2>
 
                 <Table striped bordered hover>
                     <thead>
