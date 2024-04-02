@@ -10,6 +10,7 @@ import chair from '../../assets/Chair-icon.png'
 import { admindeletebus, getbus } from '../../Services/allAPIs';
 import Swal from 'sweetalert2';
 import AdminHeader from '../Header/AdminHeader';
+import { BASE_URL } from '../../Services/baseURL';
 
 
 function ManageBus() {
@@ -188,14 +189,17 @@ function ManageBus() {
        buses.map((item)=>( <div className="listcard shadow p-3 w-100 mb-4">
        <Row>
         <div className='d-flex'>
-           <Col xs={4}>
+        <Col xs={3} className='text-end mt-2'>
+             <img src={`${BASE_URL}${item.image}`} className='img-fluid' alt="" />
+           </Col>
+           <Col xs={3}>
              <h4 className='fw-bolder'>{item.name}</h4>
              <p>{item.category}</p>
              {/* <p className='text'>Contact no: 9874563210</p> */}
              <p className='rating ps-1'><i style={{fontSize:'12px'}} class="fa-solid fa-star me-1"></i>4.6</p>
            </Col>
    
-           <Col xs={5} className='d-flex justify-content-center mt-3'>
+           <Col xs={3} className='d-flex justify-content-center mt-3'>
               <Row className='time'>
              <Col lg={5} className='text-center'>
                <p className='textclr fw-bolder fs-9 ' style={{lineHeight:'1rem'}}>{item.boarding_point}</p>

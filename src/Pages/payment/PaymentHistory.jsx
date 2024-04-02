@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
-import { getbuspayment } from '../../Services/allAPIs';
+import { getbuspayment, getuserpayment } from '../../Services/allAPIs';
 
 
 function PaymentHistory() {
@@ -12,9 +12,16 @@ function PaymentHistory() {
         const reqHeader = {
           "Authorization": `Token ${token}`
         }
-        const result = await getbuspayment(reqHeader)
+        const result = await getuserpayment(reqHeader)
         console.log(result)
         setPayment(result.data)
+        // if(result.status===200){
+        //   console.log('sdffds')
+        // }
+        // else{
+        //   console.log(result.data.response)
+        // }
+
     }
     useEffect(()=>{
         handlepayment()
