@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getBookings, getadminallReservations } from '../../Services/allAPIs'
 import { Button, Table } from 'react-bootstrap'
+import AdminHeader from '../Header/AdminHeader'
 
 function Allreservation() {
     const[bookingdetails,setBookingdetails]=useState([])
@@ -20,8 +21,10 @@ function Allreservation() {
       }, [])
       console.log(bookingdetails)
   return (
-    <div className='ms-1' style={{width:'100%'}}>
-    <div className='fs-1 mt-5 text-center'>All Reservations</div>
+    <>
+    <AdminHeader/>
+    <div className='ms-1 mt-5' style={{width:'100%'}}>
+    <div className='fs-1 text-center' style={{marginTop:'7%'}}>All Reservations</div>
     <div className='p-5 ms-5 me-5' >
         <Table className='w-100 table' hover  responsive >
             <thead  >
@@ -45,7 +48,7 @@ function Allreservation() {
         <tbody className='bg-light'>
                {bookingdetails?.length>0?
                bookingdetails.map((item,index)=>( 
-            <tr className=' m-3 fs-8 text-center'>
+                 <tr className=' m-3 fs-8 text-center'>
                <td>{index+1}</td>
                <td>{item.journey_date} </td>
                <td>{item.bus.name}</td>
@@ -62,11 +65,12 @@ function Allreservation() {
                <td> <i className='fa-solid fa-trash'></i> </td>
             </tr>))
                 : <p>nothing to show</p>
-                }
+              }
         </tbody>
         </Table>
     </div>
     </div>
+</>
   )
 }
 

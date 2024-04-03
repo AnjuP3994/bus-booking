@@ -81,7 +81,7 @@ function ManageUser() {
 
                         <Table bordered hover style={{borderColor:'black',fontSize: '1.5rem'}} >
                             <thead>
-                                <tr style={{backgroundColor:'#0095a9'}}  className='table-info fw-bold fs-3'>
+                                <tr style={{backgroundColor:'#0095a9'}}  className='table-info fw-bold fs-4'>
                                     <th>#</th>
                                     <th>Image</th>
                                     <th>Name</th>
@@ -94,9 +94,9 @@ function ManageUser() {
                             </thead>
                             <tbody>
                                { users?.length>0?
-                               users.map((item,index)=>(<tr className='fs-3'>
+                               users.map((item,index)=>(<tr className='fs-4'>
                                <td>{index+1}</td>
-                               <td><img src={`${BASE_URL}${item.profile_picture}`} className='img-fluid' alt="" /></td>
+                               <td className=' w-25'><img src={`${BASE_URL}${item.profile_picture}`} className='img-fluid ' alt="" /></td>
                                <td  className='d-flex'>
                                     
                                     <p className='ms-1 mt-2 '>{item.name}</p>
