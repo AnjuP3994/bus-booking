@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Table from 'react-bootstrap/Table';
-import { getbuspayment } from '../../Services/allAPIs';
+import { getbuspayment, getuserpayment } from '../../Services/allAPIs';
 import BoHeader from '../../BusOperator/BoHeader/BoHeader';
-
+import Header from '../../Components/Header/Header'
 
 function PaymentHistory() {
   const[payment,setPayment]=useState([])
@@ -28,8 +28,9 @@ function PaymentHistory() {
         handlepayment()
     },[])
   return (
-    <div>  
-        <BoHeader/>
+    <div> 
+       
+       <Header/>
     <div >
         <h2 className='text-center' style={{marginBottom:'1%',marginTop:'7%'}}> Payment History</h2>
         
@@ -55,12 +56,12 @@ function PaymentHistory() {
        payment.map((item,index)=>(<tr>
         <td>{index+1}</td>
         <td>{item.user}</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>df</td>
-        <td>sf</td>
-        <td>sfd</td>
-        <td>sf</td>
+        <td>{item.bus.name}</td>
+        <td>{item.reservation_data.journey_date}</td>
+        <td>{item.bus.boarding_point}</td>
+        <td>{item.bus.boarding_time}</td>
+        <td>{item.bus.dropping_point}</td>
+        <td>{item.bus.dropping_time}</td>
         <td>{item.amount}</td>
         <td>
                     {/* Splitting payment_time into date and time components */}

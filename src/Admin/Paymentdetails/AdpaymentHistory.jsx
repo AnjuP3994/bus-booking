@@ -22,9 +22,9 @@ function AdpaymentHistory() {
     }, [])
     return (
         <div>
-            <AdminHeader/>
+            <AdminHeader />
             <div >
-                <h2 className='text-center' style={{marginTop:'7%',marginBottom:'1%'}}>  all Payment History</h2>
+                <h2 className='text-center' style={{ marginTop: '7%', marginBottom: '1%' }}>  all Payment History</h2>
 
                 <Table striped bordered hover>
                     <thead>
@@ -48,12 +48,12 @@ function AdpaymentHistory() {
                             payment.map((item, index) => (<tr>
                                 <td>{index + 1}</td>
                                 <td>{item.user}</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>df</td>
-                                <td>sf</td>
-                                <td>sfd</td>
-                                <td>sf</td>
+                                <td>{item.reservation.bus.name}</td>
+                                <td>{item.reservation.journey_date}</td>
+                                <td>{item.reservation.bus.boarding_point}</td>
+                                <td>{item.reservation.bus.boarding_time}</td>
+                                <td>{item.reservation.bus.dropping_point}</td>
+                                <td>{item.reservation.bus.dropping_time}</td>
                                 <td>{item.amount}</td>
                                 <td>
                                     {/* Splitting payment_time into date and time components */}

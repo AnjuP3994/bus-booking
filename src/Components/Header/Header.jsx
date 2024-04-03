@@ -55,7 +55,7 @@ function Header() {
          <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Booking History</Link>
          <Link to={'/user/paymentHistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Payment History</Link>
          <Link to={'/profile'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Profile</Link>
-         <Link to={'/bookinghistory'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Feedback</Link>
+         <Link to={'/user/view/feedbacks'} className='ms-4' style={{color:'black',fontSize:'18px'}}>Feedback</Link>
 
         </p>
             

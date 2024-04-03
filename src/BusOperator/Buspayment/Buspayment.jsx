@@ -23,14 +23,14 @@ function Buspayment() {
     <div>  
         <BoHeader/>
     <div >
-        <h2 className='text-center  ' style={{marginTop:'7%',marginBottom:'1%'}}>operator Payment History</h2>
+        <h2 className='text-center  ' style={{marginTop:'7%',marginBottom:'1%'}}> Payment History</h2>
           <Table striped bordered hover >
       <thead >
         <tr>
           <th>#</th>
           <th>User Name</th>
           <th>Bus Name</th>
-          <th>Journey date and Time</th>
+          <th>Journey date </th>
           <th>Boarding Point</th>
           <th>Boarding Time</th>
           <th>Droping Point</th>
@@ -45,12 +45,12 @@ function Buspayment() {
        payment.map((item,index)=>(<tr>
         <td>{index+1}</td>
         <td>{item.user_name}</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>df</td>
-        <td>sf</td>
-        <td>sfd</td>
-        <td>sf</td>
+        <td>{item.reservation_data.bus.name}</td>
+        <td>{item.reservation_data.journey_date}</td>
+        <td>{item.reservation_data.bus.boarding_point}</td>
+        <td>{item.reservation_data.bus.boarding_time}</td>
+        <td>{item.reservation_data.bus.dropping_point}</td>
+        <td>{item.reservation_data.bus.dropping_time}</td>
         <td>{item.amount}</td>
         <td>
                     {/* Splitting payment_time into date and time components */}

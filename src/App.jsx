@@ -27,6 +27,8 @@ import PaymentHistory from './Pages/payment/PaymentHistory';
 import Buspayment from './BusOperator/Buspayment/Buspayment';
 import AdpaymentHistory from './Admin/Paymentdetails/AdpaymentHistory';
 import Allreservation from './Admin/Allreservations/Allreservation';
+import Viewfeedback from './Pages/feedbacks/Viewfeedback';
+import Pagenotfounf from './Pages/pagenotfound/Pagenotfounf';
 
 
 function App() {
@@ -62,6 +64,9 @@ function App() {
         <Route path='/user/operators' element={<BOBusList/>} />
         <Route path='/user/paymentHistory' element={<PaymentHistory/>} />
         <Route path='/bobuslist' element={<BOBusList/>} />
+        <Route path='/user/view/feedbacks' element={<Viewfeedback/>} />
+        <Route path="*" element={<Pagenotfounf/>} />
+
 
         
 
