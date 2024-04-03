@@ -5,6 +5,7 @@ import { admindeleteoperator, admingetgetoperators } from '../../Services/allAPI
 import buslogo from '../../BusOperator/BoBusList/assets/bus.jpg'
 import Swal from 'sweetalert2';
 import AdminHeader from '../Header/AdminHeader'
+import { BASE_URL } from '../../Services/baseURL'
 
 function Mangeoperator() {
   const [operators,setOperators]=useState([])
@@ -66,7 +67,7 @@ function Mangeoperator() {
             <Row>
               <Col lg={6} sm={12}  className='d-flex justify-content-center align-items-center'>
               <div>
-              <img style={{ width: '100%', height: '250px' }} className='img-fluid' src={buslogo} />
+              <img style={{ width: '100%', height: '250px' }} className='img-fluid' src={`${BASE_URL}${item.logo}`} />
             </div>
               </Col>
               <Col lg={6} sm={12}>

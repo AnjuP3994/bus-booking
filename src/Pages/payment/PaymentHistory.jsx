@@ -13,9 +13,16 @@ function PaymentHistory() {
         const reqHeader = {
           "Authorization": `Token ${token}`
         }
-        const result = await getbuspayment(reqHeader)
+        const result = await getuserpayment(reqHeader)
         console.log(result)
         setPayment(result.data)
+        // if(result.status===200){
+        //   console.log('sdffds')
+        // }
+        // else{
+        //   console.log(result.data.response)
+        // }
+
     }
     useEffect(()=>{
         handlepayment()

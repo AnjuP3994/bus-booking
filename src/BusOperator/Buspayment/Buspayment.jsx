@@ -44,7 +44,7 @@ function Buspayment() {
        {payment?.length>0?
        payment.map((item,index)=>(<tr>
         <td>{index+1}</td>
-        <td>{item.user}</td>
+        <td>{item.user_name}</td>
         <td>Otto</td>
         <td>@mdo</td>
         <td>df</td>

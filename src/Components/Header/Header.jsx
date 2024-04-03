@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react'
 import './header.css'
 import Navbar from 'react-bootstrap/Navbar';
 import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Header() {
 
   const [viewLogout, setViewLogout] = useState(false);
   const [logout, setLogout] = useState("");
 
+  const navigate=useNavigate()
+
   const handleLogout = async (e) => {
     e.preventDefault();
     if (sessionStorage.getItem("token")) {
       setLogout(sessionStorage.removeItem("token"))
-      window.location.reload();
+      navigate('/login')
+     
     } else {
       console.log("Existing user not found in sessionStorage");
     }

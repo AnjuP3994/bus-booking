@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from 'react-bootstrap/Navbar';
 import { Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './BoHeader.css'
 
 function BoHeader() {
@@ -9,11 +9,14 @@ function BoHeader() {
   const [viewLogout, setViewLogout] = useState(false);
   const [logout, setLogout] = useState("");
 
+
+const navigate=useNavigate()
   const handleLogout = async (e) => {
     e.preventDefault();
     if (sessionStorage.getItem("token")) {
       setLogout(sessionStorage.removeItem("token"))
-      window.location.reload();
+      navigate('/bologin')
+     
     } else {
       console.log("Existing user not found in sessionStorage");
     }

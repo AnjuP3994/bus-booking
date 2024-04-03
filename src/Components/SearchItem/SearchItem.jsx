@@ -194,7 +194,8 @@ const [bId,setBid] = useState("")
     <div>
                 <Row>
                   <div className='d-flex'>
-                    <Col xs={4}>
+                   
+                    <Col xs={3}>
                       <h4 className='fw-bolder'>{item.name}</h4>
                       <p>{item.category_name}</p>
                       
@@ -202,8 +203,9 @@ const [bId,setBid] = useState("")
                       <p className='rating ps-1'><i style={{ fontSize: '12px' }} class="fa-solid fa-star me-1"></i>4.6</p>
                       
                     </Col>
+                    
 
-                    <Col xs={5} className='d-flex justify-content-center mt-3'>
+                    <Col xs={3} className='d-flex justify-content-center mt-3'>
                       <Row className='time'>
                         <Col lg={5} className='text-center'>
                           <p className='textclr fw-bolder fs-9 ' style={{ lineHeight: '1rem' }}>{item.boarding_point}</p>
@@ -298,14 +300,14 @@ const [bId,setBid] = useState("")
                                                 <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-amex fa-2x me-2" /></a>
                                                 <a href="#!" type="submit" className="text-white"><MDBIcon fab icon="cc-paypal fa-2x me-2" /></a>
                                                 <form className="mt-4">
-                                                  <MDBInput className="mb-4" label="Cardholder's Name" placeholder="Cardholder's Name" type="text" size="lg" contrast />
-                                                  <MDBInput className="mb-4" label="Card Number" type="text" size="lg" minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast />
+                                                  <MDBInput className="mb-4" label="Cardholder's Name" placeholder="Cardholder's Name" type="text" size="lg" contrast onChange={(e) => setPaydts({ ...paydts, name: e.target.value })} />
+                                                  <MDBInput className="mb-4" label="Card Number" type="text" size="lg" minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast onChange={(e) => setPaydts({ ...paydts, card_number: e.target.value })} />
                                                   <MDBRow className="mb-4">
                                                     <MDBCol md="6">
-                                                      <MDBInput className="mb-4" label="Expiration" type="text" size="lg" minLength="6" maxLength="6" placeholder="MM/YY" contrast />
+                                                      <MDBInput className="mb-4" label="Expiration" type="text" size="lg" minLength="6" maxLength="6" placeholder="MM/YY" contrast onChange={(e) => setPaydts({ ...paydts, expiration: e.target.value })} />
                                                     </MDBCol>
                                                     <MDBCol md="6">
-                                                      <MDBInput className="mb-4" label="CVV" type="text" size="lg" minLength="3" maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast />
+                                                      <MDBInput className="mb-4" label="CVV" type="text" size="lg" minLength="3" maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast onChange={(e) => setPaydts({ ...paydts, cvv: e.target.value })} />
                                                     </MDBCol>
                                                   </MDBRow>
                                                 </form>
